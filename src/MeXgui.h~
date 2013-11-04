@@ -37,7 +37,7 @@ class DatabaseManager : public QObject
         bool openDB();
         bool deleteDB();
         bool createTable();
-	int insertJobs(int jobID, QString filename, QString extension, QString output , $presets, int status);
+	int insertJob(int jobID, QString filename, QString extension, QString output , $presets, int status);
 	bool getJobs(int status);
  
         QSqlError lastError();
