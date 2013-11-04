@@ -37,7 +37,8 @@ subdir = .
 DIST_COMMON = README $(am__configure_deps) $(srcdir)/Makefile.am \
 	$(srcdir)/Makefile.in $(top_srcdir)/auxial/header.h.in \
 	$(top_srcdir)/configure AUTHORS COPYING ChangeLog INSTALL NEWS \
-	auxial/depcomp auxial/install-sh auxial/missing missing
+	auxial/compile auxial/depcomp auxial/install-sh auxial/missing \
+	missing
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
@@ -50,7 +51,7 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_ligui_OBJECTS = ligui.$(OBJEXT)
+am_ligui_OBJECTS = ligui-ligui.$(OBJEXT)
 ligui_OBJECTS = $(am_ligui_OBJECTS)
 ligui_LDADD = $(LDADD)
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)/auxial
@@ -90,6 +91,9 @@ CC = @CC@
 CCDEPMODE = @CCDEPMODE@
 CFLAGS = @CFLAGS@
 CPPFLAGS = @CPPFLAGS@
+CXX = @CXX@
+CXXDEPMODE = @CXXDEPMODE@
+CXXFLAGS = @CXXFLAGS@
 CYGPATH_W = @CYGPATH_W@
 DEFS = @DEFS@
 DEPDIR = @DEPDIR@
@@ -126,6 +130,7 @@ abs_srcdir = @abs_srcdir@
 abs_top_builddir = @abs_top_builddir@
 abs_top_srcdir = @abs_top_srcdir@
 ac_ct_CC = @ac_ct_CC@
+ac_ct_CXX = @ac_ct_CXX@
 am__include = @am__include@
 am__leading_dot = @am__leading_dot@
 am__quote = @am__quote@
@@ -164,6 +169,7 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 ligui_SOURCES = src/ligui.c
+ligui_CPPFLAGS = -DDEBUG
 all: all-am
 
 .SUFFIXES:
@@ -264,7 +270,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ligui.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ligui-ligui.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -280,19 +286,19 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(COMPILE) -c `$(CYGPATH_W) '$<'`
 
-ligui.o: src/ligui.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ligui.o -MD -MP -MF $(DEPDIR)/ligui.Tpo -c -o ligui.o `test -f 'src/ligui.c' || echo '$(srcdir)/'`src/ligui.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/ligui.Tpo $(DEPDIR)/ligui.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/ligui.c' object='ligui.o' libtool=no @AMDEPBACKSLASH@
+ligui-ligui.o: src/ligui.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(ligui_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ligui-ligui.o -MD -MP -MF $(DEPDIR)/ligui-ligui.Tpo -c -o ligui-ligui.o `test -f 'src/ligui.c' || echo '$(srcdir)/'`src/ligui.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/ligui-ligui.Tpo $(DEPDIR)/ligui-ligui.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/ligui.c' object='ligui-ligui.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ligui.o `test -f 'src/ligui.c' || echo '$(srcdir)/'`src/ligui.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(ligui_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ligui-ligui.o `test -f 'src/ligui.c' || echo '$(srcdir)/'`src/ligui.c
 
-ligui.obj: src/ligui.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ligui.obj -MD -MP -MF $(DEPDIR)/ligui.Tpo -c -o ligui.obj `if test -f 'src/ligui.c'; then $(CYGPATH_W) 'src/ligui.c'; else $(CYGPATH_W) '$(srcdir)/src/ligui.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/ligui.Tpo $(DEPDIR)/ligui.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/ligui.c' object='ligui.obj' libtool=no @AMDEPBACKSLASH@
+ligui-ligui.obj: src/ligui.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(ligui_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ligui-ligui.obj -MD -MP -MF $(DEPDIR)/ligui-ligui.Tpo -c -o ligui-ligui.obj `if test -f 'src/ligui.c'; then $(CYGPATH_W) 'src/ligui.c'; else $(CYGPATH_W) '$(srcdir)/src/ligui.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/ligui-ligui.Tpo $(DEPDIR)/ligui-ligui.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/ligui.c' object='ligui-ligui.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ligui.obj `if test -f 'src/ligui.c'; then $(CYGPATH_W) 'src/ligui.c'; else $(CYGPATH_W) '$(srcdir)/src/ligui.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(ligui_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ligui-ligui.obj `if test -f 'src/ligui.c'; then $(CYGPATH_W) 'src/ligui.c'; else $(CYGPATH_W) '$(srcdir)/src/ligui.c'; fi`
 
 ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)
 	list='$(SOURCES) $(HEADERS) $(LISP) $(TAGS_FILES)'; \

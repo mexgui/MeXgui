@@ -16,10 +16,10 @@
 
 
 
-pkgdatadir = $(datadir)/ligui
-pkgincludedir = $(includedir)/ligui
-pkglibdir = $(libdir)/ligui
-pkglibexecdir = $(libexecdir)/ligui
+pkgdatadir = $(datadir)/mexgui
+pkgincludedir = $(includedir)/mexgui
+pkglibdir = $(libdir)/mexgui
+pkglibexecdir = $(libexecdir)/mexgui
 am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd
 install_sh_DATA = $(install_sh) -c -m 644
 install_sh_PROGRAM = $(install_sh) -c
@@ -37,7 +37,8 @@ subdir = .
 DIST_COMMON = README $(am__configure_deps) $(srcdir)/Makefile.am \
 	$(srcdir)/Makefile.in $(top_srcdir)/auxial/header.h.in \
 	$(top_srcdir)/configure AUTHORS COPYING ChangeLog INSTALL NEWS \
-	auxial/depcomp auxial/install-sh auxial/missing missing
+	auxial/compile auxial/depcomp auxial/install-sh auxial/missing \
+	missing
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
@@ -50,7 +51,7 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_ligui_OBJECTS = ligui.$(OBJEXT)
+am_ligui_OBJECTS = ligui-ligui.$(OBJEXT)
 ligui_OBJECTS = $(am_ligui_OBJECTS)
 ligui_LDADD = $(LDADD)
 DEFAULT_INCLUDES = -I. -I$(top_builddir)/auxial
@@ -80,16 +81,19 @@ distuninstallcheck_listfiles = find . -type f -print
 am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \
   | sed 's|^\./|$(prefix)/|' | grep -v '$(infodir)/dir$$'
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /media/Winder/Lähdekoodeja/Ligui/auxial/missing --run aclocal-1.11
+ACLOCAL = ${SHELL} /media/Winder/Lähdekoodeja/MeXgui/MeXgui/auxial/missing --run aclocal-1.11
 AMTAR = $${TAR-tar}
-AUTOCONF = ${SHELL} /media/Winder/Lähdekoodeja/Ligui/auxial/missing --run autoconf
-AUTOHEADER = ${SHELL} /media/Winder/Lähdekoodeja/Ligui/auxial/missing --run autoheader
-AUTOMAKE = ${SHELL} /media/Winder/Lähdekoodeja/Ligui/auxial/missing --run automake-1.11
+AUTOCONF = ${SHELL} /media/Winder/Lähdekoodeja/MeXgui/MeXgui/auxial/missing --run autoconf
+AUTOHEADER = ${SHELL} /media/Winder/Lähdekoodeja/MeXgui/MeXgui/auxial/missing --run autoheader
+AUTOMAKE = ${SHELL} /media/Winder/Lähdekoodeja/MeXgui/MeXgui/auxial/missing --run automake-1.11
 AWK = mawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
 CFLAGS = -g -O2
 CPPFLAGS = 
+CXX = g++
+CXXDEPMODE = depmode=gcc3
+CXXFLAGS = -g -O2
 CYGPATH_W = echo
 DEFS = -DHAVE_CONFIG_H
 DEPDIR = .deps
@@ -106,14 +110,14 @@ LDFLAGS =
 LIBOBJS = 
 LIBS = 
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /media/Winder/Lähdekoodeja/Ligui/auxial/missing --run makeinfo
+MAKEINFO = ${SHELL} /media/Winder/Lähdekoodeja/MeXgui/MeXgui/auxial/missing --run makeinfo
 MKDIR_P = /bin/mkdir -p
 OBJEXT = o
-PACKAGE = ligui
+PACKAGE = mexgui
 PACKAGE_BUGREPORT = jeremi.roivas@gmail.com
-PACKAGE_NAME = Ligui
-PACKAGE_STRING = Ligui 0.1
-PACKAGE_TARNAME = ligui
+PACKAGE_NAME = MeXgui
+PACKAGE_STRING = MeXgui 0.1
+PACKAGE_TARNAME = mexgui
 PACKAGE_URL = 
 PACKAGE_VERSION = 0.1
 PATH_SEPARATOR = :
@@ -121,11 +125,12 @@ SET_MAKE =
 SHELL = /bin/bash
 STRIP = 
 VERSION = 0.1
-abs_builddir = /media/Winder/Lähdekoodeja/Ligui
-abs_srcdir = /media/Winder/Lähdekoodeja/Ligui
-abs_top_builddir = /media/Winder/Lähdekoodeja/Ligui
-abs_top_srcdir = /media/Winder/Lähdekoodeja/Ligui
+abs_builddir = /media/Winder/Lähdekoodeja/MeXgui/MeXgui
+abs_srcdir = /media/Winder/Lähdekoodeja/MeXgui/MeXgui
+abs_top_builddir = /media/Winder/Lähdekoodeja/MeXgui/MeXgui
+abs_top_srcdir = /media/Winder/Lähdekoodeja/MeXgui/MeXgui
 ac_ct_CC = gcc
+ac_ct_CXX = g++
 am__include = include
 am__leading_dot = .
 am__quote = 
@@ -143,7 +148,7 @@ host_alias =
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /media/Winder/Lähdekoodeja/Ligui/auxial/install-sh
+install_sh = ${SHELL} /media/Winder/Lähdekoodeja/MeXgui/MeXgui/auxial/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -164,6 +169,7 @@ top_build_prefix =
 top_builddir = .
 top_srcdir = .
 ligui_SOURCES = src/ligui.c
+ligui_CPPFLAGS = -DDEBUG
 all: all-am
 
 .SUFFIXES:
@@ -264,7 +270,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-include ./$(DEPDIR)/ligui.Po
+include ./$(DEPDIR)/ligui-ligui.Po
 
 .c.o:
 	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -280,19 +286,19 @@ include ./$(DEPDIR)/ligui.Po
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(COMPILE) -c `$(CYGPATH_W) '$<'`
 
-ligui.o: src/ligui.c
-	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ligui.o -MD -MP -MF $(DEPDIR)/ligui.Tpo -c -o ligui.o `test -f 'src/ligui.c' || echo '$(srcdir)/'`src/ligui.c
-	$(am__mv) $(DEPDIR)/ligui.Tpo $(DEPDIR)/ligui.Po
-#	source='src/ligui.c' object='ligui.o' libtool=no \
+ligui-ligui.o: src/ligui.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(ligui_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ligui-ligui.o -MD -MP -MF $(DEPDIR)/ligui-ligui.Tpo -c -o ligui-ligui.o `test -f 'src/ligui.c' || echo '$(srcdir)/'`src/ligui.c
+	$(am__mv) $(DEPDIR)/ligui-ligui.Tpo $(DEPDIR)/ligui-ligui.Po
+#	source='src/ligui.c' object='ligui-ligui.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ligui.o `test -f 'src/ligui.c' || echo '$(srcdir)/'`src/ligui.c
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(ligui_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ligui-ligui.o `test -f 'src/ligui.c' || echo '$(srcdir)/'`src/ligui.c
 
-ligui.obj: src/ligui.c
-	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ligui.obj -MD -MP -MF $(DEPDIR)/ligui.Tpo -c -o ligui.obj `if test -f 'src/ligui.c'; then $(CYGPATH_W) 'src/ligui.c'; else $(CYGPATH_W) '$(srcdir)/src/ligui.c'; fi`
-	$(am__mv) $(DEPDIR)/ligui.Tpo $(DEPDIR)/ligui.Po
-#	source='src/ligui.c' object='ligui.obj' libtool=no \
+ligui-ligui.obj: src/ligui.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(ligui_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ligui-ligui.obj -MD -MP -MF $(DEPDIR)/ligui-ligui.Tpo -c -o ligui-ligui.obj `if test -f 'src/ligui.c'; then $(CYGPATH_W) 'src/ligui.c'; else $(CYGPATH_W) '$(srcdir)/src/ligui.c'; fi`
+	$(am__mv) $(DEPDIR)/ligui-ligui.Tpo $(DEPDIR)/ligui-ligui.Po
+#	source='src/ligui.c' object='ligui-ligui.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ligui.obj `if test -f 'src/ligui.c'; then $(CYGPATH_W) 'src/ligui.c'; else $(CYGPATH_W) '$(srcdir)/src/ligui.c'; fi`
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(ligui_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ligui-ligui.obj `if test -f 'src/ligui.c'; then $(CYGPATH_W) 'src/ligui.c'; else $(CYGPATH_W) '$(srcdir)/src/ligui.c'; fi`
 
 ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)
 	list='$(SOURCES) $(HEADERS) $(LISP) $(TAGS_FILES)'; \
