@@ -20,4 +20,5 @@ HEADERS  +=
 
 FORMS += \
     mexgui.ui \
-    src/mexgui.ui
+    src/mexgui.ui \
+    src/forms/mexgui.ui
