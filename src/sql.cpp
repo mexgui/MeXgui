@@ -20,7 +20,7 @@ bool DatabaseManager::openDB()
  
 QSqlError DatabaseManager::lastError()
     {
-    // If opening database has failed user can ask 
+    // If opening database has failed user can ask
     // error description by QSqlError::text()
     return db.lastError();
     }
@@ -77,7 +77,7 @@ bool DatabaseManager::deleteDB()
         // Get database given autoincrement value
         if (ret)
             {
-            // http://www.sqlite.org/c3ref/last_insert_rowid.html  
+            // http://www.sqlite.org/c3ref/last_insert_rowid.html
             newId = query.lastInsertId().toInt();
             }
  
