@@ -14,9 +14,13 @@ SOURCES += \
     sql.cpp \
     megui.cpp \
     src/sql.cpp \
-    src/megui.cpp
+    src/mexgui.cpp \
+    src/main.cpp \
+    src/video.cpp \
+    src/audio.cpp
 
-HEADERS  +=
+HEADERS  += \
+    src/mexgui.h
 
 FORMS += \
     mexgui.ui \

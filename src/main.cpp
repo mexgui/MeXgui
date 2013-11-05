@@ -1,11 +1,11 @@
 #include <QApplication>
  
-#include "MeXgui.h"
+#include "mexgui.h"
  
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
-    myQtApp *dialog = new myQtApp;
+    mexgui *dialog = new mexgui;
  
     dialog->show();
     return app.exec();

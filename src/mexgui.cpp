@@ -1,9 +1,9 @@
 #include <QtGui>
-#include "MeXgui.h"
+#include "mexgui.h"
  
 // if we include <QtGui> there is no need to include every class used: <QString>, <QFileDialog>,...
  
-MeXgui::MeXgui(QWidget *parent)
+mexgui::mexgui(QWidget *parent)
 {
     setupUi(this); // this sets up GUI
  
@@ -15,7 +15,7 @@ MeXgui::MeXgui(QWidget *parent)
 }
  
  
-void MeXgui::getPath()
+void mexgui::Vopenavs()
 {
     QString path;
     
@@ -24,11 +24,13 @@ void MeXgui::getPath()
         "Choose a AVS file to open",
         "/home",
         tr("AVS Files (*.avs)"));
+
+    //TODO: AVS handling and Windows/Unix code
  
-    lineEdit->setText1( path );
+    lineEdit->setVavsText( path );
 }
 
-void MeXgui::Voutput()
+void mexgui::Vpath()
 {
     QString path;
     
@@ -36,12 +38,12 @@ void MeXgui::Voutput()
         this,
         "Choose a file name",
         "/home",
-        tr("XML Files (*.xml)"));
+        "");
  
-    lineEdit->setText2( path );
+    lineEdit->setVoutputText( path );
 }
  
-void MeXgui::doSomething()
+void mexgui::doSomething()
 {
     int value1, value2;
     Qt::CheckState state;
@@ -67,16 +69,16 @@ void MeXgui::doSomething()
 }
  
  
-void MeXgui::Clear()
+void mexgui::Clear()
 {
     textEdit->clear();
 }
  
  
-void MeXgui::about()
+void mexgui::about()
 {
     QMessageBox::about(this,"About MeXgui",
-                "This app was coded for educational purposes.\n"
+                "MeXgui - Cross enviroment Megui port.\n"
                 "Number 1 is: " + QString::number(spinBox1->value()) + "\n\n"
                 "Bye.\n");
 }

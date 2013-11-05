@@ -82,7 +82,7 @@
        <string>Queve</string>
       </property>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>16</x>
@@ -94,6 +94,12 @@
       <layout class="QGridLayout" name="gridLayout">
        <item row="0" column="0">
         <widget class="QLabel" name="label_2">
+         <property name="maximumSize">
+          <size>
+           <width>105</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="text">
           <string>AVS Script</string>
          </property>
@@ -142,6 +148,12 @@
        </item>
        <item row="1" column="0">
         <widget class="QLabel" name="label">
+         <property name="maximumSize">
+          <size>
+           <width>105</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="text">
           <string>Output</string>
          </property>
@@ -178,6 +190,12 @@
        </item>
        <item row="2" column="0">
         <widget class="QLabel" name="label_3">
+         <property name="maximumSize">
+          <size>
+           <width>105</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="text">
           <string>Encoder</string>
          </property>
@@ -220,6 +238,12 @@
        </item>
        <item row="3" column="0">
         <widget class="QLabel" name="label_4">
+         <property name="maximumSize">
+          <size>
+           <width>105</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="text">
           <string>Container</string>
          </property>
@@ -553,7 +577,7 @@
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>650</y>
+       <y>660</y>
        <width>98</width>
        <height>27</height>
       </rect>
@@ -566,7 +590,7 @@
      <property name="geometry">
       <rect>
        <x>130</x>
-       <y>650</y>
+       <y>660</y>
        <width>98</width>
        <height>27</height>
       </rect>
@@ -609,11 +633,155 @@
     <widget class="QTableWidget" name="tableWidget">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>20</y>
-       <width>641</width>
-       <height>521</height>
+       <x>10</x>
+       <y>10</y>
+       <width>721</width>
+       <height>581</height>
       </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>721</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="lineWidth">
+      <number>0</number>
+     </property>
+     <property name="midLineWidth">
+      <number>1</number>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAsNeeded</enum>
+     </property>
+     <property name="autoScroll">
+      <bool>false</bool>
+     </property>
+     <property name="tabKeyNavigation">
+      <bool>true</bool>
+     </property>
+     <property name="horizontalScrollMode">
+      <enum>QAbstractItemView::ScrollPerItem</enum>
+     </property>
+     <property name="cornerButtonEnabled">
+      <bool>false</bool>
+     </property>
+     <property name="columnCount">
+      <number>10</number>
+     </property>
+     <attribute name="horizontalHeaderVisible">
+      <bool>false</bool>
+     </attribute>
+     <attribute name="horizontalHeaderDefaultSectionSize">
+      <number>70</number>
+     </attribute>
+     <attribute name="horizontalHeaderHighlightSections">
+      <bool>true</bool>
+     </attribute>
+     <attribute name="horizontalHeaderMinimumSectionSize">
+      <number>40</number>
+     </attribute>
+     <column>
+      <property name="text">
+       <string>Name</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Input</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Output</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Codec</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Mode</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Owner</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Status</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Start</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>End</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>FPS</string>
+      </property>
+     </column>
+    </widget>
+    <widget class="QPushButton" name="pushButton">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>600</y>
+       <width>98</width>
+       <height>27</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>PushButton</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_2">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>600</y>
+       <width>98</width>
+       <height>27</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>PushButton</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_3">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>600</y>
+       <width>98</width>
+       <height>27</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>PushButton</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_4">
+     <property name="geometry">
+      <rect>
+       <x>340</x>
+       <y>600</y>
+       <width>98</width>
+       <height>27</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>PushButton</string>
      </property>
     </widget>
    </widget>
@@ -621,6 +789,16 @@
     <attribute name="title">
      <string>Log</string>
     </attribute>
+    <widget class="QListWidget" name="listWidget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>721</width>
+       <height>681</height>
+      </rect>
+     </property>
+    </widget>
    </widget>
   </widget>
  </widget>
