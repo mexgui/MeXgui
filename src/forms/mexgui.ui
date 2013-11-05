@@ -737,52 +737,190 @@
       <rect>
        <x>10</x>
        <y>600</y>
-       <width>98</width>
+       <width>51</width>
        <height>27</height>
       </rect>
      </property>
+     <property name="maximumSize">
+      <size>
+       <width>98</width>
+       <height>27</height>
+      </size>
+     </property>
      <property name="text">
-      <string>PushButton</string>
+      <string>Start</string>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButton_2">
      <property name="geometry">
       <rect>
-       <x>120</x>
+       <x>70</x>
        <y>600</y>
-       <width>98</width>
+       <width>51</width>
        <height>27</height>
       </rect>
      </property>
      <property name="text">
-      <string>PushButton</string>
+      <string>Stop</string>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButton_3">
      <property name="geometry">
       <rect>
-       <x>230</x>
+       <x>130</x>
        <y>600</y>
-       <width>98</width>
+       <width>31</width>
        <height>27</height>
       </rect>
      </property>
      <property name="text">
-      <string>PushButton</string>
+      <string>||</string>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButton_4">
      <property name="geometry">
       <rect>
-       <x>340</x>
+       <x>170</x>
+       <y>600</y>
+       <width>51</width>
+       <height>27</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Abort</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_5">
+     <property name="geometry">
+      <rect>
+       <x>250</x>
+       <y>600</y>
+       <width>51</width>
+       <height>27</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Edit</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_6">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>600</y>
+       <width>51</width>
+       <height>27</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Up</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_7">
+     <property name="geometry">
+      <rect>
+       <x>380</x>
+       <y>600</y>
+       <width>51</width>
+       <height>27</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Down</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_8">
+     <property name="geometry">
+      <rect>
+       <x>440</x>
        <y>600</y>
        <width>98</width>
        <height>27</height>
       </rect>
      </property>
      <property name="text">
-      <string>PushButton</string>
+      <string>Delete</string>
      </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_9">
+     <property name="geometry">
+      <rect>
+       <x>550</x>
+       <y>600</y>
+       <width>98</width>
+       <height>27</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Clear</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>640</y>
+       <width>721</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_3">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_12">
+        <property name="maximumSize">
+         <size>
+          <width>120</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>After Encoding:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QSpinBox" name="spinBox">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QPushButton" name="pushButton_10">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>100</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>New worker</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3">
+       <widget class="QPushButton" name="pushButton_11">
+        <property name="maximumSize">
+         <size>
+          <width>60</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Help</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </widget>
    <widget class="QWidget" name="tab2">
@@ -795,8 +933,21 @@
        <x>10</x>
        <y>10</y>
        <width>721</width>
-       <height>681</height>
+       <height>641</height>
       </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_12">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>660</y>
+       <width>98</width>
+       <height>27</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Clear</string>
      </property>
     </widget>
    </widget>
