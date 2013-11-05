@@ -1,7 +1,9 @@
 MeXgui
 ======
 
-MeXgui is an attempt to create Megui -like encoder supporting Cross platfrom and Linux avxsynth files.
+MeXgui is an project to create Megui port to have encoder supporting Cross platfrom and avxsynth files.
+
+Project uses C++ with QT4-SDK development IDE, libsqlite-dev, mencoder, avxsynth, avisynth
 
 DONATE
 ======
