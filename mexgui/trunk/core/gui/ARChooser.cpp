@@ -25,8 +25,8 @@ namespace MeGUI
 				StandardAndCustomComboBox::Dispose(disposing);
 			}
 
-const std::string ARChooser::Later = "Auto-detect later";
-const Named<Dar> ARChooser::ARs[7] = {new Named<Dar>("ITU 16:9 PAL (1.823361)", Dar::ITU16x9PAL), new Named<Dar>("ITU 4:3 PAL (1.367521)", Dar::ITU4x3PAL), new Named<Dar>("ITU 16:9 NTSC (1.823169)", Dar::ITU16x9NTSC), new Named<Dar>("ITU 4:3 NTSC (1.367377)", Dar::ITU4x3NTSC), new Named<Dar>("4:3 (1.333333)", Dar::STATIC4x3), new Named<Dar>("16:9 (1.777778)", Dar::STATIC16x9), new Named<Dar>("1:1", Dar::A1x1)};
+            const std::string ARChooser::Later = "Auto-detect later";
+            const Named<Dar> ARChooser::ARs[7] = {new Named<Dar>("ITU 16:9 PAL (1.823361)", Dar::ITU16x9PAL), new Named<Dar>("ITU 4:3 PAL (1.367521)", Dar::ITU4x3PAL), new Named<Dar>("ITU 16:9 NTSC (1.823169)", Dar::ITU16x9NTSC), new Named<Dar>("ITU 4:3 NTSC (1.367377)", Dar::ITU4x3NTSC), new Named<Dar>("4:3 (1.333333)", Dar::STATIC4x3), new Named<Dar>("16:9 (1.777778)", Dar::STATIC16x9), new Named<Dar>("1:1", Dar::A1x1)};
 
 			ARChooser::ARChooser() : StandardAndCustomComboBox("Clear user-selected ARs...", "Select AR...")
 			{
