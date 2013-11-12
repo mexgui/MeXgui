@@ -12,7 +12,7 @@
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// aqint64 with this program; if not, write to the Free Software
+// along with this program; if not, write to the Free Software
 // Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA, or visit
 // http://www.gnu.org/copyleft/gpl.html .
 //
@@ -45,7 +45,7 @@ enum { AVISYNTH_INTERFACE_VERSION = 2 };
 /* Define all types necessary for interfacing with avisynth.dll
    Moved from internal.h */
 
-// Win32 API macros, notably the types qint8, DWORD, Uqint64, etc.
+// Win32 API macros, notably the types qint8, DWORD, quint64, etc.
 //#include <windef.h>
 #include <QtGlobal>
 // COM interface macros
