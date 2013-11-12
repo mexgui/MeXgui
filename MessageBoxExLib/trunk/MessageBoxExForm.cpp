@@ -14,6 +14,7 @@
 //using namespace System::Diagnostics;
 //C# TO C++ CONVERTER TODO TASK: The .NET System namespace is not available from native C++:
 //using namespace System::Runtime::InteropServices;
+
 namespace Utils
 {
 	namespace MessageBoxExLib
@@ -313,7 +314,7 @@ namespace Utils
 		void MessageBoxExForm::SetMessageSizeAndVisibility()
 		{
 //C# TO C++ CONVERTER TODO TASK: There is no direct native C++ equivalent to the .NET String 'Trim' method:
-			if (rtbMessage->Text == 0 || rtbMessage->Text->Trim()->Length == 0)
+            if (rtbMessage->Text == 0 || rtbMessage->Text->trimmed()->Length == 0)
 			{
 				rtbMessage->Size = Size::Empty;
 				rtbMessage->Visible = false;
@@ -340,7 +341,7 @@ namespace Utils
 		}
 
 		void MessageBoxExForm::SetIconSizeAndVisibility()
-		{
+        {
 			if (_iconImage == 0)
 			{
 				panelIcon->Visible = false;
@@ -394,10 +395,10 @@ namespace Utils
 
 			switch (icon)
 			{
-				case MessageBoxIcon::Asterisk:
+                case MessageBoxIcon::Asterisk:
 					_iconImage = SystemIcons::Asterisk;
 					break;
-				case MessageBoxIcon::Error:
+                case MessageBoxIcon::Error:
 					_iconImage = SystemIcons::Error;
 					break;
 				case MessageBoxIcon::Exclamation:
@@ -432,9 +433,9 @@ namespace Utils
 			{
 				MessageBoxExButton *okButton = new MessageBoxExButton();
 //C# TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to 'ToString':
-				okButton->setText(Ok->ToString());
+                okButton->setText(Ok-> QString());
 //C# TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to 'ToString':
-				okButton->setValue(Ok->ToString());
+                okButton->setValue(Ok-> QString());
 
 				_buttons->Add(okButton);
 			}
@@ -560,7 +561,7 @@ namespace Utils
 			buttonCtrl->TextAlign = ContentAlignment::MiddleCenter;
 			buttonCtrl->FlatStyle = FlatStyle::System;
 //C# TO C++ CONVERTER TODO TASK: There is no direct native C++ equivalent to the .NET String 'Trim' method:
-			if (button->getHelpText() != "" && button->getHelpText().Trim()->Length != 0)
+            if (button->getHelpText() != "" && button->getHelpText().trimmed()->Length != 0)
 			{
 				buttonToolTip->SetToolTip(buttonCtrl, button->getHelpText());
 			}
@@ -582,7 +583,7 @@ namespace Utils
 				for (ArrayList::const_iterator button = _buttons->begin(); button != _buttons->end(); ++button)
 				{
 //C# TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to 'ToString':
-					if ((*button)->getText() == Cancel->ToString() && (*button)->getValue() == Cancel->ToString())
+                    if ((*button)->getText() == Cancel-> QString() && (*button)->getValue() == Cancel-> QString())
 					{
 						_cancelButton = *button;
 						return;

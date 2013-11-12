@@ -1,9 +1,10 @@
+#include<Qt>
 #pragma once
 
 //C# TO C++ CONVERTER TODO TASK: The .NET System namespace is not available from native C++:
-//using namespace System::Reflection;
+using namespace QT::Reflection;
 //C# TO C++ CONVERTER TODO TASK: The .NET System namespace is not available from native C++:
-//using namespace System::Runtime::CompilerServices;
+using namespace QT::Runtime::CompilerServices;
 
 //
 // General Information about an assembly is controlled through the following 
@@ -11,21 +12,21 @@
 // associated with an assembly.
 //
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
-//[assembly: AssemblyTitle("")]
+[assembly: AssemblyTitle("")]
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
-//[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("")]
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
-//[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyConfiguration("")]
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
-//[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("")]
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
-//[assembly: AssemblyProduct("")]
+[assembly: AssemblyProduct("")]
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
-//[assembly: AssemblyCopyright("")]
+[assembly: AssemblyCopyright("")]
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
-//[assembly: AssemblyTrademark("")]
+[assembly: AssemblyTrademark("")]
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
-//[assembly: AssemblyCulture("")]
+[assembly: AssemblyCulture("")]
 
 //
 // Version information for an assembly consists of the following four values:
@@ -39,7 +40,7 @@
 // by using the '*' as shown below:
 
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
-//[assembly: AssemblyVersion("1.0.*")]
+[assembly: AssemblyVersion("1.0.*")]
 
 //
 // In order to sign your assembly you must specify a key to use. Refer to the 
@@ -67,8 +68,8 @@
 //       documentation for more information on this.
 //
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
-//[assembly: AssemblyDelaySign(false)]
+[assembly: AssemblyDelaySign(false)]
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
-//[assembly: AssemblyKeyFile("")]
+[assembly: AssemblyKeyFile("")]
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
-//[assembly: AssemblyKeyName("")]
+[assembly: AssemblyKeyName("")]

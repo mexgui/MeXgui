@@ -10,14 +10,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <io.h>
+//#include <io.h>
+#include <QDataStream>
 #include <fcntl.h>
 #include "internal.h"
 #include "avisynth.h"
-#include <windows.h>
+//#include <windows.h>
 
 
-typedef __int64 int64_t;
+typedef qint64 int64_t;
 #include "avisynthdll.h"
 
 #define MAX_CLIPS  1024
@@ -39,7 +40,7 @@ extern "C" {
 	__declspec(dllexport) int __stdcall dimzon_avs_destroy(SafeStruct** ppstr);
 	__declspec(dllexport) int __stdcall dimzon_avs_getlasterror(SafeStruct* pstr, char *str,int len);
 	__declspec(dllexport) int __stdcall dimzon_avs_getvframe(SafeStruct* pstr, void *buf, int stride, int frm );
-	__declspec(dllexport) int __stdcall dimzon_avs_getaframe(SafeStruct* pstr, void *buf, __int64 start, __int64 count);
+    __declspec(dllexport) int __stdcall dimzon_avs_getaframe(SafeStruct* pstr, void *buf, qint64 start, qint64 count);
 	__declspec(dllexport) int __stdcall dimzon_avs_getintvariable(SafeStruct* pstr, const char* name , int* result);
 }
 
@@ -81,7 +82,7 @@ int __stdcall dimzon_avs_getintvariable(SafeStruct* pstr, const char* name , int
 	}
 }
 
-int __stdcall dimzon_avs_getaframe(SafeStruct* pstr, void *buf, __int64 start, __int64 count)
+int __stdcall dimzon_avs_getaframe(SafeStruct* pstr, void *buf, qint64 start, qint64 count)
 {
 	try
 	{
@@ -104,7 +105,7 @@ int __stdcall dimzon_avs_getvframe(SafeStruct* pstr, void *buf, int stride, int 
 		PVideoFrame f = pstr->clp->GetFrame(frm, pstr->env);
 		if(buf && stride)
 		{
-			pstr->env->BitBlt((BYTE*)buf, stride, f->GetReadPtr(), f->GetPitch(),
+            pstr->env->BitBlt((qint8*)buf, stride, f->GetReadPtr(), f->GetPitch(),
 							  f->GetRowSize(), f->GetHeight());
 		}
 		pstr->err[0] = 0;

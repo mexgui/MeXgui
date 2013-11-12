@@ -1,3 +1,4 @@
+#include<Qt>
 #pragma once
 
 #include "MessageBoxExForm.h"
@@ -8,11 +9,10 @@
 #include <string>
 
 //C# TO C++ CONVERTER TODO TASK: The .NET System namespace is not available from native C++:
-//using namespace System;
+using namespace Qwidgets;
 //C# TO C++ CONVERTER TODO TASK: The .NET System namespace is not available from native C++:
-//using namespace System::Drawing;
+
 //C# TO C++ CONVERTER TODO TASK: The .NET System namespace is not available from native C++:
-//using namespace System::Windows::Forms;
 
 namespace Utils
 {

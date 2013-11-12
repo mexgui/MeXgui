@@ -1,18 +1,19 @@
 #pragma once
 
+#include<Qt>
 #include "MessageBoxExButtons.h"
 #include <string>
 
 //C# TO C++ CONVERTER TODO TASK: The .NET System namespace is not available from native C++:
-//using namespace System;
+using namespace System;
 //C# TO C++ CONVERTER TODO TASK: The .NET System namespace is not available from native C++:
-//using namespace System::IO;
+using namespace System::IO;
 //C# TO C++ CONVERTER TODO TASK: The .NET System namespace is not available from native C++:
-//using namespace System::Collections;
+using namespace System::Collections;
 //C# TO C++ CONVERTER TODO TASK: The .NET System namespace is not available from native C++:
-//using namespace System::Resources;
+using namespace System::Resources;
 //C# TO C++ CONVERTER TODO TASK: The .NET System namespace is not available from native C++:
-//using namespace System::Reflection;
+using namespace System::Reflection;
 
 namespace Utils
 {

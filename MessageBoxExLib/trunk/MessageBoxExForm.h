@@ -1,5 +1,6 @@
 #pragma once
 
+#include <Qt>
 #include "MessageBoxExButton.h"
 #include "TimeoutResult.h"
 #include "MessageBoxExButtons.h"
@@ -152,7 +153,7 @@ namespace Utils
 
 //C# TO C++ CONVERTER WARNING: Unlike C#, there is no automatic call to this finalizer method in native C++:
 			private:
-			void Finalize()
+            void Deploying()
 			{
 				this->Dispose(false);
 			}

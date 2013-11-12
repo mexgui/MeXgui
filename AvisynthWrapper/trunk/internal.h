@@ -12,35 +12,41 @@
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with this program; if not, write to the Free Software
+// aqint64 with this program; if not, write to the Free Software
 // Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA, or visit
 // http://www.gnu.org/copyleft/gpl.html .
 
-#ifndef __Internal_H__
-#define __Internal_H__
+#ifndef qinternal_H__
+#define qinternal_H__
 
+#include <QtCore/qglobal.h>
+
+#if defined(AVISYNTHWRAPPER_LIBRARY)
+#  define AVISYNTHWRAPPERSHARED_EXPORT Q_DECL_EXPORT
+#else
+#  define AVISYNTHWRAPPERSHARED_EXPORT Q_DECL_IMPORT
+#endif
 
 #define WIN32_LEAN_AND_MEAN
-#include <objbase.h>
-#include <vfw.h>
-#include <windows.h>
+//#include <objbase.h>
+//#include <vfw.h>
+//#include <windows.h>
 #include <stdio.h>
 #include <malloc.h>
 #include <math.h>
 #include <vector>
 
-#define in64 (__int64)(unsigned short)
+#define in64 (qint64)(unsigned short)
 
 #define ATHLON  // comment this out if using the Intel compiler, or you need Pentium/K6 support
 
-typedef unsigned long	Pixel;
-typedef unsigned long	Pixel32;
+typedef quint64	Pixel;
+typedef quint64	Pixel32;
 typedef unsigned char	Pixel8;
-typedef long			PixCoord;
-typedef long			PixDim;
-typedef long			PixOffset;
+typedef qint64			PixCoord;
+typedef qint64			PixDim;
+typedef qint64			PixOffset;
 
-#pragma hdrstop
 
 #ifndef _MSC_VER
   #define _RPT0(a,b) ((void)0)
@@ -77,22 +83,22 @@ PClip new_Splice(PClip _child1, PClip _child2, bool realign_sound, IScriptEnviro
 PClip new_SeparateFields(PClip _child, IScriptEnvironment* env);
 PClip new_AssumeFrameBased(PClip _child);
 
-void BitBlt(BYTE* dstp, int dst_pitch, const BYTE* srcp,
+void BitBlt(qint8* dstp, int dst_pitch, const qint8* srcp,
             int src_pitch, int row_size, int height);
 
-long GetCPUFlags();
+qint64 GetCPUFlags();
 
 
 class _PixelClip {
   enum { buffer=320 };
-  BYTE clip[256+buffer*2];
+  qint8 clip[256+buffer*2];
 public:
   _PixelClip() {
     memset(clip, 0, buffer);
     for (int i=0; i<256; ++i) clip[i+buffer] = (unsigned char) i;
     memset(clip+buffer+256, 255, buffer);
   }
-  BYTE operator()(int i) {
+  qint8 operator()(int i) {
     return clip[i+buffer];
   }
 };
@@ -101,7 +107,7 @@ extern _PixelClip PixelClip;
 
 
 template<class ListNode>
-static __inline void Relink(ListNode* newprev, ListNode* me, ListNode* newnext) {
+static inline void Relink(ListNode* newprev, ListNode* me, ListNode* newnext) {
   if (me == newprev || me == newnext) return;
   me->next->prev = me->prev;
   me->prev->next = me->next;
@@ -114,13 +120,13 @@ static __inline void Relink(ListNode* newprev, ListNode* me, ListNode* newnext) 
 
 /*** Inline helper methods ***/
 
-static __inline BYTE ScaledPixelClip(int i) {
+static inline qint8 ScaledPixelClip(int i) {
   return PixelClip((i+32768) >> 16);
 }
 
-static __inline bool IsClose(int a, int b, unsigned threshold)
+static inline bool IsClose(int a, int b, unsigned threshold)
 {
   return (unsigned(a-b+threshold) <= threshold*2);
 }
 
-#endif  // __Internal_H__
+#endif  // qinternal_H__
