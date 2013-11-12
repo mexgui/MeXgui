@@ -45,7 +45,7 @@ enum { AVISYNTH_INTERFACE_VERSION = 3 };
 /* Define all types necessary for interfacing with avisynth.dll
    Moved from internal.h */
 
-// Win32 API macros, notably the types int8_t, DWORD, ULONG, etc.
+// Win32 API macros, notably the types unsigned char, DWORD, ULONG, etc.
 //#include <windef.h>
 #include <stdio.h>
 
@@ -291,7 +291,7 @@ struct VideoInfo {
 // file is closed.
 
 class VideoFrameBuffer {
-  int8_t* const data;
+  unsigned char* const data;
   const int data_size;
   // sequence_number is incremented every time the buffer is changed, so
   // that stale views can tell they're no longer valid.
@@ -307,8 +307,8 @@ public:
   VideoFrameBuffer();
   ~VideoFrameBuffer();
 
-  const int8_t* GetReadPtr() const { return data; }
-  int8_t* GetWritePtr() { ++sequence_number; return data; }
+  const unsigned char* GetReadPtr() const { return data; }
+  unsigned char* GetWritePtr() { ++sequence_number; return data; }
   int GetDataSize() { return data_size; }
   int GetSequenceNumber() { return sequence_number; }
   int GetRefcount() { return refcount; }
@@ -376,12 +376,12 @@ public:
   VideoFrame* Subframe(int rel_offset, int new_pitch, int new_row_size, int new_height, int rel_offsetU, int rel_offsetV, int pitchUV) const;
 
 
-  const int8_t* GetReadPtr() const { return vfb->GetReadPtr() + offset; }
-  const int8_t* GetReadPtr(int plane) const { return vfb->GetReadPtr() + GetOffset(plane); }
+  const unsigned char* GetReadPtr() const { return vfb->GetReadPtr() + offset; }
+  const unsigned char* GetReadPtr(int plane) const { return vfb->GetReadPtr() + GetOffset(plane); }
 
   bool IsWritable() const { return (refcount == 1 && vfb->refcount == 1); }
 
-  int8_t* GetWritePtr() const {
+  unsigned char* GetWritePtr() const {
     if (vfb->GetRefcount()>1) {
       _ASSERT(FALSE);
       //throw AvisynthError("Internal Error - refcount was more than one!");
@@ -389,7 +389,7 @@ public:
     return IsWritable() ? (vfb->GetWritePtr() + offset) : 0;
   }
 
-  int8_t* GetWritePtr(int plane) const {
+  unsigned char* GetWritePtr(int plane) const {
     if (plane==PLANAR_Y) {
       if (vfb->GetRefcount()>1) {
         _ASSERT(FALSE);
@@ -712,7 +712,7 @@ public:
 
   virtual bool __stdcall MakeWritable(PVideoFrame* pvf) = 0;
 
-  virtual /*static*/ void __stdcall BitBlt(int8_t* dstp, int dst_pitch, const int8_t* srcp, int src_pitch, int row_size, int height) = 0;
+  virtual /*static*/ void __stdcall BitBlt(unsigned char* dstp, int dst_pitch, const unsigned char* srcp, int src_pitch, int row_size, int height) = 0;
 
   typedef void (__cdecl *ShutdownFunc)(void* user_data, IScriptEnvironment* env);
   virtual void __stdcall AtExit(ShutdownFunc function, void* user_data) = 0;

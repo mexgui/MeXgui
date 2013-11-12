@@ -44,7 +44,7 @@ typedef struct AVSDLLVideoPlane {
 	int width;
 	int height;
 	int pitch;
-    int8_t *data;
+    unsigned char *data;
 } AVSDLLVideoPlane;
 
 

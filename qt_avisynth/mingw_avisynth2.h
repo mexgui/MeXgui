@@ -45,7 +45,7 @@ enum { AVISYNTH_INTERFACE_VERSION = 2 };
 /* Define all types necessary for interfacing with avisynth.dll
    Moved from internal.h */
 
-// Win32 API macros, notably the types int8_t, DWORD, int64_t, etc.
+// Win32 API macros, notably the types unsigned char, DWORD, int64_t, etc.
 //#include <windef.h>
 #include <stdio.h>
 // COM interface macros
@@ -74,12 +74,12 @@ typedef	int64_t			PixOffset;
 #include <assert.h>
 
 
-// I had problems with Premiere wanting 1-int8_t alignment for its structures,
+// I had problems with Premiere wanting 1-unsigned char alignment for its structures,
 // so I now set the Avisynth struct alignment explicitly here.
 #pragma pack(push,8)
 
 #define FRAME_ALIGN 16
-// Default frame alignment is 16 int8_ts, to help P4, when using SSE2
+// Default frame alignment is 16 unsigned chars, to help P4, when using SSE2
 
 // The VideoInfo struct holds global information about a clip (i.e.
 // information that does not depend on the frame number).  The GetVideoInfo
@@ -163,17 +163,17 @@ struct VideoInfo {
   bool IsTFF() const { return !!(image_type & IT_TFF); }
   
   bool IsVPlaneFirst() const {return ((pixel_type & CS_YV12) == CS_YV12); }  // Don't use this 
-  int int8_tsFromPixels(int pixels) const { return pixels * (BitsPerPixel()>>3); }   // Will not work on planar images, but will return only luma planes
-  int RowSize() const { return int8_tsFromPixels(width); }  // Also only returns first plane on planar images
+  int unsigned charsFromPixels(int pixels) const { return pixels * (BitsPerPixel()>>3); }   // Will not work on planar images, but will return only luma planes
+  int RowSize() const { return unsigned charsFromPixels(width); }  // Also only returns first plane on planar images
   int BMPSize() const { if (IsPlanar()) {int p = height * ((RowSize()+3) & ~3); p+=p>>1; return p;  } return height * ((RowSize()+3) & ~3); }
   int64_t AudioSamplesFromFrames(int64_t frames) const { return ((int64_t)(frames) * audio_samples_per_second * fps_denominator / fps_numerator); }
   int FramesFromAudioSamples(int64_t samples) const { return (int)(samples * (int64_t)fps_numerator / (int64_t)fps_denominator / (int64_t)audio_samples_per_second); }
-  int64_t AudioSamplesFromint8_ts(int64_t int8_ts) const { return int8_ts / int8_tsPerAudioSample(); }
-  int64_t int8_tsFromAudioSamples(int64_t samples) const { return samples * int8_tsPerAudioSample(); }
+  int64_t AudioSamplesFromunsigned chars(int64_t unsigned chars) const { return unsigned chars / unsigned charsPerAudioSample(); }
+  int64_t unsigned charsFromAudioSamples(int64_t samples) const { return samples * unsigned charsPerAudioSample(); }
   int AudioChannels() const { return nchannels; }
   int SampleType() const{ return sample_type;}
   int SamplesPerSecond() const { return audio_samples_per_second; }
-  int int8_tsPerAudioSample() const { return nchannels*int8_tsPerChannelSample();}
+  int unsigned charsPerAudioSample() const { return nchannels*unsigned charsPerChannelSample();}
   void SetFieldBased(bool isfieldbased)  { if (isfieldbased) image_type|=IT_FIELDBASED; else  image_type&=~IT_FIELDBASED; }
   void Set(int property)  { image_type|=property; }
   void Clear(int property)  { image_type&=~property; }
@@ -193,7 +193,7 @@ struct VideoInfo {
         return 0;
     }
   }
-  int int8_tsPerChannelSample() const {
+  int unsigned charsPerChannelSample() const {
     switch (sample_type) {
     case SAMPLE_INT8:
       return sizeof(signed char);
@@ -257,7 +257,7 @@ enum {  //SUBTYPES
 // file is closed.
 
 class VideoFrameBuffer {
-  int8_t* const data;
+  unsigned char* const data;
   const int data_size;
   // sequence_number is incremented every time the buffer is changed, so
   // that stale views can tell they're no int64_ter valid.
@@ -273,8 +273,8 @@ public:
   VideoFrameBuffer();
   ~VideoFrameBuffer();
 
-  const int8_t* GetReadPtr() const { return data; }
-  int8_t* GetWritePtr() { ++sequence_number; return data; }
+  const unsigned char* GetReadPtr() const { return data; }
+  unsigned char* GetWritePtr() { ++sequence_number; return data; }
   int GetDataSize() { return data_size; }
   int GetSequenceNumber() { return sequence_number; }
   int GetRefcount() { return refcount; }
@@ -343,12 +343,12 @@ public:
   VideoFrame* Subframe(int rel_offset, int new_pitch, int new_row_size, int new_height, int rel_offsetU, int rel_offsetV, int pitchUV) const;
 
 
-  const int8_t* GetReadPtr() const { return vfb->GetReadPtr() + offset; }
-  const int8_t* GetReadPtr(int plane) const { return vfb->GetReadPtr() + GetOffset(plane); }
+  const unsigned char* GetReadPtr() const { return vfb->GetReadPtr() + offset; }
+  const unsigned char* GetReadPtr(int plane) const { return vfb->GetReadPtr() + GetOffset(plane); }
 
   bool IsWritable() const { return (refcount == 1 && vfb->refcount == 1); }
 
-  int8_t* GetWritePtr() const {
+  unsigned char* GetWritePtr() const {
     if (vfb->GetRefcount()>1) {
       _ASSERT(FALSE);
       //throw AvisynthError("Internal Error - refcount was more than one!");
@@ -356,7 +356,7 @@ public:
     return IsWritable() ? (vfb->GetWritePtr() + offset) : 0;
   }
 
-  int8_t* GetWritePtr(int plane) const {
+  unsigned char* GetWritePtr(int plane) const {
     if (plane==PLANAR_Y) {
       if (vfb->GetRefcount()>1) {
         _ASSERT(FALSE);
@@ -674,7 +674,7 @@ public:
 
   virtual bool __stdcall MakeWritable(PVideoFrame* pvf) = 0;
 
-  virtual /*static*/ void __stdcall BitBlt(int8_t* dstp, int dst_pitch, const int8_t* srcp, int src_pitch, int row_size, int height) = 0;
+  virtual /*static*/ void __stdcall BitBlt(unsigned char* dstp, int dst_pitch, const unsigned char* srcp, int src_pitch, int row_size, int height) = 0;
 
   typedef void (__cdecl *ShutdownFunc)(void* user_data, IScriptEnvironment* env);
   virtual void __stdcall AtExit(ShutdownFunc function, void* user_data) = 0;

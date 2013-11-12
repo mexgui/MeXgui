@@ -46,7 +46,7 @@ enum { AVISYNTH_INTERFACE_VERSION = 5 };
 /* Define all types necessary for interfacing with avisynth.dll
    Moved from internal.h */
 
-// Win32 API macros, notably the types int8_t, DWORD, ULONG, etc.
+// Win32 API macros, notably the types unsigned char, DWORD, ULONG, etc.
 //#include <windef.h>
 #include <stdio.h>
 
@@ -204,8 +204,8 @@ struct AVS_Linkage {
 /**********************************************************************/
 
 // class VideoFrameBuffer
-  const int8_t* (VideoFrameBuffer::*VFBGetReadPtr)() const;
-  int8_t*       (VideoFrameBuffer::*VFBGetWritePtr)();
+  const unsigned char* (VideoFrameBuffer::*VFBGetReadPtr)() const;
+  unsigned char*       (VideoFrameBuffer::*VFBGetWritePtr)();
   int         (VideoFrameBuffer::*GetDataSize)() const;
   int         (VideoFrameBuffer::*GetSequenceNumber)() const;
   int         (VideoFrameBuffer::*GetRefcount)() const;
@@ -219,9 +219,9 @@ struct AVS_Linkage {
   int               (VideoFrame::*GetHeight)(int plane) const;
   VideoFrameBuffer* (VideoFrame::*GetFrameBuffer)() const;
   int               (VideoFrame::*GetOffset)(int plane) const;
-  const int8_t*       (VideoFrame::*VFGetReadPtr)(int plane) const;
+  const unsigned char*       (VideoFrame::*VFGetReadPtr)(int plane) const;
   bool              (VideoFrame::*IsWritable)() const;
-  int8_t*             (VideoFrame::*VFGetWritePtr)(int plane) const;
+  unsigned char*             (VideoFrame::*VFGetWritePtr)(int plane) const;
   void              (VideoFrame::*VideoFrame_DESTRUCTOR)();
 // end class VideoFrame
 
@@ -516,7 +516,7 @@ Planar filter mask 1111.1111.1111.1111.1111.1111.1100.1111
 // file is closed.
 
 class VideoFrameBuffer {
-  int8_t* const data;
+  unsigned char* const data;
   const int data_size;
   // sequence_number is incremented every time the buffer is changed, so
   // that stale views can tell they're no longer valid.
@@ -533,8 +533,8 @@ protected:
   ~VideoFrameBuffer();
 
 public:
-  const int8_t* GetReadPtr() const AVS_BakedCode( return AVS_LinkCall(VFBGetReadPtr)() )
-  int8_t* GetWritePtr() AVS_BakedCode( return AVS_LinkCall(VFBGetWritePtr)() )
+  const unsigned char* GetReadPtr() const AVS_BakedCode( return AVS_LinkCall(VFBGetReadPtr)() )
+  unsigned char* GetWritePtr() AVS_BakedCode( return AVS_LinkCall(VFBGetWritePtr)() )
   int GetDataSize() const AVS_BakedCode( return AVS_LinkCall(GetDataSize)() )
   int GetSequenceNumber() const AVS_BakedCode( return AVS_LinkCall(GetSequenceNumber)() )
   int GetRefcount() const AVS_BakedCode( return AVS_LinkCall(GetRefcount)() )
@@ -575,9 +575,9 @@ public:
   VideoFrame* Subframe(int rel_offset, int new_pitch, int new_row_size, int new_height) const;
   VideoFrame* Subframe(int rel_offset, int new_pitch, int new_row_size, int new_height, int rel_offsetU, int rel_offsetV, int pitchUV) const;
 
-  const int8_t* GetReadPtr(int plane=0) const AVS_BakedCode( return AVS_LinkCall(VFGetReadPtr)(plane) )
+  const unsigned char* GetReadPtr(int plane=0) const AVS_BakedCode( return AVS_LinkCall(VFGetReadPtr)(plane) )
   bool IsWritable() const AVS_BakedCode( return AVS_LinkCall(IsWritable)() )
-  int8_t* GetWritePtr(int plane=0) const AVS_BakedCode( return AVS_LinkCall(VFGetWritePtr)(plane) )
+  unsigned char* GetWritePtr(int plane=0) const AVS_BakedCode( return AVS_LinkCall(VFGetWritePtr)(plane) )
 
   ~VideoFrame() AVS_BakedCode( AVS_LinkCall(VideoFrame_DESTRUCTOR)() )
 #ifdef AVISYNTH_CORE
@@ -979,7 +979,7 @@ public:
 
   virtual bool __stdcall MakeWritable(PVideoFrame* pvf) = 0;
 
-  virtual /*static*/ void __stdcall BitBlt(int8_t* dstp, int dst_pitch, const int8_t* srcp, int src_pitch, int row_size, int height) = 0;
+  virtual /*static*/ void __stdcall BitBlt(unsigned char* dstp, int dst_pitch, const unsigned char* srcp, int src_pitch, int row_size, int height) = 0;
 
   typedef void (__cdecl *ShutdownFunc)(void* user_data, IScriptEnvironment* env);
   virtual void __stdcall AtExit(ShutdownFunc function, void* user_data) = 0;
