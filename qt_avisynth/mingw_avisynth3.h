@@ -45,9 +45,9 @@ enum { AVISYNTH_INTERFACE_VERSION = 3 };
 /* Define all types necessary for interfacing with avisynth.dll
    Moved from internal.h */
 
-// Win32 API macros, notably the types qint8, DWORD, ULONG, etc.
+// Win32 API macros, notably the types int8_t, DWORD, ULONG, etc.
 //#include <windef.h>
-#include <QDataStream>
+#include <stdio.h>
 
 // COM interface macros
 //#include <objbase.h>
@@ -55,7 +55,7 @@ enum { AVISYNTH_INTERFACE_VERSION = 3 };
 
 
 // Raster types used by VirtualDub & Avisynth
-#define in64 (qint64)(unsigned short)
+#define in64 (int64_t)(unsigned short)
 typedef unsigned long	Pixel;    // this will break on 64-bit machines!
 typedef unsigned long	Pixel32;
 typedef unsigned char	Pixel8;
@@ -66,25 +66,19 @@ typedef long			PixOffset;
 
 /* Compiler-specific crap */
 
-// Tell MSVC to stop precompiling here
-#ifdef _MSC_VER
-  #pragma hdrstop
-#endif
 
 // Set up debugging macros for MS compilers; for others, step down to the
 // standard <assert.h> interface
-#ifdef _MSC_VER
-  #include <crtdbg.h>
-#else
-  #define _RPT0(a,b) ((void)0)
-  #define _RPT1(a,b,c) ((void)0)
-  #define _RPT2(a,b,c,d) ((void)0)
-  #define _RPT3(a,b,c,d,e) ((void)0)
-  #define _RPT4(a,b,c,d,e,f) ((void)0)
 
-  #define _ASSERTE(x) assert(x)
-  #include <assert.h>
-#endif
+#define _RPT0(a,b) ((void)0)
+#define _RPT1(a,b,c) ((void)0)
+#define _RPT2(a,b,c,d) ((void)0)
+#define _RPT3(a,b,c,d,e) ((void)0)
+#define _RPT4(a,b,c,d,e,f) ((void)0)
+
+#define _ASSERTE(x) assert(x)
+#include <assert.h>
+
 
 
 
@@ -152,7 +146,7 @@ struct VideoInfo {
 
   int audio_samples_per_second;   // 0 means no audio
   int sample_type;                // as of 2.5
-  qint64 num_audio_samples;      // changed as of 2.5
+  int64_t num_audio_samples;      // changed as of 2.5
   int nchannels;                  // as of 2.5
 
   // Imagetype properties
@@ -186,10 +180,10 @@ struct VideoInfo {
   int BytesFromPixels(int pixels) const { return pixels * (BitsPerPixel()>>3); }   // Will not work on planar images, but will return only luma planes
   int RowSize() const { return BytesFromPixels(width); }  // Also only returns first plane on planar images
   int BMPSize() const { if (IsPlanar()) {int p = height * ((RowSize()+3) & ~3); p+=p>>1; return p;  } return height * ((RowSize()+3) & ~3); }
-  qint64 AudioSamplesFromFrames(qint64 frames) const { return (fps_numerator && HasVideo()) ? ((qint64)(frames) * audio_samples_per_second * fps_denominator / fps_numerator) : 0; }
-  int FramesFromAudioSamples(qint64 samples) const { return (fps_denominator && HasAudio()) ? (int)((samples * (qint64)fps_numerator)/((qint64)fps_denominator * (qint64)audio_samples_per_second)) : 0; }
-  qint64 AudioSamplesFromBytes(qint64 bytes) const { return HasAudio() ? bytes / BytesPerAudioSample() : 0; }
-  qint64 BytesFromAudioSamples(qint64 samples) const { return samples * BytesPerAudioSample(); }
+  int64_t AudioSamplesFromFrames(int64_t frames) const { return (fps_numerator && HasVideo()) ? ((int64_t)(frames) * audio_samples_per_second * fps_denominator / fps_numerator) : 0; }
+  int FramesFromAudioSamples(int64_t samples) const { return (fps_denominator && HasAudio()) ? (int)((samples * (int64_t)fps_numerator)/((int64_t)fps_denominator * (int64_t)audio_samples_per_second)) : 0; }
+  int64_t AudioSamplesFromBytes(int64_t bytes) const { return HasAudio() ? bytes / BytesPerAudioSample() : 0; }
+  int64_t BytesFromAudioSamples(int64_t samples) const { return samples * BytesPerAudioSample(); }
   int AudioChannels() const { return HasAudio() ? nchannels : 0; }
   int SampleType() const{ return sample_type;}
   bool IsSampleType(int testtype) const{ return !!(sample_type&testtype);}
@@ -251,17 +245,17 @@ struct VideoInfo {
 
   // Range protected multiply-divide of FPS
   void MulDivFPS(unsigned multiplier, unsigned divisor) {
-    quint64 numerator   = UInt32x32To64(fps_numerator,   multiplier);
-    quint64 denominator = UInt32x32To64(fps_denominator, divisor);
+    int64_t numerator   = UInt32x32To64(fps_numerator,   multiplier);
+    int64_t denominator = UInt32x32To64(fps_denominator, divisor);
 
-    quint64 x=numerator, y=denominator;
+    int64_t x=numerator, y=denominator;
 	while (y) {   // find gcd
-      quint64 t = x%y; x = y; y = t;
+      int64_t t = x%y; x = y; y = t;
 	}
 	numerator   /= x; // normalize
 	denominator /= x;
 
-    quint64 temp = numerator | denominator; // Just looking top bit
+    int64_t temp = numerator | denominator; // Just looking top bit
 	unsigned u = 0;
 	while (temp & 0xffffffff80000000) { // or perhaps > 16777216*2
 	  temp = Int64ShrlMod32(temp, 1);
@@ -297,7 +291,7 @@ struct VideoInfo {
 // file is closed.
 
 class VideoFrameBuffer {
-  qint8* const data;
+  int8_t* const data;
   const int data_size;
   // sequence_number is incremented every time the buffer is changed, so
   // that stale views can tell they're no longer valid.
@@ -313,8 +307,8 @@ public:
   VideoFrameBuffer();
   ~VideoFrameBuffer();
 
-  const qint8* GetReadPtr() const { return data; }
-  qint8* GetWritePtr() { ++sequence_number; return data; }
+  const int8_t* GetReadPtr() const { return data; }
+  int8_t* GetWritePtr() { ++sequence_number; return data; }
   int GetDataSize() { return data_size; }
   int GetSequenceNumber() { return sequence_number; }
   int GetRefcount() { return refcount; }
@@ -382,12 +376,12 @@ public:
   VideoFrame* Subframe(int rel_offset, int new_pitch, int new_row_size, int new_height, int rel_offsetU, int rel_offsetV, int pitchUV) const;
 
 
-  const qint8* GetReadPtr() const { return vfb->GetReadPtr() + offset; }
-  const qint8* GetReadPtr(int plane) const { return vfb->GetReadPtr() + GetOffset(plane); }
+  const int8_t* GetReadPtr() const { return vfb->GetReadPtr() + offset; }
+  const int8_t* GetReadPtr(int plane) const { return vfb->GetReadPtr() + GetOffset(plane); }
 
   bool IsWritable() const { return (refcount == 1 && vfb->refcount == 1); }
 
-  qint8* GetWritePtr() const {
+  int8_t* GetWritePtr() const {
     if (vfb->GetRefcount()>1) {
       _ASSERT(FALSE);
       //throw AvisynthError("Internal Error - refcount was more than one!");
@@ -395,7 +389,7 @@ public:
     return IsWritable() ? (vfb->GetWritePtr() + offset) : 0;
   }
 
-  qint8* GetWritePtr(int plane) const {
+  int8_t* GetWritePtr(int plane) const {
     if (plane==PLANAR_Y) {
       if (vfb->GetRefcount()>1) {
         _ASSERT(FALSE);
@@ -432,7 +426,7 @@ public:
 
   virtual PVideoFrame __stdcall GetFrame(int n, IScriptEnvironment* env) = 0;
   virtual bool __stdcall GetParity(int n) = 0;  // return field parity if field_based, else parity of first field in frame
-  virtual void __stdcall GetAudio(void* buf, qint64 start, qint64 count, IScriptEnvironment* env) = 0;  // start and count are in samples
+  virtual void __stdcall GetAudio(void* buf, int64_t start, int64_t count, IScriptEnvironment* env) = 0;  // start and count are in samples
   virtual void __stdcall SetCacheHints(int cachehints,int frame_range) = 0 ;  // We do not pass cache requests upwards, only to the next filter.
   virtual const VideoInfo& __stdcall GetVideoInfo() = 0;
   virtual __stdcall ~IClip() {}
@@ -515,7 +509,7 @@ public:
   AVSValue(const PClip& c) { type = 'c'; clip = c.GetPointerWithAddRef(); }
   AVSValue(bool b) { type = 'b'; boolean = b; }
   AVSValue(int i) { type = 'i'; integer = i; }
-//  AVSValue(qint64 l) { type = 'l'; longlong = l; }
+//  AVSValue(int64_t l) { type = 'l'; longlong = l; }
   AVSValue(float f) { type = 'f'; floating_pt = f; }
   AVSValue(double f) { type = 'f'; floating_pt = float(f); }
   AVSValue(const char* s) { type = 's'; string = s; }
@@ -567,7 +561,7 @@ private:
     float floating_pt;
     const char* string;
     const AVSValue* array;
-//    qint64 longlong;
+//    int64_t longlong;
   };
 
   void Assign(const AVSValue* src, bool init) {
@@ -590,7 +584,7 @@ protected:
 public:
   GenericVideoFilter(PClip _child) : child(_child) { vi = child->GetVideoInfo(); }
   PVideoFrame __stdcall GetFrame(int n, IScriptEnvironment* env) { return child->GetFrame(n, env); }
-  void __stdcall GetAudio(void* buf, qint64 start, qint64 count, IScriptEnvironment* env) { child->GetAudio(buf, start, count, env); }
+  void __stdcall GetAudio(void* buf, int64_t start, int64_t count, IScriptEnvironment* env) { child->GetAudio(buf, start, count, env); }
   const VideoInfo& __stdcall GetVideoInfo() { return vi; }
   bool __stdcall GetParity(int n) { return child->GetParity(n); }
   void __stdcall SetCacheHints(int cachehints,int frame_range);   // We do not pass cache requests upwards, only to the next filter.
@@ -629,7 +623,7 @@ class ConvertAudio : public GenericVideoFilter
 {
 public:
   ConvertAudio(PClip _clip, int prefered_format);
-  void __stdcall GetAudio(void* buf, qint64 start, qint64 count, IScriptEnvironment* env);
+  void __stdcall GetAudio(void* buf, int64_t start, int64_t count, IScriptEnvironment* env);
   void __stdcall SetCacheHints(int cachehints,int frame_range);  // We do pass cache requests upwards, to the cache!
 
   static PClip Create(PClip clip, int sample_type, int prefered_type);
@@ -718,7 +712,7 @@ public:
 
   virtual bool __stdcall MakeWritable(PVideoFrame* pvf) = 0;
 
-  virtual /*static*/ void __stdcall BitBlt(qint8* dstp, int dst_pitch, const qint8* srcp, int src_pitch, int row_size, int height) = 0;
+  virtual /*static*/ void __stdcall BitBlt(int8_t* dstp, int dst_pitch, const int8_t* srcp, int src_pitch, int row_size, int height) = 0;
 
   typedef void (__cdecl *ShutdownFunc)(void* user_data, IScriptEnvironment* env);
   virtual void __stdcall AtExit(ShutdownFunc function, void* user_data) = 0;

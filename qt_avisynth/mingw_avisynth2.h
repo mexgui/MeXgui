@@ -45,22 +45,22 @@ enum { AVISYNTH_INTERFACE_VERSION = 2 };
 /* Define all types necessary for interfacing with avisynth.dll
    Moved from internal.h */
 
-// Win32 API macros, notably the types qint8, DWORD, quint64, etc.
+// Win32 API macros, notably the types int8_t, DWORD, int64_t, etc.
 //#include <windef.h>
-#include <QtGlobal>
+#include <stdio.h>
 // COM interface macros
 //#include <objbase.h>
 #include <QAtomicInt>
-#include <QString>
+
 
 // Raster types used by VirtualDub & Avisynth
-#define in64 (qint64)(unsigned short)
-typedef quint64	Pixel;    // this will break on 64-bit machines!
-typedef quint64	Pixel32;
+#define in64 (int64_t)(unsigned short)
+typedef int64_t	Pixel;    // this will break on 64-bit machines!
+typedef int64_t	Pixel32;
 typedef unsigned char   Pixel8;
-typedef qint64			PixCoord;
-typedef	qint64			PixDim;
-typedef	qint64			PixOffset;
+typedef int64_t			PixCoord;
+typedef	int64_t			PixDim;
+typedef	int64_t			PixOffset;
 
 
 // Set up debugging macros
@@ -74,12 +74,12 @@ typedef	qint64			PixOffset;
 #include <assert.h>
 
 
-// I had problems with Premiere wanting 1-qint8 alignment for its structures,
+// I had problems with Premiere wanting 1-int8_t alignment for its structures,
 // so I now set the Avisynth struct alignment explicitly here.
 #pragma pack(push,8)
 
 #define FRAME_ALIGN 16
-// Default frame alignment is 16 qint8s, to help P4, when using SSE2
+// Default frame alignment is 16 int8_ts, to help P4, when using SSE2
 
 // The VideoInfo struct holds global information about a clip (i.e.
 // information that does not depend on the frame number).  The GetVideoInfo
@@ -132,7 +132,7 @@ struct VideoInfo {
 
   int audio_samples_per_second;   // 0 means no audio
   int sample_type;                // as of 2.5
-  qint64 num_audio_samples;      // changed as of 2.5
+  int64_t num_audio_samples;      // changed as of 2.5
   int nchannels;                  // as of 2.5
 
   // Imagetype properties
@@ -163,17 +163,17 @@ struct VideoInfo {
   bool IsTFF() const { return !!(image_type & IT_TFF); }
   
   bool IsVPlaneFirst() const {return ((pixel_type & CS_YV12) == CS_YV12); }  // Don't use this 
-  int qint8sFromPixels(int pixels) const { return pixels * (BitsPerPixel()>>3); }   // Will not work on planar images, but will return only luma planes
-  int RowSize() const { return qint8sFromPixels(width); }  // Also only returns first plane on planar images
+  int int8_tsFromPixels(int pixels) const { return pixels * (BitsPerPixel()>>3); }   // Will not work on planar images, but will return only luma planes
+  int RowSize() const { return int8_tsFromPixels(width); }  // Also only returns first plane on planar images
   int BMPSize() const { if (IsPlanar()) {int p = height * ((RowSize()+3) & ~3); p+=p>>1; return p;  } return height * ((RowSize()+3) & ~3); }
-  qint64 AudioSamplesFromFrames(qint64 frames) const { return ((qint64)(frames) * audio_samples_per_second * fps_denominator / fps_numerator); }
-  int FramesFromAudioSamples(qint64 samples) const { return (int)(samples * (qint64)fps_numerator / (qint64)fps_denominator / (qint64)audio_samples_per_second); }
-  qint64 AudioSamplesFromqint8s(qint64 qint8s) const { return qint8s / qint8sPerAudioSample(); }
-  qint64 qint8sFromAudioSamples(qint64 samples) const { return samples * qint8sPerAudioSample(); }
+  int64_t AudioSamplesFromFrames(int64_t frames) const { return ((int64_t)(frames) * audio_samples_per_second * fps_denominator / fps_numerator); }
+  int FramesFromAudioSamples(int64_t samples) const { return (int)(samples * (int64_t)fps_numerator / (int64_t)fps_denominator / (int64_t)audio_samples_per_second); }
+  int64_t AudioSamplesFromint8_ts(int64_t int8_ts) const { return int8_ts / int8_tsPerAudioSample(); }
+  int64_t int8_tsFromAudioSamples(int64_t samples) const { return samples * int8_tsPerAudioSample(); }
   int AudioChannels() const { return nchannels; }
   int SampleType() const{ return sample_type;}
   int SamplesPerSecond() const { return audio_samples_per_second; }
-  int qint8sPerAudioSample() const { return nchannels*qint8sPerChannelSample();}
+  int int8_tsPerAudioSample() const { return nchannels*int8_tsPerChannelSample();}
   void SetFieldBased(bool isfieldbased)  { if (isfieldbased) image_type|=IT_FIELDBASED; else  image_type&=~IT_FIELDBASED; }
   void Set(int property)  { image_type|=property; }
   void Clear(int property)  { image_type&=~property; }
@@ -193,7 +193,7 @@ struct VideoInfo {
         return 0;
     }
   }
-  int qint8sPerChannelSample() const { 
+  int int8_tsPerChannelSample() const {
     switch (sample_type) {
     case SAMPLE_INT8:
       return sizeof(signed char);
@@ -257,24 +257,24 @@ enum {  //SUBTYPES
 // file is closed.
 
 class VideoFrameBuffer {
-  qint8* const data;
+  int8_t* const data;
   const int data_size;
   // sequence_number is incremented every time the buffer is changed, so
-  // that stale views can tell they're no qint64er valid.
-  qint64 sequence_number;
+  // that stale views can tell they're no int64_ter valid.
+  int64_t sequence_number;
 
   friend class VideoFrame;
   friend class Cache;
   friend class ScriptEnvironment;
-  qint64 refcount;
+  int64_t refcount;
 
 public:
   VideoFrameBuffer(int size);
   VideoFrameBuffer();
   ~VideoFrameBuffer();
 
-  const qint8* GetReadPtr() const { return data; }
-  qint8* GetWritePtr() { ++sequence_number; return data; }
+  const int8_t* GetReadPtr() const { return data; }
+  int8_t* GetWritePtr() { ++sequence_number; return data; }
   int GetDataSize() { return data_size; }
   int GetSequenceNumber() { return sequence_number; }
   int GetRefcount() { return refcount; }
@@ -297,9 +297,9 @@ class VideoFrame {
   const int offset, pitch, row_size, height, offsetU, offsetV, pitchUV;  // U&V offsets are from top of picture.
 
   friend class PVideoFrame;
-  QAtomicInt reference((qint64 *)&refcount);
+  QAtomicInt::ref((int64_t *)&refcount);
   void AddRef() { reference::fetchAndAddOrdered(1) + 1; }
-  void Release() { if (refcount==1) refrence(&vfb->refcount)+1; reference::fetchAndAddOrdered((qint64 *)&refcount) + 1; }
+  void Release() { if (refcount==1) refrence(&vfb->refcount)+1; reference::fetchAndAddOrdered((int64_t *)&refcount) + 1; }
 
   friend class ScriptEnvironment;
   friend class Cache;
@@ -343,12 +343,12 @@ public:
   VideoFrame* Subframe(int rel_offset, int new_pitch, int new_row_size, int new_height, int rel_offsetU, int rel_offsetV, int pitchUV) const;
 
 
-  const qint8* GetReadPtr() const { return vfb->GetReadPtr() + offset; }
-  const qint8* GetReadPtr(int plane) const { return vfb->GetReadPtr() + GetOffset(plane); }
+  const int8_t* GetReadPtr() const { return vfb->GetReadPtr() + offset; }
+  const int8_t* GetReadPtr(int plane) const { return vfb->GetReadPtr() + GetOffset(plane); }
 
   bool IsWritable() const { return (refcount == 1 && vfb->refcount == 1); }
 
-  qint8* GetWritePtr() const {
+  int8_t* GetWritePtr() const {
     if (vfb->GetRefcount()>1) {
       _ASSERT(FALSE);
       //throw AvisynthError("Internal Error - refcount was more than one!");
@@ -356,7 +356,7 @@ public:
     return IsWritable() ? (vfb->GetWritePtr() + offset) : 0;
   }
 
-  qint8* GetWritePtr(int plane) const {
+  int8_t* GetWritePtr(int plane) const {
     if (plane==PLANAR_Y) {
       if (vfb->GetRefcount()>1) {
         _ASSERT(FALSE);
@@ -382,8 +382,8 @@ class IClip {
   friend class AVSValue;
   int refcnt;
   QAtomicInt::QAtomicInt(refcnt);
-  void AddRef() { QAtomicInt::ref((qint64 *)&refcnt); }
-  void Release() { QAtomicInt::deref((qint64 *)&refcnt); if (!refcnt) delete this; }
+  void AddRef() { QAtomicInt::ref((int64_t *)&refcnt); }
+  void Release() { QAtomicInt::deref((int64_t *)&refcnt); if (!refcnt) delete this; }
 public:
   IClip() : refcnt(0) {}
 
@@ -391,7 +391,7 @@ public:
   
   virtual PVideoFrame __stdcall GetFrame(int n, IScriptEnvironment* env) = 0;
   virtual bool __stdcall GetParity(int n) = 0;  // return field parity if field_based, else parity of first field in frame
-  virtual void __stdcall GetAudio(void* buf, qint64 start, qint64 count, IScriptEnvironment* env) = 0;  // start and count are in samples
+  virtual void __stdcall GetAudio(void* buf, int64_t start, int64_t count, IScriptEnvironment* env) = 0;  // start and count are in samples
   virtual void __stdcall SetCacheHints(int cachehints,int frame_range) = 0 ;  // We do not pass cache requests upwards, only to the next filter.
   virtual const VideoInfo& __stdcall GetVideoInfo() = 0;
   virtual __stdcall ~IClip() {}
@@ -474,7 +474,7 @@ public:
   AVSValue(const PClip& c) { type = 'c'; clip = c.GetPointerWithAddRef(); }
   AVSValue(bool b) { type = 'b'; boolean = b; }
   AVSValue(int i) { type = 'i'; integer = i; }
-//  AVSValue(qint64 l) { type = 'l'; qint64long = l; }
+//  AVSValue(int64_t l) { type = 'l'; int64_tlong = l; }
   AVSValue(float f) { type = 'f'; floating_pt = f; }
   AVSValue(double f) { type = 'f'; floating_pt = float(f); }
   AVSValue(const char* s) { type = 's'; string = s; }
@@ -491,7 +491,7 @@ public:
   bool IsClip() const { return type == 'c'; }
   bool IsBool() const { return type == 'b'; }
   bool IsInt() const { return type == 'i'; }
-//  bool Isqint64() const { return (type == 'l'|| type == 'i'); }
+//  bool Isint64_t() const { return (type == 'l'|| type == 'i'); }
   bool IsFloat() const { return type == 'f' || type == 'i'; }
   bool IsString() const { return type == 's'; }
   bool IsArray() const { return type == 'a'; }
@@ -499,7 +499,7 @@ public:
   PClip AsClip() const { _ASSERTE(IsClip()); return IsClip()?clip:0; }
   bool AsBool() const { _ASSERTE(IsBool()); return boolean; }
   int AsInt() const { _ASSERTE(IsInt()); return integer; }   
-//  int Asqint64() const { _ASSERTE(Isqint64()); return qint64long; }
+//  int Asint64_t() const { _ASSERTE(Isint64_t()); return int64_tlong; }
   const char* AsString() const { _ASSERTE(IsString()); return IsString()?string:0; }
   double AsFloat() const { _ASSERTE(IsFloat()); return IsInt()?integer:floating_pt; }
 
@@ -526,7 +526,7 @@ private:
     float floating_pt;
     const char* string;
     const AVSValue* array;
-//    qint64 qint64long;
+//    int64_t int64_tlong;
   };
 
   void Assign(const AVSValue* src, bool init) {
@@ -549,7 +549,7 @@ protected:
 public:
   GenericVideoFilter(PClip _child) : child(_child) { vi = child->GetVideoInfo(); }
   PVideoFrame __stdcall GetFrame(int n, IScriptEnvironment* env) { return child->GetFrame(n, env); }
-  void __stdcall GetAudio(void* buf, qint64 start, qint64 count, IScriptEnvironment* env) { child->GetAudio(buf, start, count, env); }
+  void __stdcall GetAudio(void* buf, int64_t start, int64_t count, IScriptEnvironment* env) { child->GetAudio(buf, start, count, env); }
   const VideoInfo& __stdcall GetVideoInfo() { return vi; }
   bool __stdcall GetParity(int n) { return child->GetParity(n); }
   void __stdcall SetCacheHints(int cachehints,int frame_range);   // We do not pass cache requests upwards, only to the next filter.
@@ -594,7 +594,7 @@ class ConvertAudio : public GenericVideoFilter
 {
 public:
   ConvertAudio(PClip _clip, int prefered_format);
-  void __stdcall GetAudio(void* buf, qint64 start, qint64 count, IScriptEnvironment* env);
+  void __stdcall GetAudio(void* buf, int64_t start, int64_t count, IScriptEnvironment* env);
 
   static PClip Create(PClip clip, int sample_type, int prefered_type);
   static AVSValue __cdecl Create_float(AVSValue args, void*, IScriptEnvironment*);
@@ -645,7 +645,7 @@ class IScriptEnvironment {
 public:
   virtual __stdcall ~IScriptEnvironment() {}
 
-  virtual /*static*/ qint64 __stdcall GetCPUFlags() = 0;
+  virtual /*static*/ int64_t __stdcall GetCPUFlags() = 0;
 
   virtual char* __stdcall SaveString(const char* s, int length = -1) = 0;
   virtual char* __stdcall Sprintf(const char* fmt, ...) = 0;
@@ -674,7 +674,7 @@ public:
 
   virtual bool __stdcall MakeWritable(PVideoFrame* pvf) = 0;
 
-  virtual /*static*/ void __stdcall BitBlt(qint8* dstp, int dst_pitch, const qint8* srcp, int src_pitch, int row_size, int height) = 0;
+  virtual /*static*/ void __stdcall BitBlt(int8_t* dstp, int dst_pitch, const int8_t* srcp, int src_pitch, int row_size, int height) = 0;
 
   typedef void (__cdecl *ShutdownFunc)(void* user_data, IScriptEnvironment* env);
   virtual void __stdcall AtExit(ShutdownFunc function, void* user_data) = 0;

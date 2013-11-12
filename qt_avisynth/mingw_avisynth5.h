@@ -46,13 +46,13 @@ enum { AVISYNTH_INTERFACE_VERSION = 5 };
 /* Define all types necessary for interfacing with avisynth.dll
    Moved from internal.h */
 
-// Win32 API macros, notably the types qint8, DWORD, ULONG, etc.
+// Win32 API macros, notably the types int8_t, DWORD, ULONG, etc.
 //#include <windef.h>
-#include <QDataStream>
+#include <stdio.h>
 
 
 // Raster types used by VirtualDub & Avisynth
-#define in64 (qint64)(unsigned short)
+#define in64 (int64_t)(unsigned short)
 typedef quint32         Pixel;    // this will break on 64-bit machines!
 typedef quint32         Pixel32;
 typedef unsigned char   Pixel8;
@@ -180,10 +180,10 @@ struct AVS_Linkage {
   int     (VideoInfo::*BytesFromPixels)(int pixels) const;
   int     (VideoInfo::*RowSize)(int plane) const;
   int     (VideoInfo::*BMPSize)() const;
-  qint64 (VideoInfo::*AudioSamplesFromFrames)(int frames) const;
-  int     (VideoInfo::*FramesFromAudioSamples)(qint64 samples) const;
-  qint64 (VideoInfo::*AudioSamplesFromBytes)(qint64 bytes) const;
-  qint64 (VideoInfo::*BytesFromAudioSamples)(qint64 samples) const;
+  int64_t (VideoInfo::*AudioSamplesFromFrames)(int frames) const;
+  int     (VideoInfo::*FramesFromAudioSamples)(int64_t samples) const;
+  int64_t (VideoInfo::*AudioSamplesFromBytes)(int64_t bytes) const;
+  int64_t (VideoInfo::*BytesFromAudioSamples)(int64_t samples) const;
   int     (VideoInfo::*AudioChannels)() const;
   int     (VideoInfo::*SampleType)() const;
   bool    (VideoInfo::*IsSampleType)(int testtype) const;
@@ -204,8 +204,8 @@ struct AVS_Linkage {
 /**********************************************************************/
 
 // class VideoFrameBuffer
-  const qint8* (VideoFrameBuffer::*VFBGetReadPtr)() const;
-  qint8*       (VideoFrameBuffer::*VFBGetWritePtr)();
+  const int8_t* (VideoFrameBuffer::*VFBGetReadPtr)() const;
+  int8_t*       (VideoFrameBuffer::*VFBGetWritePtr)();
   int         (VideoFrameBuffer::*GetDataSize)() const;
   int         (VideoFrameBuffer::*GetSequenceNumber)() const;
   int         (VideoFrameBuffer::*GetRefcount)() const;
@@ -219,9 +219,9 @@ struct AVS_Linkage {
   int               (VideoFrame::*GetHeight)(int plane) const;
   VideoFrameBuffer* (VideoFrame::*GetFrameBuffer)() const;
   int               (VideoFrame::*GetOffset)(int plane) const;
-  const qint8*       (VideoFrame::*VFGetReadPtr)(int plane) const;
+  const int8_t*       (VideoFrame::*VFGetReadPtr)(int plane) const;
   bool              (VideoFrame::*IsWritable)() const;
-  qint8*             (VideoFrame::*VFGetWritePtr)(int plane) const;
+  int8_t*             (VideoFrame::*VFGetWritePtr)(int plane) const;
   void              (VideoFrame::*VideoFrame_DESTRUCTOR)();
 // end class VideoFrame
 
@@ -424,7 +424,7 @@ Planar filter mask 1111.1111.1111.1111.1111.1111.1100.1111
 
   int audio_samples_per_second;   // 0 means no audio
   int sample_type;                // as of 2.5
-  qint64 num_audio_samples;      // changed as of 2.5
+  int64_t num_audio_samples;      // changed as of 2.5
   int nchannels;                  // as of 2.5
 
   // Imagetype properties
@@ -476,10 +476,10 @@ Planar filter mask 1111.1111.1111.1111.1111.1111.1100.1111
   int RowSize(int plane=0) const AVS_BakedCode( return AVS_LinkCall(RowSize)(plane) )
   int BMPSize() const AVS_BakedCode( return AVS_LinkCall(BMPSize)() )
 
-  qint64 AudioSamplesFromFrames(int frames) const AVS_BakedCode( return AVS_LinkCall(AudioSamplesFromFrames)(frames) )
-  int FramesFromAudioSamples(qint64 samples) const AVS_BakedCode( return AVS_LinkCall(FramesFromAudioSamples)(samples) )
-  qint64 AudioSamplesFromBytes(qint64 bytes) const AVS_BakedCode( return AVS_LinkCall(AudioSamplesFromBytes)(bytes) )
-  qint64 BytesFromAudioSamples(qint64 samples) const AVS_BakedCode( return AVS_LinkCall(BytesFromAudioSamples)(samples) )
+  int64_t AudioSamplesFromFrames(int frames) const AVS_BakedCode( return AVS_LinkCall(AudioSamplesFromFrames)(frames) )
+  int FramesFromAudioSamples(int64_t samples) const AVS_BakedCode( return AVS_LinkCall(FramesFromAudioSamples)(samples) )
+  int64_t AudioSamplesFromBytes(int64_t bytes) const AVS_BakedCode( return AVS_LinkCall(AudioSamplesFromBytes)(bytes) )
+  int64_t BytesFromAudioSamples(int64_t samples) const AVS_BakedCode( return AVS_LinkCall(BytesFromAudioSamples)(samples) )
   int AudioChannels() const AVS_BakedCode( return AVS_LinkCall(AudioChannels)() )
   int SampleType() const AVS_BakedCode( return AVS_LinkCall(SampleType)() )
   bool IsSampleType(int testtype) const AVS_BakedCode( return AVS_LinkCall(IsSampleType)(testtype) )
@@ -516,7 +516,7 @@ Planar filter mask 1111.1111.1111.1111.1111.1111.1100.1111
 // file is closed.
 
 class VideoFrameBuffer {
-  qint8* const data;
+  int8_t* const data;
   const int data_size;
   // sequence_number is incremented every time the buffer is changed, so
   // that stale views can tell they're no longer valid.
@@ -533,8 +533,8 @@ protected:
   ~VideoFrameBuffer();
 
 public:
-  const qint8* GetReadPtr() const AVS_BakedCode( return AVS_LinkCall(VFBGetReadPtr)() )
-  qint8* GetWritePtr() AVS_BakedCode( return AVS_LinkCall(VFBGetWritePtr)() )
+  const int8_t* GetReadPtr() const AVS_BakedCode( return AVS_LinkCall(VFBGetReadPtr)() )
+  int8_t* GetWritePtr() AVS_BakedCode( return AVS_LinkCall(VFBGetWritePtr)() )
   int GetDataSize() const AVS_BakedCode( return AVS_LinkCall(GetDataSize)() )
   int GetSequenceNumber() const AVS_BakedCode( return AVS_LinkCall(GetSequenceNumber)() )
   int GetRefcount() const AVS_BakedCode( return AVS_LinkCall(GetRefcount)() )
@@ -575,9 +575,9 @@ public:
   VideoFrame* Subframe(int rel_offset, int new_pitch, int new_row_size, int new_height) const;
   VideoFrame* Subframe(int rel_offset, int new_pitch, int new_row_size, int new_height, int rel_offsetU, int rel_offsetV, int pitchUV) const;
 
-  const qint8* GetReadPtr(int plane=0) const AVS_BakedCode( return AVS_LinkCall(VFGetReadPtr)(plane) )
+  const int8_t* GetReadPtr(int plane=0) const AVS_BakedCode( return AVS_LinkCall(VFGetReadPtr)(plane) )
   bool IsWritable() const AVS_BakedCode( return AVS_LinkCall(IsWritable)() )
-  qint8* GetWritePtr(int plane=0) const AVS_BakedCode( return AVS_LinkCall(VFGetWritePtr)(plane) )
+  int8_t* GetWritePtr(int plane=0) const AVS_BakedCode( return AVS_LinkCall(VFGetWritePtr)(plane) )
 
   ~VideoFrame() AVS_BakedCode( AVS_LinkCall(VideoFrame_DESTRUCTOR)() )
 #ifdef AVISYNTH_CORE
@@ -662,7 +662,7 @@ public:
   virtual int __stdcall GetVersion() { return AVISYNTH_INTERFACE_VERSION; }
   virtual PVideoFrame __stdcall GetFrame(int n, IScriptEnvironment* env) = 0;
   virtual bool __stdcall GetParity(int n) = 0;  // return field parity if field_based, else parity of first field in frame
-  virtual void __stdcall GetAudio(void* buf, qint64 start, qint64 count, IScriptEnvironment* env) = 0;  // start and count are in samples
+  virtual void __stdcall GetAudio(void* buf, int64_t start, int64_t count, IScriptEnvironment* env) = 0;  // start and count are in samples
   /* Need to check GetVersion first, pre v5 will return random crap from EAX reg. */
   virtual int __stdcall SetCacheHints(int cachehints,int frame_range) = 0 ;  // We do not pass cache requests upwards, only to the next filter.
   virtual const VideoInfo& __stdcall GetVideoInfo() = 0;
@@ -750,7 +750,7 @@ public:
   AVSValue(const PClip& c) AVS_BakedCode( AVS_LinkCall(AVSValue_CONSTRUCTOR2)(c) )
   AVSValue(bool b) AVS_BakedCode( AVS_LinkCall(AVSValue_CONSTRUCTOR3)(b) )
   AVSValue(int i) AVS_BakedCode( AVS_LinkCall(AVSValue_CONSTRUCTOR4)(i) )
-//  AVSValue(qint64 l);
+//  AVSValue(int64_t l);
   AVSValue(float f) AVS_BakedCode( AVS_LinkCall(AVSValue_CONSTRUCTOR5)(f) )
   AVSValue(double f) AVS_BakedCode( AVS_LinkCall(AVSValue_CONSTRUCTOR6)(f) )
   AVSValue(const char* s) AVS_BakedCode( AVS_LinkCall(AVSValue_CONSTRUCTOR7)(s) )
@@ -801,7 +801,7 @@ private:
     float floating_pt;
     const char* string;
     const AVSValue* array;
-//    qint64 longlong;
+//    int64_t longlong;
   };
 
   void Assign(const AVSValue* src, bool init);
@@ -845,7 +845,7 @@ protected:
 public:
   GenericVideoFilter(PClip _child) : child(_child) { vi = child->GetVideoInfo(); }
   PVideoFrame __stdcall GetFrame(int n, IScriptEnvironment* env) { return child->GetFrame(n, env); }
-  void __stdcall GetAudio(void* buf, qint64 start, qint64 count, IScriptEnvironment* env) { child->GetAudio(buf, start, count, env); }
+  void __stdcall GetAudio(void* buf, int64_t start, int64_t count, IScriptEnvironment* env) { child->GetAudio(buf, start, count, env); }
   const VideoInfo& __stdcall GetVideoInfo() { return vi; }
   bool __stdcall GetParity(int n) { return child->GetParity(n); }
   int __stdcall SetCacheHints(int cachehints,int frame_range) { return 0; }  // We do not pass cache requests upwards, only to the next filter.
@@ -884,7 +884,7 @@ class ConvertAudio : public GenericVideoFilter
 {
 public:
   ConvertAudio(PClip _clip, int prefered_format);
-  void __stdcall GetAudio(void* buf, qint64 start, qint64 count, IScriptEnvironment* env);
+  void __stdcall GetAudio(void* buf, int64_t start, int64_t count, IScriptEnvironment* env);
   int __stdcall SetCacheHints(int cachehints,int frame_range);  // We do pass cache requests upwards, to the cache!
 
   static PClip Create(PClip clip, int sample_type, int prefered_type);
@@ -979,7 +979,7 @@ public:
 
   virtual bool __stdcall MakeWritable(PVideoFrame* pvf) = 0;
 
-  virtual /*static*/ void __stdcall BitBlt(qint8* dstp, int dst_pitch, const qint8* srcp, int src_pitch, int row_size, int height) = 0;
+  virtual /*static*/ void __stdcall BitBlt(int8_t* dstp, int dst_pitch, const int8_t* srcp, int src_pitch, int row_size, int height) = 0;
 
   typedef void (__cdecl *ShutdownFunc)(void* user_data, IScriptEnvironment* env);
   virtual void __stdcall AtExit(ShutdownFunc function, void* user_data) = 0;
