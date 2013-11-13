@@ -47,7 +47,7 @@ enum { AVISYNTH_INTERFACE_VERSION = 2 };
 
 // Win32 API macros, notably the types unsigned char, DWORD, int64_t, etc.
 //#include <windef.h>
-#include <stdio.h>
+#include <stdint.h>
 // COM interface macros
 //#include <objbase.h>
 #include <QAtomicInt>

@@ -47,7 +47,7 @@ enum { AVISYNTH_INTERFACE_VERSION = 3 };
 
 // Win32 API macros, notably the types unsigned char, DWORD, ULONG, etc.
 //#include <windef.h>
-#include <stdio.h>
+#include <stdint.h>
 
 // COM interface macros
 //#include <objbase.h>
