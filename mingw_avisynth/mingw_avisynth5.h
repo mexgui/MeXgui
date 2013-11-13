@@ -63,19 +63,25 @@ typedef int32_t          PixOffset;
 
 /* Compiler-specific crap */
 
-
+// Tell MSVC to stop precompiling here
+#ifdef _MSC_VER
+  #pragma hdrstop
+#endif
 
 // Set up debugging macros for MS compilers; for others, step down to the
 // standard <assert.h> interface
+#ifdef _MSC_VER
+  #include <crtdbg.h>
+#else
+  #define _RPT0(a,b) ((void)0)
+  #define _RPT1(a,b,c) ((void)0)
+  #define _RPT2(a,b,c,d) ((void)0)
+  #define _RPT3(a,b,c,d,e) ((void)0)
+  #define _RPT4(a,b,c,d,e,f) ((void)0)
 
-#define _RPT0(a,b) ((void)0)
-#define _RPT1(a,b,c) ((void)0)
-#define _RPT2(a,b,c,d) ((void)0)
-#define _RPT3(a,b,c,d,e) ((void)0)
-#define _RPT4(a,b,c,d,e,f) ((void)0)
-
-#define _ASSERTE(x) assert(x)
-#include <assert.h>
+  #define _ASSERTE(x) assert(x)
+  #include <assert.h>
+#endif
 
 
 
@@ -520,12 +526,12 @@ class VideoFrameBuffer {
   const int data_size;
   // sequence_number is incremented every time the buffer is changed, so
   // that stale views can tell they're no longer valid.
-  volatile qint32 sequence_number;
+  volatile int32_t sequence_number;
 
   friend class VideoFrame;
   friend class Cache;
   friend class ScriptEnvironment;
-  volatile qint32 refcount;
+  volatile int32_t refcount;
 
 protected:
   VideoFrameBuffer(int size);
@@ -545,7 +551,7 @@ public:
 // is overloaded to recycle class instances.
 
 class VideoFrame {
-  volatile qint32 refcount;
+  volatile int32_t refcount;
   VideoFrameBuffer* const vfb;
   const int offset, pitch, row_size, height, offsetU, offsetV, pitchUV;  // U&V offsets are from top of picture.
   const int row_sizeUV, heightUV;
@@ -654,7 +660,7 @@ enum {
 class IClip {
   friend class PClip;
   friend class AVSValue;
-  volatile qint32 refcnt;
+  volatile int32_t refcnt;
   void AddRef();
   void Release();
 public:
@@ -950,7 +956,7 @@ class IScriptEnvironment {
 public:
   virtual __stdcall ~IScriptEnvironment() {}
 
-  virtual /*static*/ qint32 __stdcall GetCPUFlags() = 0;
+  virtual /*static*/ int32_t __stdcall GetCPUFlags() = 0;
 
   virtual char* __stdcall SaveString(const char* s, int length = -1) = 0;
   virtual char* __stdcall Sprintf(const char* fmt, ...) = 0;
