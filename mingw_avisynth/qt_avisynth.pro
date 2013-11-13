@@ -16,6 +16,7 @@ HEADERS  += \
     mingw_avisynth5.h \
     avisynthdll.h \
     mingw_avisynth2.h \
-    mingw_avisynth3.h
+    mingw_avisynth3.h \
+    avisynth26.h
 
 FORMS    +=
