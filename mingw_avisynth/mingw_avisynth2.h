@@ -55,8 +55,8 @@ enum { AVISYNTH_INTERFACE_VERSION = 2 };
 
 // Raster types used by VirtualDub & Avisynth
 #define in64 (int64_t)(unsigned short)
-typedef int64_t	Pixel;    // this will break on 64-bit machines!
-typedef int64_t	Pixel32;
+typedef uint64_t         Pixel;    // this will break on 64-bit machines!
+typedef uint64_t         Pixel32;
 typedef unsigned char   Pixel8;
 typedef int64_t			PixCoord;
 typedef	int64_t			PixDim;
@@ -297,8 +297,7 @@ class VideoFrame {
   const int offset, pitch, row_size, height, offsetU, offsetV, pitchUV;  // U&V offsets are from top of picture.
 
   friend class PVideoFrame;
-  QAtomicInt::ref((int64_t *)&refcount);
-  void AddRef() { reference::fetchAndAddOrdered(1) + 1; }
+  void AddRef() { InterlockedIncremen((long *)&refcnt);t}
   void Release() { if (refcount==1) refrence(&vfb->refcount)+1; reference::fetchAndAddOrdered((int64_t *)&refcount) + 1; }
 
   friend class ScriptEnvironment;
