@@ -670,7 +670,7 @@ public:
   /* Need to check GetVersion first, pre v5 will return random crap from EAX reg. */
   virtual int __stdcall SetCacheHints(int cachehints,int frame_range) = 0 ;  // We do not pass cache requests upwards, only to the next filter.
   virtual const VideoInfo& __stdcall GetVideoInfo() = 0;
-  virtual __stdcall ~IClip() {}
+  virtual __stdcall __stdcall IClip() {}
 }; // end class IClip
 
 

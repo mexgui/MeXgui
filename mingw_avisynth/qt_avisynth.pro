@@ -6,7 +6,7 @@
 
 QT       += core
 
-TARGET = qt_avisynth
+TARGET = mingw_avisynth
 TEMPLATE =
 
 
@@ -14,9 +14,6 @@ SOURCES +=
 
 HEADERS  += \
     mingw_avisynth5.h \
-    mingw_avisynth2.h \
-    mingw_avisynth3.h \
-    avisynth26.h \
     mingw_avisynthdll.h
 
 FORMS    +=

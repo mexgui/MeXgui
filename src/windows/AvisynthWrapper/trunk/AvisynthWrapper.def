@@ -1,8 +1,0 @@
-EXPORTS
-	dimzon_avs_init
-	dimzon_avs_init_2
-	dimzon_avs_destroy
-	dimzon_avs_getlasterror
-	dimzon_avs_getvframe
-	dimzon_avs_getaframe
-	dimzon_avs_getintvariable
