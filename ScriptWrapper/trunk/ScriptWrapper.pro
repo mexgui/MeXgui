@@ -4,16 +4,16 @@
 
 QT       -= qui
 
-TARGET = AvisynthWrapper
+TARGET = ScriptWrapper
 TEMPLATE = lib
 
-DEFINES += AVISYNTHWRAPPER_LIBRARY
+DEFINES += SCRIPTWRAPPER_LIBRARY
 
-SOURCES += AvisynthWrapper.cpp \
-    Avisynth_C_Wrapper.cpp
+SOURCES += main.cpp AvisynthWrapper.cpp \
+    VapurSynthWrapper.cpp
 
-HEADERS += avisynth.h avisynthdll.h internal.h \
-    avisynth_c.h
+HEADERS +=  avisynth_c.h VapourSynth.h \
+	avisynthdll.h
 
 CONFIG += qaxcontainer
 
@@ -24,7 +24,7 @@ symbian {
     TARGET.UID3 = 0xE17E8443
     TARGET.CAPABILITY = 
     TARGET.EPOCALLOWDLLDATA = 1
-    addFiles.sources = AvisynthWrapper.dll
+    addFiles.sources = ScriptWrapper.dll
     addFiles.path = !:/sys/bin
     DEPLOYMENT += addFiles
 }
