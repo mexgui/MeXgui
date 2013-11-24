@@ -9,9 +9,11 @@ TEMPLATE = lib
 
 DEFINES += AVISYNTHWRAPPER_LIBRARY
 
-SOURCES += AvisynthWrapper.cpp
+SOURCES += AvisynthWrapper.cpp \
+    Avisynth_C_Wrapper.cpp
 
-HEADERS += avisynth.h avisynthdll.h internal.h
+HEADERS += avisynth.h avisynthdll.h internal.h \
+    avisynth_c.h
 
 CONFIG += qaxcontainer
 

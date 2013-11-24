@@ -132,14 +132,14 @@ public:
 
 
 /* Forward references */
-struct __single_inheritance VideoInfo;
-class __single_inheritance VideoFrameBuffer;
-class __single_inheritance VideoFrame;
+struct VideoInfo;
+class  VideoFrameBuffer;
+class VideoFrame;
 class IClip;
-class __single_inheritance PClip;
-class __single_inheritance PVideoFrame;
+class PClip;
+class PVideoFrame;
 class IScriptEnvironment;
-class __single_inheritance AVSValue;
+class AVSValue;
 
 
 /*
@@ -665,14 +665,14 @@ class IClip {
   void Release();
 public:
   IClip() : refcnt(0) {}
-  virtual int __stdcall GetVersion() { return AVISYNTH_INTERFACE_VERSION; }
-  virtual PVideoFrame __stdcall GetFrame(int n, IScriptEnvironment* env) = 0;
-  virtual bool __stdcall GetParity(int n) = 0;  // return field parity if field_based, else parity of first field in frame
-  virtual void __stdcall GetAudio(void* buf, int64_t start, int64_t count, IScriptEnvironment* env) = 0;  // start and count are in samples
+  virtual int __cdecl GetVersion() { return AVISYNTH_INTERFACE_VERSION; }
+  virtual PVideoFrame __cdecl GetFrame(int n, IScriptEnvironment* env) = 0;
+  virtual bool __cdecl GetParity(int n) = 0;  // return field parity if field_based, else parity of first field in frame
+  virtual void __cdecl GetAudio(void* buf, int64_t start, int64_t count, IScriptEnvironment* env) = 0;  // start and count are in samples
   /* Need to check GetVersion first, pre v5 will return random crap from EAX reg. */
-  virtual int __stdcall SetCacheHints(int cachehints,int frame_range) = 0 ;  // We do not pass cache requests upwards, only to the next filter.
-  virtual const VideoInfo& __stdcall GetVideoInfo() = 0;
-  virtual __stdcall ~IClip() {}
+  virtual int __cdecl SetCacheHints(int cachehints,int frame_range) = 0 ;  // We do not pass cache requests upwards, only to the next filter.
+  virtual const VideoInfo& __cdcl GetVideoInfo() = 0;
+  virtual __cdecl ~IClip() {}
 }; // end class IClip
 
 
@@ -850,11 +850,11 @@ protected:
   VideoInfo vi;
 public:
   GenericVideoFilter(PClip _child) : child(_child) { vi = child->GetVideoInfo(); }
-  PVideoFrame __stdcall GetFrame(int n, IScriptEnvironment* env) { return child->GetFrame(n, env); }
-  void __stdcall GetAudio(void* buf, int64_t start, int64_t count, IScriptEnvironment* env) { child->GetAudio(buf, start, count, env); }
-  const VideoInfo& __stdcall GetVideoInfo() { return vi; }
-  bool __stdcall GetParity(int n) { return child->GetParity(n); }
-  int __stdcall SetCacheHints(int cachehints,int frame_range) { return 0; }  // We do not pass cache requests upwards, only to the next filter.
+  PVideoFrame __cdecl GetFrame(int n, IScriptEnvironment* env) { return child->GetFrame(n, env); }
+  void __cdecl GetAudio(void* buf, int64_t start, int64_t count, IScriptEnvironment* env) { child->GetAudio(buf, start, count, env); }
+  const VideoInfo& __cdecl GetVideoInfo() { return vi; }
+  bool __cdecl GetParity(int n) { return child->GetParity(n); }
+  int __cdecl SetCacheHints(int cachehints,int frame_range) { return 0; }  // We do not pass cache requests upwards, only to the next filter.
 };
 
 
@@ -868,7 +868,7 @@ class AlignPlanar : public GenericVideoFilter
 public:
   AlignPlanar(PClip _clip);
   static PClip Create(PClip clip);
-  PVideoFrame __stdcall GetFrame(int n, IScriptEnvironment* env);
+  PVideoFrame __cdecl GetFrame(int n, IScriptEnvironment* env);
 };
 
 
@@ -878,7 +878,7 @@ class FillBorder : public GenericVideoFilter
 public:
   FillBorder(PClip _clip);
   static PClip Create(PClip clip);
-  PVideoFrame __stdcall GetFrame(int n, IScriptEnvironment* env);
+  PVideoFrame __cdecl GetFrame(int n, IScriptEnvironment* env);
 };
 
 
@@ -890,8 +890,8 @@ class ConvertAudio : public GenericVideoFilter
 {
 public:
   ConvertAudio(PClip _clip, int prefered_format);
-  void __stdcall GetAudio(void* buf, int64_t start, int64_t count, IScriptEnvironment* env);
-  int __stdcall SetCacheHints(int cachehints,int frame_range);  // We do pass cache requests upwards, to the cache!
+  void __cdecl GetAudio(void* buf, int64_t start, int64_t count, IScriptEnvironment* env);
+  int __cdecl SetCacheHints(int cachehints,int frame_range);  // We do pass cache requests upwards, to the cache!
 
   static PClip Create(PClip clip, int sample_type, int prefered_type);
   static AVSValue __cdecl Create_float(AVSValue args, void*, IScriptEnvironment*);
@@ -954,73 +954,73 @@ enum {
 
 class IScriptEnvironment {
 public:
-  virtual __stdcall ~IScriptEnvironment() {}
+  virtual __cdecl ~IScriptEnvironment() {}
 
-  virtual /*static*/ int32_t __stdcall GetCPUFlags() = 0;
+  virtual /*static*/ int32_t __cdecl GetCPUFlags() = 0;
 
-  virtual char* __stdcall SaveString(const char* s, int length = -1) = 0;
-  virtual char* __stdcall Sprintf(const char* fmt, ...) = 0;
+  virtual char* __cdecl SaveString(const char* s, int length = -1) = 0;
+  virtual char* __cdecl Sprintf(const char* fmt, ...) = 0;
   // note: val is really a va_list; I hope everyone typedefs va_list to a pointer
-  virtual char* __stdcall VSprintf(const char* fmt, void* val) = 0;
+  virtual char* __cdecl VSprintf(const char* fmt, void* val) = 0;
 
-  __declspec(noreturn) virtual void __stdcall ThrowError(const char* fmt, ...) = 0;
+  __declspec(noreturn) virtual void __cdecl ThrowError(const char* fmt, ...) = 0;
 
   class NotFound /*exception*/ {};  // thrown by Invoke and GetVar
 
   typedef AVSValue (__cdecl *ApplyFunc)(AVSValue args, void* user_data, IScriptEnvironment* env);
 
-  virtual void __stdcall AddFunction(const char* name, const char* params, ApplyFunc apply, void* user_data) = 0;
-  virtual bool __stdcall FunctionExists(const char* name) = 0;
-  virtual AVSValue __stdcall Invoke(const char* name, const AVSValue args, const char* const* arg_names=0) = 0;
+  virtual void __cdecl AddFunction(const char* name, const char* params, ApplyFunc apply, void* user_data) = 0;
+  virtual bool __cdecl FunctionExists(const char* name) = 0;
+  virtual AVSValue __cdecl Invoke(const char* name, const AVSValue args, const char* const* arg_names=0) = 0;
 
-  virtual AVSValue __stdcall GetVar(const char* name) = 0;
-  virtual bool __stdcall SetVar(const char* name, const AVSValue& val) = 0;
-  virtual bool __stdcall SetGlobalVar(const char* name, const AVSValue& val) = 0;
+  virtual AVSValue __cdecl GetVar(const char* name) = 0;
+  virtual bool __cdecl SetVar(const char* name, const AVSValue& val) = 0;
+  virtual bool __cdecl SetGlobalVar(const char* name, const AVSValue& val) = 0;
 
-  virtual void __stdcall PushContext(int level=0) = 0;
-  virtual void __stdcall PopContext() = 0;
+  virtual void __cdecl PushContext(int level=0) = 0;
+  virtual void __cdecl PopContext() = 0;
 
   // align should be 4 or 8
-  virtual PVideoFrame __stdcall NewVideoFrame(const VideoInfo& vi, int align=FRAME_ALIGN) = 0;
+  virtual PVideoFrame __cdecl NewVideoFrame(const VideoInfo& vi, int align=FRAME_ALIGN) = 0;
 
-  virtual bool __stdcall MakeWritable(PVideoFrame* pvf) = 0;
+  virtual bool __cdecl MakeWritable(PVideoFrame* pvf) = 0;
 
-  virtual /*static*/ void __stdcall BitBlt(unsigned char* dstp, int dst_pitch, const unsigned char* srcp, int src_pitch, int row_size, int height) = 0;
+  virtual /*static*/ void __cdecl BitBlt(unsigned char* dstp, int dst_pitch, const unsigned char* srcp, int src_pitch, int row_size, int height) = 0;
 
   typedef void (__cdecl *ShutdownFunc)(void* user_data, IScriptEnvironment* env);
-  virtual void __stdcall AtExit(ShutdownFunc function, void* user_data) = 0;
+  virtual void __cdecl AtExit(ShutdownFunc function, void* user_data) = 0;
 
-  virtual void __stdcall CheckVersion(int version = AVISYNTH_INTERFACE_VERSION) = 0;
+  virtual void __cdecl CheckVersion(int version = AVISYNTH_INTERFACE_VERSION) = 0;
 
-  virtual PVideoFrame __stdcall Subframe(PVideoFrame src, int rel_offset, int new_pitch, int new_row_size, int new_height) = 0;
+  virtual PVideoFrame __cdecl Subframe(PVideoFrame src, int rel_offset, int new_pitch, int new_row_size, int new_height) = 0;
 
-  virtual int __stdcall SetMemoryMax(int mem) = 0;
+  virtual int __cdecl SetMemoryMax(int mem) = 0;
 
-  virtual int __stdcall SetWorkingDir(const char * newdir) = 0;
+  virtual int __cdecl SetWorkingDir(const char * newdir) = 0;
 
-  virtual void* __stdcall ManageCache(int key, void* data) = 0;
+  virtual void* __cdecl ManageCache(int key, void* data) = 0;
 
   enum PlanarChromaAlignmentMode {
             PlanarChromaAlignmentOff,
             PlanarChromaAlignmentOn,
             PlanarChromaAlignmentTest };
 
-  virtual bool __stdcall PlanarChromaAlignment(PlanarChromaAlignmentMode key) = 0;
+  virtual bool __cdecl PlanarChromaAlignment(PlanarChromaAlignmentMode key) = 0;
 
-  virtual PVideoFrame __stdcall SubframePlanar(PVideoFrame src, int rel_offset, int new_pitch, int new_row_size, int new_height, int rel_offsetU, int rel_offsetV, int new_pitchUV) = 0;
+  virtual PVideoFrame __cdecl SubframePlanar(PVideoFrame src, int rel_offset, int new_pitch, int new_row_size, int new_height, int rel_offsetU, int rel_offsetV, int new_pitchUV) = 0;
 
-  virtual void __stdcall DeleteScriptEnvironment() = 0;
+  virtual void __cdecl DeleteScriptEnvironment() = 0;
 
-  virtual void __stdcall ApplyMessage(PVideoFrame* frame, const VideoInfo& vi, const char* message, int size, int textcolor, int halocolor, int bgcolor) = 0;
+  virtual void __cdecl ApplyMessage(PVideoFrame* frame, const VideoInfo& vi, const char* message, int size, int textcolor, int halocolor, int bgcolor) = 0;
 
-  virtual const AVS_Linkage* const __stdcall GetAVSLinkage() = 0;
+  virtual const AVS_Linkage* const __cdecl GetAVSLinkage() = 0;
 
 }; // end class IScriptEnvironment
 
 
 // avisynth.dll exports this; it's a way to use it as a library, without
 // writing an AVS script or without going through AVIFile.
-IScriptEnvironment* __stdcall CreateScriptEnvironment(int version = AVISYNTH_INTERFACE_VERSION);
+IScriptEnvironment* __cdecl CreateScriptEnvironment(int version = AVISYNTH_INTERFACE_VERSION);
 
 
 #pragma pack(pop)
