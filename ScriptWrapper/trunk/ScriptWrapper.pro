@@ -9,15 +9,18 @@ TEMPLATE = lib
 
 DEFINES += SCRIPTWRAPPER_LIBRARY
 
-SOURCES += main.cpp AvisynthWrapper.cpp \
-    VapurSynthWrapper.cpp
+SOURCES += src/VapurSynthWrapper.cpp \
+    src/main.cpp \
+    src/AvisynthWrapper.cpp
 
-HEADERS +=  avisynth_c.h VapourSynth.h \
-	avisynthdll.h
+HEADERS += src/VapourSynth.h \
+    src/avisynthdll.h \
+    src/Avisynth_c.h \
+    src/internal.h
 
 CONFIG += qaxcontainer
 
-TYPELIBS = $$system(dumpcpp -o avisynth.dll)
+TYPELIBS = $$system(dumpcpp -o ScriptWrapper.dll)
 
 symbian {
     MMP_RULES += EXPORTUNFROZEN

@@ -11,14 +11,14 @@
 #include <stdlib.h>
 #include <string.h>
 //#include <io.h>
-#include <QDataStream>
+#include <stdint.h>
 #include <fcntl.h>
 #include "internal.h"
-#include "avisynth.h"
-//#include <windows.h>
+#include "avisynth_c.h"
+#include <windows.h>
 
 
-typedef qint64 int64_t;
+typedef int64 int64_t;
 #include "avisynthdll.h"
 
 #define MAX_CLIPS  1024

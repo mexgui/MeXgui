@@ -30,8 +30,8 @@
 // on Avisynth C Interface, such as 3rd-party filters, import and
 // export plugins, or graphical user interfaces.
 
-#ifndef __AVISYNTH_C__
-#define __AVISYNTH_C__
+#ifndef AVISYNTH_C
+#define AVISYNTH_C
 
 #ifdef __cplusplus
 #  define EXTERN_C extern "C"
@@ -47,7 +47,7 @@
 #  define AVSC_CC __stdcall
 #endif
 
-#define AVSC_INLINE static __inline
+#define AVSC_INLINE static inline
 
 #ifdef AVISYNTH_C_EXPORTS
 #  define AVSC_EXPORT EXTERN_C
@@ -74,7 +74,7 @@ typedef __int64 INT64;
 // Constants
 //
 
-#ifndef __AVISYNTH_H__
+#ifndef AVISYNTH_H
 enum { AVISYNTH_INTERFACE_VERSION = 3 };
 #endif
 

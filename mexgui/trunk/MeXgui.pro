@@ -393,7 +393,7 @@ HEADERS += AssemblyInfo.h \
 FORMS += core/gui/forms/config_audio.ui \
          core/gui/forms/config_neroaac.ui \
          core/gui/forms/config_x264.ui \
-         core/gui/forms/MainForm.ui
+    core/gui/forms/MainForm.ui
 SOURCES += AssemblyInfo.cpp \
            MeGUI.Properties.Settings.cpp \
            core/details/AudioTrackInfo.cpp \
