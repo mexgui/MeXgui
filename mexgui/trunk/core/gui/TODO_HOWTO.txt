@@ -1,0 +1,3 @@
+When orginal files have fully ported to C++ move them to ported folder.
+
+This helps keeping eye which file is already ported and which is not.
