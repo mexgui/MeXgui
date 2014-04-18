@@ -7,6 +7,7 @@ PreviewEditor::PreviewEditor(QWidget *parent) :
     ui(new Ui::PreviewEditor)
 {
     ui->setupUi(this);
+
 }
 PreviewEditor::~PreviewEditor()
 {
@@ -14,23 +15,26 @@ PreviewEditor::~PreviewEditor()
 }
 void PreviewEditor::videoFile(QString filepath) {
     MediaPath = filepath;
-
     Vplayer->load(MediaPath);
     media = Vplayer->mediaObject();
     audio = Vplayer->audioOutput();
-    media->setTickInterval(1000);
-
     Phonon::createPath(media, audio);
-    //ui->Volume->setVolume(Vplayer->volume());
-    //connect(media, SIGNAL(tick(qint64)), this, SLOT(tick(qint64)));
-    //connect(media, SIGNAL(currentSourceChanged(Phonon::MediaSource)),this, SLOT(sourceChanged(Phonon::MediaSource)));
-    //connect(media, SIGNAL(aboutToFinish()), this, SLOT(aboutToFinish()));
-    connect(media, SIGNAL(setAudioOutput()), Vplayer, SLOT(audioOutput()));
-
+    media->setTickInterval(1);
+    connect(media, SIGNAL(tick(qint64)), this, SLOT(tick(qint64)));
     ui->Seek->setMediaObject(media);
     ui->Volume->setAudioOutput(audio);
+    //connect(Vplayer, currentTime (), ui->Time, currentTime ());
+
+
+
 }
 
+void PreviewEditor::tick(qint64 time)
+{
+    QTime displayTime((time / 360000), (time / 60000) % 60, (time / 1000) % 60, (time / 100) % 60);
+    ui->Time->setTime(displayTime); //toString("hh:mm:ss.zz")
+    //setWindowTitle(QString("%1[%2]").arg(fname).arg(displayTime.toString("mm:ss")));
+}
 
 void PreviewEditor::on_Play_clicked()
 {
