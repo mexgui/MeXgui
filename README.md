@@ -1,9 +1,7 @@
-MeXgui
+MeXgui development branch
 ======
 
-MeXgui is a project to heads to create Megui port to run in several Platfroms natively.
-
-Project uses QcCreator C++ with QT4-SDK. Task is to remove C# related code and implement Qt variants.
+This branch is currently under development files, to this branch shall be other branches merged.
 
 DONATE
 ======
