@@ -29,9 +29,9 @@
 
 //using namespace System::Threading;
 
-using namespace MeGUI::core::util;
+using namespace MeXgui::core::util;
 
-namespace MeGUI
+namespace MeXgui
 {
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
 //[LogByMembers]

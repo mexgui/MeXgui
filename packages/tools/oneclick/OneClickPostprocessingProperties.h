@@ -7,10 +7,10 @@
 #include "packages/tools/avscreator/AviSynthSettings.h"
 #include "OneClickAudioTrack.h"
 #include "OneClickStream.h"
-#include "packages/tools/fileindexer/MeXgui.FileIndexerWindow.h"
+#include "packages/tools/fileindexer/FileIndexerWindow.h"
 #include "OneClickSettings.h"
 #include "OneClickWindow.h"
-#include "core/gui/MeXgui.MainForm.h"
+#include "core/gui/MainForm.h"
 #include <QString>
 #include <QVector>
 

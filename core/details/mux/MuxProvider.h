@@ -1,7 +1,7 @@
 #pragma once
 
 #include "core/details/CodecManager.h"
-#include "core/gui/MeXgui.MainForm.h"
+#include "core/gui/MainForm.h"
 #include "MuxPathComparer.h"
 #include "core/plugins/interfaces/IMuxing.h"
 #include "core/util/GenericRegisterer.h"

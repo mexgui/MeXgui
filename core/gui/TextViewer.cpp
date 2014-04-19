@@ -1,4 +1,4 @@
-#include "MeGUI.core.gui.TextViewer.h"
+#include "TextViewer.h"
 
 
 
@@ -14,7 +14,7 @@
 //using namespace System::Text;
 
 
-namespace MeGUI
+namespace MeXgui
 {
 	namespace core
 	{

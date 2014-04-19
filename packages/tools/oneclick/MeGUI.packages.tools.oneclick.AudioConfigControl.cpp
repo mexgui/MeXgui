@@ -1,4 +1,4 @@
-#include "MeXgui.packages.tools.oneclick.AudioConfigControl.h"
+#include "packages.tools.oneclick.AudioConfigControl.h"
 
 
 

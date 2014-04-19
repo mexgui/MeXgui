@@ -1,4 +1,4 @@
-#include "MeXgui.packages.video.xvid.xvidConfigurationPanel.h"
+#include "packages.video.xvid.xvidConfigurationPanel.h"
 
 
 

@@ -1,4 +1,4 @@
-#include "MeGUI.core.gui.HelpButton.h"
+#include "HelpButton.h"
 
 
 
@@ -14,14 +14,14 @@
 //using namespace System::Text;
 
 
-namespace MeGUI
+namespace MeXgui
 {
 	namespace core
 	{
 		namespace gui
 		{
 
-const QString HelpButton::BaseURL = "http://mewiki.project357.com/wiki/MeGUI/";
+const QString HelpButton::BaseURL = "http://mewiki.project357.com/wiki/MeXgui/";
 
 			HelpButton::HelpButton()
 			{

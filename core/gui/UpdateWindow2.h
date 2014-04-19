@@ -1,18 +1,18 @@
 #pragma once
 
-#include "MeGUI.MainForm.h"
+#include "MainForm.h"
 #include "core/util/OSInfo.h"
 #include "UpdateWindow.h"
-#include "core/details/MeGUISettings.h"
+#include "core/details/MeXguiSettings.h"
 #include "core/util/LogItem.h"
-#include "MeGUI.core.gui.CountdownWindow.h"
+#include "CountdownWindow.h"
 #include "core/util/VistaStuff.h"
 #include "core/util/HttpProxy.h"
 #include "UpdateCacher.h"
 #include "core/util/EnumProxy.h"
 #include "core/util/VideoUtil.h"
 #include "core/util/FileUtil.h"
-#include "MeGUI.core.gui.HelpButton.h"
+#include "HelpButton.h"
 #include <QString>
 #include <QVector>
 #include <algorithm>
@@ -64,10 +64,10 @@
 using namespace ICSharpCode::SharpZipLib::Zip;
 using namespace SevenZip;
 
-using namespace MeGUI::core::util;
+using namespace MeXgui::core::util;
 
 
-namespace MeGUI
+namespace MeXgui
 {
 	class UpdateWindow : public System::Windows::Forms::Form
 	{
@@ -204,13 +204,13 @@ namespace MeGUI
 		public:
 			ProfilesFile();
 
-			ProfilesFile(const QString &treeviewid, const QString &name, MeGUI::MainForm *mainForm);
+			ProfilesFile(const QString &treeviewid, const QString &name, MeXgui::MainForm *mainForm);
 
 		private:
-			MeGUI::MainForm *mainForm;
+			MeXgui::MainForm *mainForm;
 
 		public:
-			void setMainForm(const MeGUI::MainForm &value);
+			void setMainForm(const MeXgui::MainForm &value);
 
 			const virtual bool &getNeedsInstalling() const;
 
@@ -231,13 +231,13 @@ namespace MeGUI
 			virtual ErrorState Upgrade();
 		};
 	public:
-		class MeGUIFile : public iUpgradeable
+		class MeXguiFile : public iUpgradeable
 		{
 		private:
-			MeGUIFile();
+			MeXguiFile();
 
 		public:
-			MeGUIFile(const QString &treeViewID, const QString &name);
+			MeXguiFile(const QString &treeViewID, const QString &name);
 
 			const virtual Version &getCurrentVersion() const;
 			virtual void setCurrentVersion(const Version &value);
@@ -259,8 +259,8 @@ namespace MeGUI
 			ProgramFile(const QString &treeViewID, const QString &name); // Constructor
 
 		private:
-			const QString &getMeGUIFilePath() const;
-			void setMeGUIFilePath(const QString &value);
+			const QString &getMeXguiFilePath() const;
+			void setMeXguiFilePath(const QString &value);
 
 		public:
 			virtual ErrorState Upgrade();
@@ -352,7 +352,7 @@ namespace MeGUI
 		QVector<QString> serverList;
 		MainForm *mainForm;
 	public:
-		static MeGUISettings *meGUISettings;
+		static MeXguiSettings *MeXguiSettings;
 	private:
 		bool continueUpdate;
 		iUpgradeableCollection *upgradeData;
@@ -401,7 +401,7 @@ namespace MeGUI
 		/// Constructor for Updatewindow.
 		/// </summary>
 		/// <param name="mainForm">MainForm instance</param>
-		/// <param name="savedSettings">Current MeGUI settings</param>
+		/// <param name="savedSettings">Current MeXgui settings</param>
 		/// <param name="bSilent">whether the update window should be displayed</param>
 	public:
 		UpdateWindow(MainForm *mainForm, bool bSilent);
@@ -448,7 +448,7 @@ namespace MeGUI
 
 		/// <summary>
 		/// Once a "file" is found in the upgrade XML file, the files node is passed
-		/// to this function which generates the correct iUpgradeable filetype (i.e. MeGUIFile
+		/// to this function which generates the correct iUpgradeable filetype (i.e. MeXguiFile
 		/// or AviSynthFile) and then fills in all the relevant data.
 		/// </summary>
 		/// <param name="node"></param>
@@ -553,7 +553,7 @@ namespace MeGUI
 			}
 			catch (...)
 			{
-				AddTextToLog("Old version of " + name + " could not be backed up correctly. Restart MeGUI and try again.", Error);
+				AddTextToLog("Old version of " + name + " could not be backed up correctly. Restart MeXgui and try again.", Error);
 				return CouldNotRenameExistingFile;
 			}
 			return Successful;
@@ -713,7 +713,7 @@ namespace MeGUI
 			this->txtBoxLog = new System::Windows::Forms::TextBox();
 			this->panel1 = new System::Windows::Forms::Panel();
 			this->chkShowAllFiles = new System::Windows::Forms::CheckBox();
-			this->helpButton1 = new MeGUI::core::gui::HelpButton();
+			this->helpButton1 = new MeXgui::core::gui::HelpButton();
 			this->progressBar = new System::Windows::Forms::ProgressBar();
 			this->btnUpdate = new System::Windows::Forms::Button();
 			this->btnAbort = new System::Windows::Forms::Button();
@@ -950,7 +950,7 @@ namespace MeGUI
 			this->MinimumSize = new System::Drawing::Size(400, 200);
 			this->Name = "UpdateWindow";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::Manual;
-			this->Text = "MeGUI - Updater";
+			this->Text = "MeXgui - Updater";
 			this->FormClosing += new System::Windows::Forms::FormClosingEventHandler(this, &this->UpdateWindow_FormClosing);
 			this->Load += new System::EventHandler(this, &this->UpdateWindow_Load);
 			this->Move += new System::EventHandler(this, &this->UpdateWindow_Move);

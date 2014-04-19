@@ -1,4 +1,4 @@
-#include "MeGUI.UpdateWindow.h"
+#include "UpdateWindow.h"
 
 
 
@@ -24,9 +24,9 @@
 //using namespace System::Xml::Serialization;
 using namespace ICSharpCode::SharpZipLib::Zip;
 using namespace SevenZip;
-using namespace MeGUI::core::util;
+using namespace MeXgui::core::util;
 
-namespace MeGUI
+namespace MeXgui
 {
 
 	void UpdateWindow::iUpgradeable::init()
@@ -40,10 +40,10 @@ namespace MeGUI
 
 	} // constructor
 
-	MeGUI::UpdateWindow::Version *UpdateWindow::iUpgradeable::GetLatestVersion()
+	MeXgui::UpdateWindow::Version *UpdateWindow::iUpgradeable::GetLatestVersion()
 	{
 		Version *latest = new Version();
-		for (MeGUI::UpdateWindow::Versions::const_iterator v = this->availableVersions->begin(); v != this->availableVersions->end(); ++v)
+		for (MeXgui::UpdateWindow::Versions::const_iterator v = this->availableVersions->begin(); v != this->availableVersions->end(); ++v)
 			if ((*v)->compare(latest) != 0)
 				latest = *v;
 
@@ -494,7 +494,7 @@ namespace MeGUI
 		saveFolder = value;
 	}
 
-	const MeGUI::UpdateWindow::Version &UpdateWindow::iUpgradeable::getCurrentVersion() const
+	const MeXgui::UpdateWindow::Version &UpdateWindow::iUpgradeable::getCurrentVersion() const
 	{
 		if (currentVersion == 0)
 			currentVersion = new Version();
@@ -508,7 +508,7 @@ namespace MeGUI
 		currentVersion = value;
 	}
 
-	const MeGUI::UpdateWindow::Versions &UpdateWindow::iUpgradeable::getAvailableVersions() const
+	const MeXgui::UpdateWindow::Versions &UpdateWindow::iUpgradeable::getAvailableVersions() const
 	{
 		return availableVersions;
 	}
@@ -550,7 +550,7 @@ namespace MeGUI
 		this->displayName = value;
 	}
 
-	const MeGUI::UpdateWindow::iUpgradeable::PlatformModes &UpdateWindow::iUpgradeable::getPlatform() const
+	const MeXgui::UpdateWindow::iUpgradeable::PlatformModes &UpdateWindow::iUpgradeable::getPlatform() const
 	{
 		return this->platform;
 	}
@@ -605,7 +605,7 @@ namespace MeGUI
 		return false;
 	}
 
-	MeGUI::UpdateWindow::ErrorState UpdateWindow::iUpgradeable::Install(Stream *fileData)
+	MeXgui::UpdateWindow::ErrorState UpdateWindow::iUpgradeable::Install(Stream *fileData)
 	{
 		throw std::exception("This kind of file cannot be installed.");
 	}
@@ -624,7 +624,7 @@ namespace MeGUI
 		this->InnerList->Capacity = capacity;
 	}
 
-	MeGUI::UpdateWindow::iUpgradeable &UpdateWindow::iUpgradeableCollection::operator [](int index)
+	MeXgui::UpdateWindow::iUpgradeable &UpdateWindow::iUpgradeableCollection::operator [](int index)
 	{
 		return static_cast<iUpgradeable*>(this->List[index]);
 	}
@@ -647,7 +647,7 @@ namespace MeGUI
 		this->InnerList->Remove(item);
 	}
 
-	MeGUI::UpdateWindow::iUpgradeable *UpdateWindow::iUpgradeableCollection::FindByName(const QString &name)
+	MeXgui::UpdateWindow::iUpgradeable *UpdateWindow::iUpgradeableCollection::FindByName(const QString &name)
 	{
 		for (unknown::const_iterator file = this->InnerList.begin(); file != this->InnerList.end(); ++file)
 		{
@@ -672,7 +672,7 @@ namespace MeGUI
 	{
 	}
 
-	UpdateWindow::ProfilesFile::ProfilesFile(const QString &treeviewid, const QString &name, MeGUI::MainForm *mainForm)
+	UpdateWindow::ProfilesFile::ProfilesFile(const QString &treeviewid, const QString &name, MeXgui::MainForm *mainForm)
 	{
 		this->treeViewID = treeviewid;
 		this->setName(name);
@@ -680,7 +680,7 @@ namespace MeGUI
 		this->mainForm = mainForm;
 	}
 
-	void UpdateWindow::ProfilesFile::setMainForm(const MeGUI::MainForm &value)
+	void UpdateWindow::ProfilesFile::setMainForm(const MeXgui::MainForm &value)
 	{
 		mainForm = value;
 	}
@@ -690,7 +690,7 @@ namespace MeGUI
 		return true;
 	}
 
-	MeGUI::UpdateWindow::ErrorState UpdateWindow::ProfilesFile::Install(Stream *fileData)
+	MeXgui::UpdateWindow::ErrorState UpdateWindow::ProfilesFile::Install(Stream *fileData)
 	{
 		try
 		{
@@ -707,7 +707,7 @@ namespace MeGUI
 
 	}
 
-	MeGUI::UpdateWindow::ErrorState UpdateWindow::ProfilesFile::Upgrade()
+	MeXgui::UpdateWindow::ErrorState UpdateWindow::ProfilesFile::Upgrade()
 	{
 		throw std::exception("The method or operation is not implemented.");
 	}
@@ -731,16 +731,16 @@ namespace MeGUI
 		this->setSaveFolder(MainForm::Instance->getSettings()->getAvisynthPluginsPath());
 	}
 
-	MeGUI::UpdateWindow::ErrorState UpdateWindow::AviSynthFile::Upgrade()
+	MeXgui::UpdateWindow::ErrorState UpdateWindow::AviSynthFile::Upgrade()
 	{
 		return CouldNotDownloadFile;
 	}
 
-	UpdateWindow::MeGUIFile::MeGUIFile()
+	UpdateWindow::MeXguiFile::MeXguiFile()
 	{
 	}
 
-	UpdateWindow::MeGUIFile::MeGUIFile(const QString &treeViewID, const QString &name)
+	UpdateWindow::MeXguiFile::MeXguiFile(const QString &treeViewID, const QString &name)
 	{
 		this->setName(name);
 		this->setAllowUpdate(true);
@@ -748,7 +748,7 @@ namespace MeGUI
 		this->setSaveFolder(Application::StartupPath);
 	}
 
-	const MeGUI::UpdateWindow::Version &UpdateWindow::MeGUIFile::getCurrentVersion() const
+	const MeXgui::UpdateWindow::Version &UpdateWindow::MeXguiFile::getCurrentVersion() const
 	{
 		if (getName() == "core")
 		{
@@ -760,18 +760,18 @@ namespace MeGUI
 		return iUpgradeable::getCurrentVersion();
 	}
 
-	void UpdateWindow::MeGUIFile::setCurrentVersion(const Version &value)
+	void UpdateWindow::MeXguiFile::setCurrentVersion(const Version &value)
 	{
 		iUpgradeable::setCurrentVersion(value);
 	}
 
-	void UpdateWindow::MeGUIFile::init()
+	void UpdateWindow::MeXguiFile::init()
 	{
 		iUpgradeable::init();
 		this->setSaveFolder(System::IO::Path::GetDirectoryName(System::Windows::Forms::Application::ExecutablePath));
 	}
 
-	MeGUI::UpdateWindow::ErrorState UpdateWindow::MeGUIFile::Upgrade()
+	MeXgui::UpdateWindow::ErrorState UpdateWindow::MeXguiFile::Upgrade()
 	{
 		throw std::exception("The method or operation is not implemented.");
 	}
@@ -782,9 +782,9 @@ namespace MeGUI
 
 	void UpdateWindow::ProgramFile::init()
 	{
-		if (getMeGUIFilePath() == "")
+		if (getMeXguiFilePath() == "")
 			throw new FileNotRegisteredYetException(getName());
-		setSavePath(Path::Combine(Application::StartupPath, getMeGUIFilePath()));
+		setSavePath(Path::Combine(Application::StartupPath, getMeXguiFilePath()));
 		// If the file doesn't exist, assume it isn't set up, so put it in the standard install location
 		if (!File::Exists(getSavePath()))
 		{
@@ -792,7 +792,7 @@ namespace MeGUI
 			QString path = Path::Combine(System::Windows::Forms::Application::StartupPath, "tools");
 			path = Path::Combine(path, getName());
 			setSavePath(Path::Combine(path, getName() + extension));
-			setMeGUIFilePath(getSavePath());
+			setMeXguiFilePath(getSavePath());
 		}
 	}
 
@@ -804,139 +804,139 @@ namespace MeGUI
 		init();
 	}
 
-	const QString &UpdateWindow::ProgramFile::getMeGUIFilePath() const
+	const QString &UpdateWindow::ProgramFile::getMeXguiFilePath() const
 	{
 //C# TO C++ CONVERTER NOTE: The following 'switch' operated on a string variable and was converted to C++ 'if-else' logic:
 //		switch (this.Name)
 //ORIGINAL LINE: case ("dgindex"):
 		if (this->getName() == ("dgindex"))
 		{
-				return meGUISettings::DgIndexPath;
+				return MeXguiSettings::DgIndexPath;
 		}
 //ORIGINAL LINE: case ("mkvmerge"):
 		else if (this->getName() == ("mkvmerge"))
 		{
-				return meGUISettings::MkvmergePath;
+				return MeXguiSettings::MkvmergePath;
 		}
 //ORIGINAL LINE: case ("lame"):
 		else if (this->getName() == ("lame"))
 		{
-				return meGUISettings::LamePath;
+				return MeXguiSettings::LamePath;
 		}
 //ORIGINAL LINE: case ("mp4box"):
 		else if (this->getName() == ("mp4box"))
 		{
-				return meGUISettings::Mp4boxPath;
+				return MeXguiSettings::Mp4boxPath;
 		}
 //ORIGINAL LINE: case ("pgcdemux"):
 		else if (this->getName() == ("pgcdemux"))
 		{
-				return meGUISettings::PgcDemuxPath;
+				return MeXguiSettings::PgcDemuxPath;
 		}
 //ORIGINAL LINE: case ("neroaacenc"):
 		else if (this->getName() == ("neroaacenc"))
 		{
-				return meGUISettings::NeroAacEncPath;
+				return MeXguiSettings::NeroAacEncPath;
 		}
 //ORIGINAL LINE: case ("avimux_gui"):
 		else if (this->getName() == ("avimux_gui"))
 		{
-				return meGUISettings::AviMuxGUIPath;
+				return MeXguiSettings::AviMuxGUIPath;
 		}
 //ORIGINAL LINE: case ("avs"):
 		else if (this->getName() == ("avs"))
 		{
-				return meGUISettings::AviSynthPath;
+				return MeXguiSettings::AviSynthPath;
 		}
 //ORIGINAL LINE: case ("x264"):
 		else if (this->getName() == ("x264"))
 		{
-				return meGUISettings::X264Path;
+				return MeXguiSettings::X264Path;
 		}
 //ORIGINAL LINE: case ("x264_10b"):
 		else if (this->getName() == ("x264_10b"))
 		{
-				return meGUISettings::X26410BitsPath;
+				return MeXguiSettings::X26410BitsPath;
 		}
 //ORIGINAL LINE: case ("xvid_encraw"):
 		else if (this->getName() == ("xvid_encraw"))
 		{
-				return meGUISettings::XviDEncrawPath;
+				return MeXguiSettings::XviDEncrawPath;
 		}
 //ORIGINAL LINE: case ("ffmpeg"):
 		else if (this->getName() == ("ffmpeg"))
 		{
-				return meGUISettings::FFMpegPath;
+				return MeXguiSettings::FFMpegPath;
 		}
 //ORIGINAL LINE: case ("oggenc2"):
 		else if (this->getName() == ("oggenc2"))
 		{
-				return meGUISettings::OggEnc2Path;
+				return MeXguiSettings::OggEnc2Path;
 		}
 //ORIGINAL LINE: case ("yadif"):
 		else if (this->getName() == ("yadif"))
 		{
-				return meGUISettings::YadifPath;
+				return MeXguiSettings::YadifPath;
 		}
 //ORIGINAL LINE: case ("bassaudio"):
 		else if (this->getName() == ("bassaudio"))
 		{
-				return meGUISettings::BassPath;
+				return MeXguiSettings::BassPath;
 		}
 //ORIGINAL LINE: case ("vobsub"):
 		else if (this->getName() == ("vobsub"))
 		{
-				return meGUISettings::VobSubPath;
+				return MeXguiSettings::VobSubPath;
 		}
 //ORIGINAL LINE: case ("besplit"):
 		else if (this->getName() == ("besplit"))
 		{
-				return meGUISettings::BeSplitPath;
+				return MeXguiSettings::BeSplitPath;
 		}
 //ORIGINAL LINE: case ("aften"):
 		else if (this->getName() == ("aften"))
 		{
-				return meGUISettings::AftenPath;
+				return MeXguiSettings::AftenPath;
 		}
 //ORIGINAL LINE: case ("flac"):
 		else if (this->getName() == ("flac"))
 		{
-				return meGUISettings::FlacPath;
+				return MeXguiSettings::FlacPath;
 		}
 //ORIGINAL LINE: case ("eac3to"):
 		else if (this->getName() == ("eac3to"))
 		{
-				return meGUISettings::EAC3toPath;
+				return MeXguiSettings::EAC3toPath;
 		}
 //ORIGINAL LINE: case ("dgavcindex"):
 		else if (this->getName() == ("dgavcindex"))
 		{
-				return meGUISettings::DgavcIndexPath;
+				return MeXguiSettings::DgavcIndexPath;
 		}
 //ORIGINAL LINE: case ("dgindexnv"):
 		else if (this->getName() == ("dgindexnv"))
 		{
-				return meGUISettings::DgnvIndexPath;
+				return MeXguiSettings::DgnvIndexPath;
 		}
 //ORIGINAL LINE: case ("ffms"):
 		else if (this->getName() == ("ffms"))
 		{
-				return meGUISettings::FFMSIndexPath;
+				return MeXguiSettings::FFMSIndexPath;
 		}
 //ORIGINAL LINE: case ("tsmuxer"):
 		else if (this->getName() == ("tsmuxer"))
 		{
-				return meGUISettings::TSMuxerPath;
+				return MeXguiSettings::TSMuxerPath;
 		}
 //ORIGINAL LINE: case ("qaac"):
 		else if (this->getName() == ("qaac"))
 		{
-				return meGUISettings::QaacPath;
+				return MeXguiSettings::QaacPath;
 		}
 //ORIGINAL LINE: case ("opus"):
 		else if (this->getName() == ("opus"))
 		{
-				return meGUISettings::OpusPath;
+				return MeXguiSettings::OpusPath;
 		}
 		else
 		{
@@ -944,18 +944,18 @@ namespace MeGUI
 		}
 	}
 
-	void UpdateWindow::ProgramFile::setMeGUIFilePath(const QString &value)
+	void UpdateWindow::ProgramFile::setMeXguiFilePath(const QString &value)
 	{
 //C# TO C++ CONVERTER NOTE: The following 'switch' operated on a string variable and was converted to C++ 'if-else' logic:
 //		switch (this.Name)
 //ORIGINAL LINE: case ("neroaacenc"):
 		if (this->getName() == ("neroaacenc"))
 		{
-				meGUISettings->NeroAacEncPath = value;
+				MeXguiSettings->NeroAacEncPath = value;
 		}
 	}
 
-	MeGUI::UpdateWindow::ErrorState UpdateWindow::ProgramFile::Upgrade()
+	MeXgui::UpdateWindow::ErrorState UpdateWindow::ProgramFile::Upgrade()
 	{
 		return CouldNotDownloadFile;
 	}
@@ -1046,7 +1046,7 @@ namespace MeGUI
 		this->Capacity = capacity;
 	}
 
-	MeGUI::UpdateWindow::Version &UpdateWindow::Versions::operator [](int index)
+	MeXgui::UpdateWindow::Version &UpdateWindow::Versions::operator [](int index)
 	{
 		return static_cast<Version*>(this->List[index]);
 	}
@@ -1067,7 +1067,7 @@ namespace MeGUI
 		this->InnerList->Remove(item);
 	}
 
-MeGUISettings *UpdateWindow::meGUISettings = 0;
+MeXguiSettings *UpdateWindow::MeXguiSettings = 0;
 
 	void UpdateWindow::SetProgressBar(int minValue, int maxValue, int currentValue)
 	{
@@ -1157,7 +1157,7 @@ MeGUISettings *UpdateWindow::meGUISettings = 0;
 		this->oLog = mainForm->getUpdateLog();
 		LoadComponentSettings();
 		this->upgradeData = new iUpgradeableCollection(32); // To avoid unnecessary resizing, start at 32.
-		meGUISettings = mainForm->getSettings(); // Load up the MeGUI settings so i can access filepaths
+		MeXguiSettings = mainForm->getSettings(); // Load up the MeXgui settings so i can access filepaths
 		if (bSilent)
 			return;
 		if (mainForm->getSettings()->getAutoUpdateServerLists()[mainForm->getSettings()->getAutoUpdateServerSubList()].Length <= 1)
@@ -1446,12 +1446,12 @@ MeGUISettings *UpdateWindow::meGUISettings = 0;
 		{
 			try
 			{
-				XmlSerializer *serializer = new XmlSerializer(iUpgradeableCollection::typeid, new Type[] {ProgramFile::typeid, AviSynthFile::typeid, ProfilesFile::typeid, MeGUIFile::typeid});
+				XmlSerializer *serializer = new XmlSerializer(iUpgradeableCollection::typeid, new Type[] {ProgramFile::typeid, AviSynthFile::typeid, ProfilesFile::typeid, MeXguiFile::typeid});
 				StreamReader *settingsReader = new StreamReader(path);
 				iUpgradeableCollection *upgradeDataTemp = static_cast<iUpgradeableCollection*>(serializer->Deserialize(settingsReader));
 				delete settingsReader;
 
-				for (MeGUI::UpdateWindow::iUpgradeableCollection::const_iterator file = upgradeDataTemp->begin(); file != upgradeDataTemp->end(); ++file)
+				for (MeXgui::UpdateWindow::iUpgradeableCollection::const_iterator file = upgradeDataTemp->begin(); file != upgradeDataTemp->end(); ++file)
 				{
 					if ((*file)->getName()->Equals("neroaacenc") && !MainForm::Instance->getSettings()->getUseNeroAacEnc())
 						continue;
@@ -1462,7 +1462,7 @@ MeGUISettings *UpdateWindow::meGUISettings = 0;
 					this->upgradeData->Add(*file);
 				}
 
-				for (MeGUI::UpdateWindow::iUpgradeableCollection::const_iterator file = upgradeData->begin(); file != upgradeData->end(); ++file)
+				for (MeXgui::UpdateWindow::iUpgradeableCollection::const_iterator file = upgradeData->begin(); file != upgradeData->end(); ++file)
 				{
 					try
 					{
@@ -1487,7 +1487,7 @@ MeGUISettings *UpdateWindow::meGUISettings = 0;
 	{
 		try
 		{
-			XmlSerializer *serializer = new XmlSerializer(iUpgradeableCollection::typeid, new Type[] {ProgramFile::typeid, AviSynthFile::typeid, ProfilesFile::typeid, MeGUIFile::typeid});
+			XmlSerializer *serializer = new XmlSerializer(iUpgradeableCollection::typeid, new Type[] {ProgramFile::typeid, AviSynthFile::typeid, ProfilesFile::typeid, MeXguiFile::typeid});
 			StreamWriter *output = new StreamWriter(Path::Combine(Application::StartupPath, "AutoUpdate.xml"), false);
 			serializer->Serialize(output, this->upgradeData);
 			delete output;
@@ -1513,7 +1513,7 @@ MeGUISettings *UpdateWindow::meGUISettings = 0;
 		}
 	}
 
-	MeGUI::UpdateWindow::ErrorState UpdateWindow::GetUpdateXML(const QString &strServerAddress)
+	MeXgui::UpdateWindow::ErrorState UpdateWindow::GetUpdateXML(const QString &strServerAddress)
 	{
 		if (upgradeXml != 0) // the update file has already been downloaded and processed
 			return Successful;
@@ -1550,7 +1550,7 @@ MeGUISettings *UpdateWindow::meGUISettings = 0;
 			WebClient *serverClient = new WebClient();
 
 			// check for proxy authentication...
-			serverClient->Proxy = HttpProxy::GetProxy(meGUISettings);
+			serverClient->Proxy = HttpProxy::GetProxy(MeXguiSettings);
 
 			try
 			{
@@ -1671,7 +1671,7 @@ MeGUISettings *UpdateWindow::meGUISettings = 0;
 		{
 //C# TO C++ CONVERTER WARNING: C# to C++ Converter converted the original 'null' assignment to a call to 'delete', but you should review memory allocation of all pointer variables in the converted code:
 			delete iFileToRemove;
-			for (MeGUI::UpdateWindow::iUpgradeableCollection::const_iterator iFile = upgradeData->begin(); iFile != upgradeData->end(); ++iFile)
+			for (MeXgui::UpdateWindow::iUpgradeableCollection::const_iterator iFile = upgradeData->begin(); iFile != upgradeData->end(); ++iFile)
 			{
 				if (FindFileInUpdateXML(xnList, (*iFile)->getName()) == false)
 				{
@@ -1749,8 +1749,8 @@ MeGUISettings *UpdateWindow::meGUISettings = 0;
 		{
 			try
 			{
-				if (groupNode->Name->Equals("MeGUI"))
-					file = new MeGUIFile(treePath, node->Name);
+				if (groupNode->Name->Equals("MeXgui"))
+					file = new MeXguiFile(treePath, node->Name);
 				else if (groupNode->Name->Equals("ProgramFile"))
 					file = new ProgramFile(treePath, node->Name);
 				else if (groupNode->Name->Equals("AviSynthFile"))
@@ -1847,7 +1847,7 @@ MeGUISettings *UpdateWindow::meGUISettings = 0;
 	{
 		ClearListview(this->listViewDetails);
 
-		for (MeGUI::UpdateWindow::iUpgradeableCollection::const_iterator file = upgradeData->begin(); file != upgradeData->end(); ++file)
+		for (MeXgui::UpdateWindow::iUpgradeableCollection::const_iterator file = upgradeData->begin(); file != upgradeData->end(); ++file)
 		{
 			if (!bShowAllFiles)
 			{
@@ -1983,10 +1983,10 @@ MeGUISettings *UpdateWindow::meGUISettings = 0;
 					if ((*file)->getName()->ToLower(System::Globalization::CultureInfo::InvariantCulture)->Equals("neroaacenc"))
 					{
 						QString strPath = System::IO::Path::GetDirectoryName(System::Windows::Forms::Application::ExecutablePath) + "\\tools\\eac3to\\neroAacEnc.exe";
-						strText = "MeGUI cannot find " + (*file)->getName() + " on your system or it is outdated.\nDue to the licensing the component is not included on the MeGUI update server.\n\nTherefore please download the file on your own and extract neroaacenc.exe to:\n" + strPath + "\n\nIf necessary change the path in the settings:\n\"Settings\\External Program Settings\"\n\nDo you would like to download it now?";
+						strText = "MeXgui cannot find " + (*file)->getName() + " on your system or it is outdated.\nDue to the licensing the component is not included on the MeXgui update server.\n\nTherefore please download the file on your own and extract neroaacenc.exe to:\n" + strPath + "\n\nIf necessary change the path in the settings:\n\"Settings\\External Program Settings\"\n\nDo you would like to download it now?";
 					}
 					else
-						strText = "MeGUI cannot find " + (*file)->getName() + " on your system or it is outdated.\nDue to the licensing the component is not included on the MeGUI update server.\n\nTherefore please download the file on your own, extract it and set the path to the " + (*file)->getName() + ".exe in the MeGUI settings\n(\"Settings\\External Program Settings\").\n\nDo you would like to download it now?";
+						strText = "MeXgui cannot find " + (*file)->getName() + " on your system or it is outdated.\nDue to the licensing the component is not included on the MeXgui update server.\n\nTherefore please download the file on your own, extract it and set the path to the " + (*file)->getName() + ".exe in the MeXgui settings\n(\"Settings\\External Program Settings\").\n\nDo you would like to download it now?";
 
 					if (MessageBox::Show(strText, "Component not found", MessageBoxButtons::YesNo, MessageBoxIcon::Information) == System::Windows::Forms::DialogResult::Yes)
 					{
@@ -2076,13 +2076,13 @@ MeGUISettings *UpdateWindow::meGUISettings = 0;
 		VideoUtil::getAvisynthVersion(0);
 
 		QVector<QString> files = QVector<QString>();
-		for (MeGUI::UpdateWindow::iUpgradeableCollection::const_iterator u = upgradeData->begin(); u != upgradeData->end(); ++u)
+		for (MeXgui::UpdateWindow::iUpgradeableCollection::const_iterator u = upgradeData->begin(); u != upgradeData->end(); ++u)
 			files.push_back((*u)->GetLatestVersion()->Url);
 		UpdateCacher::flushOldCachedFilesAsync(files, this);
 
 		if (needsRestart)
 		{
-			if (MessageBox::Show("In order to finish the update, MeGUI needs to be restarted. Do you want to restart now?", "Restart now?", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes)
+			if (MessageBox::Show("In order to finish the update, MeXgui needs to be restarted. Do you want to restart now?", "Restart now?", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes)
 			{
 				mainForm->setRestart(true);
 //C# TO C++ CONVERTER TODO TASK: Lambda expressions and anonymous methods are not converted to native C++ unless the option to convert to C++0x lambdas is selected:
@@ -2129,7 +2129,7 @@ MeGUISettings *UpdateWindow::meGUISettings = 0;
 	{
 		// Sort the files to download according to their install priority
 		SortedDictionary<unsigned int, QVector<iUpgradeable*>*> *groups = new SortedDictionary<unsigned int, QVector<iUpgradeable*>*>();
-		for (MeGUI::UpdateWindow::iUpgradeableCollection::const_iterator file = upgradeData->begin(); file != upgradeData->end(); ++file)
+		for (MeXgui::UpdateWindow::iUpgradeableCollection::const_iterator file = upgradeData->begin(); file != upgradeData->end(); ++file)
 		{
 			if ((*file)->getDownloadChecked())
 			{
@@ -2142,11 +2142,11 @@ MeGUISettings *UpdateWindow::meGUISettings = 0;
 		InstallFiles(groups); //, false
 	}
 
-	MeGUI::UpdateWindow::ErrorState UpdateWindow::Install(iUpgradeable *file, Stream *fileData)
+	MeXgui::UpdateWindow::ErrorState UpdateWindow::Install(iUpgradeable *file, Stream *fileData)
 	{
 		if (file->getRequiredBuild() > 0 && (new System::Version(Application::ProductVersion))->Build < file->getRequiredBuild())
 		{
-			AddTextToLog(QString::Format("Could not install module '{0}' as at least MeGUI build {1} is required.", file->getName(), file->getRequiredBuild()), Warning);
+			AddTextToLog(QString::Format("Could not install module '{0}' as at least MeXgui build {1} is required.", file->getName(), file->getRequiredBuild()), Warning);
 			return RequirementNotMet;
 		}
 
@@ -2167,11 +2167,11 @@ MeGUISettings *UpdateWindow::meGUISettings = 0;
 		return state;
 	}
 
-	MeGUI::UpdateWindow::ErrorState UpdateWindow::SaveNewFile(iUpgradeable *file, Stream *data)
+	MeXgui::UpdateWindow::ErrorState UpdateWindow::SaveNewFile(iUpgradeable *file, Stream *data)
 	{
 		if (file->getRequiredBuild() > 0 && (new System::Version(Application::ProductVersion))->Build < file->getRequiredBuild())
 		{
-			AddTextToLog(QString::Format("Could not install module '{0}' as at least MeGUI build {1} is required.", file->getName(), file->getRequiredBuild()), Warning);
+			AddTextToLog(QString::Format("Could not install module '{0}' as at least MeXgui build {1} is required.", file->getName(), file->getRequiredBuild()), Warning);
 			return RequirementNotMet;
 		}
 
@@ -2212,7 +2212,7 @@ MeGUISettings *UpdateWindow::meGUISettings = 0;
 		{
 			try
 			{
-				ZipFile *zipFile = new ZipFile(Path::Combine(MainForm::Instance->getSettings()->getMeGUIUpdateCache(), Path::GetFileName(file->GetLatestVersion()->getUrl())));
+				ZipFile *zipFile = new ZipFile(Path::Combine(MainForm::Instance->getSettings()->getMeXguiUpdateCache(), Path::GetFileName(file->GetLatestVersion()->getUrl())));
 				if (zipFile->TestArchive(true) == false)
 				{
 					AddTextToLog("Could not unzip " + file->getName() + ". Deleting file. Please run updater again.", Error);

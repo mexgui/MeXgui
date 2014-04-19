@@ -1,6 +1,6 @@
 #pragma once
 
-#include "core/gui/MeXgui.MainForm.h"
+#include "core/gui/MainForm.h"
 #include <QString>
 #include <QMap>
 #include <QVector>

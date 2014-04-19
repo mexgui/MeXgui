@@ -46,11 +46,11 @@
 //C# TO C++ CONVERTER TODO TASK: The .NET System namespace is not available from native C++:
 //using namespace System::Windows::Forms;
 
-using namespace MeGUI::core::details;
-using namespace MeGUI::core::details::mux;
-using namespace MeGUI::core::util;
+using namespace MeXgui::core::details;
+using namespace MeXgui::core::details::mux;
+using namespace MeXgui::core::util;
 
-namespace MeGUI
+namespace MeXgui
 {
 	class AdaptiveMuxWindow : public baseMuxWindow
 	{

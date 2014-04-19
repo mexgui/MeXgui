@@ -1,6 +1,6 @@
 #pragma once
 
-#include "core/gui/MeXgui.MainForm.h"
+#include "core/gui/MainForm.h"
 #include "core/plugins/interfaces/IMediaFile.h"
 #include "core/util/GenericRegisterer.h"
 #include <QString>

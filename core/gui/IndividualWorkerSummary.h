@@ -2,7 +2,7 @@
 
 #include "core/details/JobWorker.h"
 #include "JobWorker.h"
-#include "MeGUI.core.gui.JobWorker.h"
+#include "JobWorker.h"
 #include "core/util/LogItem.h"
 #include "JobWorkerWindow.h"
 #include <QString>
@@ -34,7 +34,7 @@
 
 
 
-namespace MeGUI
+namespace MeXgui
 {
 	namespace core
 	{

@@ -1,4 +1,4 @@
-#include "MeGUI.core.gui.ProfilePorter.h"
+#include "ProfilePorter.h"
 
 
 
@@ -18,8 +18,8 @@
 //using namespace System::Text;
 
 
-using namespace MeGUI::core::util;
-namespace MeGUI
+using namespace MeXgui::core::util;
+namespace MeXgui
 {
 	namespace core
 	{

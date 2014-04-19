@@ -1,4 +1,4 @@
-#include "MeXgui.packages.audio.lame.lameConfigurationPanel.h"
+#include "packages.audio.lame.lameConfigurationPanel.h"
 
 
 

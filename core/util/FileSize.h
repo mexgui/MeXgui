@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QString>
+#include <QDecNumber.hh>
 #include <cmath>
 
 // ****************************************************************************
@@ -49,7 +50,7 @@ namespace MeXgui
 			};
 
 			/// <summary>
-			/// Aims to be the universal representation of filesize in MeXgui.
+			/// Aims to be the universal representation of filesize in 
 			/// Should avoid problems of MB/KB/B, and gives nice formatting as required
 			/// </summary>
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
@@ -97,7 +98,7 @@ namespace MeXgui
 				/// </summary>
 				/// <param name="u"></param>
 				/// <returns></returns>
-				decimal InUnitsExact(Unit u);
+                QDecNumber InUnitsExact(Unit u);
 
 				void SetWithUnits(Unit u, decimal value);
 
@@ -120,8 +121,8 @@ namespace MeXgui
 				/// <summary>
 				/// The size in kilobytes (exact)
 				/// </summary>
-				const decimal &getKBExact() const;
-				void setKBExact(const decimal &value);
+                const QDecNumber &getKBExact() const;
+                void setKBExact(const QDecNumber &value);
 
 				/// <summary>
 				/// The size in megabytes (rounded)
@@ -132,8 +133,8 @@ namespace MeXgui
 				/// <summary>
 				/// The size in megabytes (exact)
 				/// </summary>
-				const decimal &getMBExact() const;
-				void setMBExact(const decimal &value);
+                const QDecNumber &getMBExact() const;
+                void setMBExact(const QDecNumber &value);
 
 				/// <summary>
 				/// Returns the size in gigabytes (rounded)
@@ -144,17 +145,17 @@ namespace MeXgui
 				/// <summary>
 				/// The size in gigabytes (exact)
 				/// </summary>
-				const decimal &getGBExact() const;
-				void setGBExact(const decimal &value);
+                const QDecNumber &getGBExact() const;
+                void setGBExact(const QDecNumber &value);
 
 				FileSize operator + (FileSize b);
 				FileSize operator - (FileSize b);
-				decimal operator / (FileSize b);
+                QDecNumber operator / (FileSize b);
 
-				FileSize operator / (decimal b);
+                FileSize operator / (QDecNumber b);
 
 				FileSize operator *(FileSize b);
-				FileSize operator *(decimal b);
+                FileSize operator *(QDecNumber b);
 
 				bool operator < (FileSize b);
 
@@ -170,13 +171,13 @@ namespace MeXgui
 
 				virtual int GetHashCode();
 
-				virtual bool Equals(object *obj);
+                virtual bool Equals(QObject *obj);
 
 				FileSize(quint64 numBytes);
 
 				FileSize(qint64 numBytes);
 
-				FileSize(Unit u, decimal value);
+                FileSize(Unit u, QDecNumber value);
 			};
 
 			class FileSizeConverter : public TypeConverter

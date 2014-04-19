@@ -1,4 +1,4 @@
-#include "MeGUI.core.gui.IndividualWorkerSummary.h"
+#include "IndividualWorkerSummary.h"
 
 
 
@@ -6,7 +6,7 @@
 
 
 
-namespace MeGUI
+namespace MeXgui
 {
 	namespace core
 	{

@@ -3,7 +3,7 @@
 #include "core/plugins/interfaces/IMediaFile.h"
 #include "packages/reader/avs/AvsReader.h"
 #include "packages/reader/mediainfo/MediaInfoFile.h"
-#include "core/gui/MeXgui.MainForm.h"
+#include "core/gui/MainForm.h"
 #include "core/plugins/interfaces/ISettingsProvider.h"
 #include <QString>
 #include <stdexcept>

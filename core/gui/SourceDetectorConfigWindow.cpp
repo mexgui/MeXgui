@@ -1,4 +1,4 @@
-#include "MeGUI.SourceDetectorConfigWindow.h"
+#include "SourceDetectorConfigWindow.h"
 
 
 
@@ -17,7 +17,7 @@
 
 
 
-namespace MeGUI
+namespace MeXgui
 {
 
 	SourceDetectorConfigWindow::SourceDetectorConfigWindow()
@@ -90,7 +90,7 @@ namespace MeGUI
 		this->cancelButton = new System::Windows::Forms::Button();
 		this->priority = new System::Windows::Forms::ComboBox();
 		this->priorityLabel = new System::Windows::Forms::Label();
-		this->helpButton1 = new MeGUI::core::gui::HelpButton();
+		this->helpButton1 = new MeXgui::core::gui::HelpButton();
 		(static_cast<System::ComponentModel::ISupportInitialize*>(this->analysisPercent))->BeginInit();
 		(static_cast<System::ComponentModel::ISupportInitialize*>(this->minAnalyseSections))->BeginInit();
 		(static_cast<System::ComponentModel::ISupportInitialize*>(this->hybridThreshold))->BeginInit();
@@ -303,7 +303,7 @@ namespace MeGUI
 		this->MinimizeBox = false;
 		this->Name = "SourceDetectorConfigWindow";
 		this->ShowInTaskbar = false;
-		this->Text = "MeGUI - Source Detector Configuration";
+		this->Text = "MeXgui - Source Detector Configuration";
 		(static_cast<System::ComponentModel::ISupportInitialize*>(this->analysisPercent))->EndInit();
 		(static_cast<System::ComponentModel::ISupportInitialize*>(this->minAnalyseSections))->EndInit();
 		(static_cast<System::ComponentModel::ISupportInitialize*>(this->hybridThreshold))->EndInit();

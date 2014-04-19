@@ -1,8 +1,8 @@
 #pragma once
 
-#include "MeGUI.core.gui.ProfilePorter.h"
+#include "ProfilePorter.h"
 #include "ProfileImporter.h"
-#include "MeGUI.MainForm.h"
+#include "MainForm.h"
 #include "core/util/FileUtil.h"
 #include "core/details/ProfileManager.h"
 #include "core/plugins/interfaces/Profile.h"
@@ -53,15 +53,15 @@
 
 using namespace ICSharpCode::SharpZipLib::Zip;
 
-using namespace MeGUI::core::util;
+using namespace MeXgui::core::util;
 
-namespace MeGUI
+namespace MeXgui
 {
 	namespace core
 	{
 		namespace gui
 		{
-			class ProfileImporter : public MeGUI::core::gui::ProfilePorter
+			class ProfileImporter : public MeXgui::core::gui::ProfilePorter
 			{
 				public:
 				~ProfileImporter()

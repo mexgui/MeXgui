@@ -2,7 +2,7 @@
 
 #include "core/util/GenericRegisterer.h"
 #include "core/gui/Profiles.h"
-#include "MeXgui.Properties.Settings.h"
+#include "Properties.Settings.h"
 #include <QString>
 
 // ****************************************************************************
@@ -81,7 +81,7 @@ namespace MeXgui
 	};
 
 //C# TO C++ CONVERTER TODO TASK: There is no native C++ template equivalent to generic constraints:
-	template<typename TSettings> where TSettings : GenericSettings
+    template<typename TSettings> //where TSettings : GenericSettings
 	class GenericProfile : public Profile
 	{
 	private:

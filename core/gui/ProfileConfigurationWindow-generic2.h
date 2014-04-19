@@ -3,10 +3,10 @@
 #include "Profiles.h"
 #include "core/plugins/interfaces/Profile.h"
 #include "core/details/ProfileManager.h"
-#include "MeGUI.Properties.Settings.h"
-#include "MeGUI.MainForm.h"
+#include "Properties.Settings.h"
+#include "MainForm.h"
 #include "core/util/LogItem.h"
-#include "MeGUI.core.gui.InputBox.h"
+#include "InputBox.h"
 #include "core/util/Tuples.h"
 #include "core/util/Util.h"
 #include <QString>
@@ -49,11 +49,11 @@
 
 
 
-using namespace MeGUI::core::plugins::interfaces;
-using namespace MeGUI::core::util;
+using namespace MeXgui::core::plugins::interfaces;
+using namespace MeXgui::core::util;
 
 
-namespace MeGUI
+namespace MeXgui
 {
 	namespace core
 	{

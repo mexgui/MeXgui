@@ -1,6 +1,6 @@
 #pragma once
 
-#include "MeGUI.core.gui.SimpleProfilesControl.h"
+#include "SimpleProfilesControl.h"
 #include "core/util/LogItem.h"
 
 // ****************************************************************************
@@ -38,13 +38,13 @@
 
 
 
-namespace MeGUI
+namespace MeXgui
 {
 	namespace core
 	{
 		namespace gui
 		{
-			class ConfigableProfilesControl : public MeGUI::core::gui::SimpleProfilesControl
+			class ConfigableProfilesControl : public MeXgui::core::gui::SimpleProfilesControl
 			{
 				public:
 				~ConfigableProfilesControl()

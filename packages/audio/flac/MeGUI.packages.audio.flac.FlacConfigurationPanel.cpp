@@ -1,4 +1,4 @@
-#include "MeXgui.packages.audio.flac.FlacConfigurationPanel.h"
+#include "packages.audio.flac.FlacConfigurationPanel.h"
 
 
 

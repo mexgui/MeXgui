@@ -1,8 +1,8 @@
 #pragma once
 
 #include "core/plugins/interfaces/IPackage.h"
-#include "core/gui/MeXgui.MainForm.h"
-#include "MeXgui.packages.tools.besplitter.Besplitter.h"
+#include "core/gui/MainForm.h"
+#include "packages.tools.besplitter.Besplitter.h"
 #include <QString>
 
 // ****************************************************************************

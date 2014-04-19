@@ -1,8 +1,8 @@
 #pragma once
 
 #include "AutoEncodeDefaultsSettings.h"
-#include "MeXgui.Properties.Settings.h"
-#include "core/gui/MeXgui.MainForm.h"
+#include "Properties.Settings.h"
+#include "core/gui/MainForm.h"
 #include "core/details/CodecManager.h"
 #include "core/util/LogItem.h"
 #include "core/gui/TargetSizeSCBox.h"

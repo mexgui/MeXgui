@@ -40,9 +40,9 @@
 
 
 
-using namespace MeGUI::core::util;
+using namespace MeXgui::core::util;
 
-namespace MeGUI
+namespace MeXgui
 {
 	namespace core
 	{

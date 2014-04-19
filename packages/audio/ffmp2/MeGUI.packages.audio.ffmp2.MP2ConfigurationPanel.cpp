@@ -1,4 +1,4 @@
-#include "MeXgui.packages.audio.ffmp2.MP2ConfigurationPanel.h"
+#include "packages.audio.ffmp2.MP2ConfigurationPanel.h"
 
 
 

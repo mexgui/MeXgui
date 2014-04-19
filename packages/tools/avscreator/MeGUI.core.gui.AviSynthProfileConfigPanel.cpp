@@ -1,4 +1,4 @@
-#include "MeXgui.AviSynthProfileConfigPanel.h"
+#include "AviSynthProfileConfigPanel.h"
 
 
 

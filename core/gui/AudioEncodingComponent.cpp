@@ -1,4 +1,4 @@
-#include "MeGUI.AudioEncodingComponent.h"
+#include "AudioEncodingComponent.h"
 
 //C# TO C++ CONVERTER TODO TASK: The .NET System namespace is not available from native C++:
 //using namespace System;
@@ -18,11 +18,11 @@
 //using namespace System::Text;
 //C# TO C++ CONVERTER TODO TASK: The .NET System namespace is not available from native C++:
 //using namespace System::Windows::Forms;
-using namespace MeGUI::core::details::video;
-using namespace MeGUI::core::gui;
-using namespace MeGUI::core::plugins::interfaces;
+using namespace MeXgui::core::details::video;
+using namespace MeXgui::core::gui;
+using namespace MeXgui::core::plugins::interfaces;
 
-namespace MeGUI
+namespace MeXgui
 {
 
 	AudioEncodingComponent::AudioEncodingComponent()
@@ -162,7 +162,7 @@ namespace MeGUI
 		this->removeTrackToolStripMenuItem = new System::Windows::Forms::ToolStripMenuItem();
 		this->tabControl1 = new System::Windows::Forms::TabControl();
 		this->tabPage1 = new System::Windows::Forms::TabPage();
-		this->audioEncodingTab1 = new MeGUI::core::gui::AudioEncodingTab();
+		this->audioEncodingTab1 = new MeXgui::core::gui::AudioEncodingTab();
 		this->groupBox1->SuspendLayout();
 		this->contextMenuStrip1->SuspendLayout();
 		this->tabControl1->SuspendLayout();

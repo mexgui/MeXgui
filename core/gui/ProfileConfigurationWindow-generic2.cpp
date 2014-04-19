@@ -1,4 +1,4 @@
-#include "MeGUI.core.gui.ProfileConfigurationWindow - generic 2.h"
+#include "ProfileConfigurationWindow-generic2.h"
 
 
 
@@ -16,9 +16,9 @@
 //using namespace System::Text;
 
 
-using namespace MeGUI::core::plugins::interfaces;
-using namespace MeGUI::core::util;
-namespace MeGUI
+using namespace MeXgui::core::plugins::interfaces;
+using namespace MeXgui::core::util;
+namespace MeXgui
 {
 	namespace core
 	{

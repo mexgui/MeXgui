@@ -2,7 +2,7 @@
 
 #include "MuxProvider.h"
 #include "core/details/CodecManager.h"
-#include "core/gui/MeXgui.MainForm.h"
+#include "core/gui/MainForm.h"
 #include <QVector>
 
 // ****************************************************************************

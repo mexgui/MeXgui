@@ -1,4 +1,4 @@
-#include "MeGUI.core.gui.CountdownWindow.h"
+#include "CountdownWindow.h"
 
 
 
@@ -14,24 +14,28 @@
 //using namespace System::Text;
 
 
-namespace MeGUI
+namespace MeXgui
 {
 	namespace core
 	{
 		namespace gui
 		{
 
-			CountdownWindow::CountdownWindow()
-			{
-				InitializeInstanceFields();
-				InitializeComponent();
-			}
+         CountdownWindow::CountdownWindow(QWidget *parent):
+            QDialog(parent),
+            ui(new Ui::CountdownWindow)
+        {
+            ui->setupUi(this);
+
+            InitializeInstanceFields();
+
+        }
+
 
 			CountdownWindow::CountdownWindow(int countdown)
 			{
 				InitializeInstanceFields();
 				this->countdown = countdown;
-				InitializeComponent();
 			}
 
 			void CountdownWindow::CountdownWindow_Load(QObject *sender, QEvent *e)
@@ -97,68 +101,6 @@ namespace MeGUI
 					delete components;
 				}
 				System::Windows::Forms::Form::Dispose(disposing);
-			}
-
-			void CountdownWindow::InitializeComponent()
-			{
-				this->components = new System::ComponentModel::Container();
-				System::ComponentModel::ComponentResourceManager *resources = new System::ComponentModel::ComponentResourceManager(CountdownWindow::typeid);
-				this->label1 = new System::Windows::Forms::Label();
-				this->cancelButton = new System::Windows::Forms::Button();
-				this->progressBar = new System::Windows::Forms::ProgressBar();
-				this->timer = new System::Windows::Forms::Timer(this->components);
-				this->SuspendLayout();
-				// 
-				// label1
-				// 
-				this->label1->Location = new System::Drawing::Point(12, 12);
-				this->label1->Name = "label1";
-				this->label1->Size = new System::Drawing::Size(330, 32);
-				this->label1->TabIndex = 5;
-				this->label1->Text = "MeGUI has finished processing the job queue and is about to shut down your comput" + "er.";
-				// 
-				// cancelButton
-				// 
-				this->cancelButton->DialogResult = System::Windows::Forms::DialogResult::Cancel;
-				this->cancelButton->Location = new System::Drawing::Point(128, 97);
-				this->cancelButton->Name = "cancelButton";
-				this->cancelButton->Size = new System::Drawing::Size(100, 25);
-				this->cancelButton->TabIndex = 4;
-				this->cancelButton->Text = "Cancel";
-				this->cancelButton->UseVisualStyleBackColor = true;
-				// 
-				// progressBar
-				// 
-				this->progressBar->Location = new System::Drawing::Point(15, 57);
-				this->progressBar->Name = "progressBar";
-				this->progressBar->Size = new System::Drawing::Size(320, 19);
-				this->progressBar->TabIndex = 3;
-				// 
-				// timer
-				// 
-				this->timer->Interval = 1000;
-				this->timer->Tick += new System::EventHandler(this, &CountdownWindow::TimerTick);
-				// 
-				// CountdownWindow
-				// 
-				this->AutoScaleDimensions = new System::Drawing::SizeF(6, 13);
-				this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-				this->ClientSize = new System::Drawing::Size(347, 134);
-				this->Controls->Add(this->label1);
-				this->Controls->Add(this->cancelButton);
-				this->Controls->Add(this->progressBar);
-				this->Font = new System::Drawing::Font("Tahoma", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, (static_cast<unsigned char>(0)));
-				this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
-				this->Icon = (static_cast<System::Drawing::Icon*>(resources->GetObject("$this.Icon")));
-				this->MaximizeBox = false;
-				this->MinimizeBox = false;
-				this->Name = "CountdownWindow";
-				this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-				this->Text = "About to shut down";
-				this->TopMost = true;
-				this->Load += new System::EventHandler(this, &CountdownWindow::CountdownWindow_Load);
-				this->ResumeLayout(false);
-
 			}
 
 			void CountdownWindow::InitializeInstanceFields()

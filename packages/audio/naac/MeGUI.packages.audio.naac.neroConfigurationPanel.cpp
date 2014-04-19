@@ -1,4 +1,4 @@
-#include "MeXgui.packages.audio.naac.neroConfigurationPanel.h"
+#include "packages.audio.naac.neroConfigurationPanel.h"
 
 
 

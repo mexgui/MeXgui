@@ -1,4 +1,4 @@
-#include "MeGUI.AdaptiveMuxWindow.h"
+#include "AdaptiveMuxWindow.h"
 
 //C# TO C++ CONVERTER TODO TASK: The .NET System namespace is not available from native C++:
 //using namespace System;
@@ -8,11 +8,11 @@
 //using namespace System::IO;
 //C# TO C++ CONVERTER TODO TASK: The .NET System namespace is not available from native C++:
 //using namespace System::Windows::Forms;
-using namespace MeGUI::core::details;
-using namespace MeGUI::core::details::mux;
-using namespace MeGUI::core::util;
+using namespace MeXgui::core::details;
+using namespace MeXgui::core::details::mux;
+using namespace MeXgui::core::util;
 
-namespace MeGUI
+namespace MeXgui
 {
 
 	AdaptiveMuxWindow::AdaptiveMuxWindow(MainForm *mainForm) : baseMuxWindow(mainForm, 0)
@@ -209,7 +209,7 @@ namespace MeGUI
 		}
 	}
 
-	const MeGUI::core::details::JobChain &AdaptiveMuxWindow::getJobs() const
+	const MeXgui::core::details::JobChain &AdaptiveMuxWindow::getJobs() const
 	{
 		if (minimizedMode)
 			throw std::exception("Jobs property not accessible in minimized mode");
@@ -382,7 +382,7 @@ namespace MeGUI
 		this->ClientSize = new System::Drawing::Size(444, 597);
 		this->Icon = (static_cast<System::Drawing::Icon*>(resources->GetObject("$this.Icon")));
 		this->Name = "AdaptiveMuxWindow";
-		this->Text = "MeGUI - Adaptive Muxer";
+		this->Text = "MeXgui - Adaptive Muxer";
 		this->ResumeLayout(false);
 		this->PerformLayout();
 

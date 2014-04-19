@@ -1,4 +1,4 @@
-#include "MeGUI.core.gui.InputBox.h"
+#include "InputBox.h"
 
 
 
@@ -14,7 +14,7 @@
 //using namespace System::Text;
 
 
-namespace MeGUI
+namespace MeXgui
 {
 	namespace core
 	{

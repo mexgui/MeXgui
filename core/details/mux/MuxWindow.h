@@ -5,14 +5,14 @@
 #include "core/util/GenericRegisterer.h"
 #include "core/plugins/interfaces/Job.h"
 #include "MuxJob.h"
-#include "core/gui/MeXgui.MainForm.h"
+#include "core/gui/MainForm.h"
 #include "core/plugins/interfaces/IMuxing.h"
 #include "core/details/Streams.h"
 #include "core/util/FileSize.h"
 #include "core/util/DAR.h"
 #include "core/details/CodecManager.h"
 #include "core/gui/FileBar.h"
-#include "core/gui/MeXgui.FileBar.h"
+#include "core/gui/FileBar.h"
 #include <QString>
 
 // ****************************************************************************

@@ -1,4 +1,4 @@
-#include "MeGUI.core.gui.FileSizeDialog.h"
+#include "FileSizeDialog.h"
 
 
 
@@ -14,8 +14,8 @@
 //using namespace System::Text;
 
 
-using namespace MeGUI::core::util;
-namespace MeGUI
+using namespace MeXgui::core::util;
+namespace MeXgui
 {
 	namespace core
 	{
@@ -29,7 +29,7 @@ namespace MeGUI
 				setCurrentUnit(MB);
 			}
 
-			const MeGUI::core::util::FileSize &FileSizeDialog::getMaximum() const
+			const MeXgui::core::util::FileSize &FileSizeDialog::getMaximum() const
 			{
 				return maxVal;
 			}
@@ -39,7 +39,7 @@ namespace MeGUI
 				maxVal = value;
 			}
 
-			const MeGUI::core::util::FileSize &FileSizeDialog::getMinimum() const
+			const MeXgui::core::util::FileSize &FileSizeDialog::getMinimum() const
 			{
 				return minVal;
 			}
@@ -49,7 +49,7 @@ namespace MeGUI
 				minVal = value;
 			}
 
-			const MeGUI::core::util::FileSize &FileSizeDialog::getValue() const
+			const MeXgui::core::util::FileSize &FileSizeDialog::getValue() const
 			{
 				return readValue(getCurrentUnit());
 			}
@@ -62,12 +62,12 @@ namespace MeGUI
 				number->Value = value.InUnitsExact(u);
 			}
 
-			MeGUI::core::util::FileSize FileSizeDialog::readValue(Unit u)
+			MeXgui::core::util::FileSize FileSizeDialog::readValue(Unit u)
 			{
 				return FileSize(u, number->Value);
 			}
 
-			const MeGUI::core::util::Unit &FileSizeDialog::getCurrentUnit() const
+			const MeXgui::core::util::Unit &FileSizeDialog::getCurrentUnit() const
 			{
 				if (units->SelectedIndex < 0)
 					return B;

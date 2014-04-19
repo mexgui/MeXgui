@@ -5,7 +5,7 @@
 #include "xvidSettings.h"
 #include "core/details/video/VideoCodecSettings.h"
 #include "XviDEncoder.h"
-#include "MeXgui.Properties.Settings.h"
+#include "Properties.Settings.h"
 #include "core/util/LogItem.h"
 #include "core/gui/FileSCBox.h"
 #include "core/plugins/interfaces/ISettingsProvider.h"

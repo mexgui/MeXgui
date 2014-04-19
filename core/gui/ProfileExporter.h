@@ -1,7 +1,7 @@
 #pragma once
 
-#include "MeGUI.core.gui.ProfilePorter.h"
-#include "MeGUI.MainForm.h"
+#include "ProfilePorter.h"
+#include "MainForm.h"
 #include "core/plugins/interfaces/Profile.h"
 #include "core/util/Util.h"
 #include "core/util/LogItem.h"
@@ -51,15 +51,15 @@
 
 //using namespace System::Xml;
 
-using namespace MeGUI::core::util;
+using namespace MeXgui::core::util;
 
-namespace MeGUI
+namespace MeXgui
 {
 	namespace core
 	{
 		namespace gui
 		{
-			class ProfileExporter : public MeGUI::core::gui::ProfilePorter
+			class ProfileExporter : public MeXgui::core::gui::ProfilePorter
 			{
 			private:
 				MainForm *mainForm;

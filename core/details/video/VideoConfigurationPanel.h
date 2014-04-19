@@ -1,7 +1,7 @@
 #pragma once
 
 #include "core/plugins/interfaces/ISettingsProvider.h"
-#include "core/gui/MeXgui.MainForm.h"
+#include "core/gui/MainForm.h"
 #include "core/util/LogItem.h"
 #include "VideoCodecSettings.h"
 #include <QString>

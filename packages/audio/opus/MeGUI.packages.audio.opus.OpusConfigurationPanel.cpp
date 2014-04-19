@@ -1,4 +1,4 @@
-#include "MeXgui.packages.audio.opus.OpusConfigurationPanel.h"
+#include "packages.audio.opus.OpusConfigurationPanel.h"
 
 
 

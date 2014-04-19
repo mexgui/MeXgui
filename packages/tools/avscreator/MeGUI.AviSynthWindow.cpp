@@ -1,4 +1,4 @@
-#include "MeXgui.AviSynthWindow.h"
+#include "AviSynthWindow.h"
 
 
 

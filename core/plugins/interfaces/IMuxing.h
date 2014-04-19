@@ -7,7 +7,7 @@
 #include "IJobProcessor.h"
 #include "core/util/DAR.h"
 #include "core/details/video/VideoCodecSettings.h"
-#include "MeXgui.Properties.Settings.h"
+#include "Properties.Settings.h"
 #include <QString>
 
 // ****************************************************************************

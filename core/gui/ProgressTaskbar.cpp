@@ -5,7 +5,7 @@
 
 //using namespace System::Runtime::InteropServices;
 
-namespace MeGUI
+namespace MeXgui
 {
 
 	RECT::RECT(int left, int top, int right, int bottom)

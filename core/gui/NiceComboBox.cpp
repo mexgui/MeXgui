@@ -1,4 +1,4 @@
-#include "MeGUI.core.gui.NiceComboBox.h"
+#include "NiceComboBox.h"
 
 
 
@@ -16,7 +16,7 @@
 //using namespace System::Text;
 
 
-namespace MeGUI
+namespace MeXgui
 {
 	namespace core
 	{
@@ -39,7 +39,7 @@ namespace MeGUI
 					setSelectedItem(Items[value]);
 			}
 
-			const MeGUI::core::gui::NiceComboBoxItem &NiceComboBox::getSelectedItem() const
+			const MeXgui::core::gui::NiceComboBoxItem &NiceComboBox::getSelectedItem() const
 			{
 				return selectedItem;
 			}

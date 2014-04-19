@@ -10,8 +10,8 @@
 //using namespace System::Text;
 
 
-using namespace MeGUI::core::util;
-namespace MeGUI
+using namespace MeXgui::core::util;
+namespace MeXgui
 {
 	namespace core
 	{
@@ -117,7 +117,7 @@ const object FPSChooser::Framerates[8] = {FPS(23.976), FPS(24.0), FPS(25.0), FPS
 				return fps.ToString();
 			}
 
-			MeGUI::core::gui::FPS FPS::Parse(const QString &s)
+			MeXgui::core::gui::FPS FPS::Parse(const QString &s)
 			{
 				return FPS(decimal::Parse(s));
 			}

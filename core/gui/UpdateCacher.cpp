@@ -16,14 +16,14 @@
 //using namespace System::Threading;
 using namespace ICSharpCode::SharpZipLib::Zip;
 using namespace SevenZip;
-using namespace MeGUI::core::util;
+using namespace MeXgui::core::util;
 
-namespace MeGUI
+namespace MeXgui
 {
 
 	void UpdateCacher::flushOldCachedFilesAsync(QVector<QString> &urls, UpdateWindow *oUpdate)
 	{
-		QString updateCache = MainForm::Instance->getSettings()->getMeGUIUpdateCache();
+		QString updateCache = MainForm::Instance->getSettings()->getMeXguiUpdateCache();
 		if (updateCache.empty() || !Directory::Exists(updateCache))
 			return;
 
@@ -52,14 +52,14 @@ namespace MeGUI
 
 	void UpdateCacher::ensureSensibleCacheFolderExists()
 	{
-		FileUtil::ensureDirectoryExists(MainForm::Instance->getSettings()->getMeGUIUpdateCache());
+		FileUtil::ensureDirectoryExists(MainForm::Instance->getSettings()->getMeXguiUpdateCache());
 	}
 
 	UpdateWindow::ErrorState UpdateCacher::DownloadFile(const QString &url, Uri *serverAddress, Stream *&str, DownloadProgressChangedEventHandler *wc_DownloadProgressChanged, UpdateWindow *oUpdate)
 	{
 		ensureSensibleCacheFolderExists();
 		UpdateWindow::ErrorState er = UpdateWindow::Successful;
-		QString updateCache = MainForm::Instance->getSettings()->getMeGUIUpdateCache();
+		QString updateCache = MainForm::Instance->getSettings()->getMeXguiUpdateCache();
 		QString localFilename = Path::Combine(updateCache, url);
 		bool downloadFile = true;
 
@@ -167,7 +167,7 @@ namespace MeGUI
 
 	void UpdateCacher::FlushFile(const QString &p, UpdateWindow *oUpdate)
 	{
-		QString localFilename = Path::Combine(MainForm::Instance->getSettings()->getMeGUIUpdateCache(), p);
+		QString localFilename = Path::Combine(MainForm::Instance->getSettings()->getMeXguiUpdateCache(), p);
 		try
 		{
 			File::Delete(localFilename);

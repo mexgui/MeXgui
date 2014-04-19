@@ -1,7 +1,7 @@
 #pragma once
 
-#include "MeGUI.core.gui.AudioEncodingTab.h"
-#include "MeGUI.MainForm.h"
+#include "AudioEncodingTab.h"
+#include "MainForm.h"
 #include "packages/audio/AudioJob.h"
 #include "core/util/LogItem.h"
 #include <string>
@@ -46,11 +46,11 @@
 //C# TO C++ CONVERTER TODO TASK: The .NET System namespace is not available from native C++:
 //using namespace System::Windows::Forms;
 
-using namespace MeGUI::core::details::video;
-using namespace MeGUI::core::gui;
-using namespace MeGUI::core::plugins::interfaces;
+using namespace MeXgui::core::details::video;
+using namespace MeXgui::core::gui;
+using namespace MeXgui::core::plugins::interfaces;
 
-namespace MeGUI
+namespace MeXgui
 {
 	class AudioEncodingComponent : public UserControl
 	{
@@ -126,7 +126,7 @@ namespace MeGUI
 		System::Windows::Forms::GroupBox *groupBox1;
 		System::Windows::Forms::TabControl *tabControl1;
 		System::Windows::Forms::TabPage *tabPage1;
-		MeGUI::core::gui::AudioEncodingTab *audioEncodingTab1;
+		MeXgui::core::gui::AudioEncodingTab *audioEncodingTab1;
 		System::Windows::Forms::ContextMenuStrip *contextMenuStrip1;
 		System::Windows::Forms::ToolStripMenuItem *newTrackToolStripMenuItem;
 		System::Windows::Forms::ToolStripMenuItem *removeTrackToolStripMenuItem;

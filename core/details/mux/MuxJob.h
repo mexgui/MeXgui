@@ -4,8 +4,8 @@
 #include "MuxSettings.h"
 #include "MuxProvider.h"
 #include "core/details/CodecManager.h"
-#include "core/gui/MeXgui.MainForm.h"
-#include "MeXgui.Properties.Settings.h"
+#include "core/gui/MainForm.h"
+#include "Properties.Settings.h"
 #include <QString>
 #include <QVector>
 

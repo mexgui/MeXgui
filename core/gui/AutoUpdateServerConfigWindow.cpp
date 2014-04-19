@@ -1,4 +1,4 @@
-#include "MeGUI.core.gui.AutoUpdateServerConfigWindow.h"
+#include "AutoUpdateServerConfigWindow.h"
 
 
 
@@ -6,7 +6,7 @@
 //using namespace System::Collections::Generic;
 
 
-namespace MeGUI
+namespace MeXgui
 {
 	namespace core
 	{
@@ -137,7 +137,7 @@ namespace MeGUI
 				this->flowLayoutPanel2 = new System::Windows::Forms::FlowLayoutPanel();
 				this->cancelButton = new System::Windows::Forms::Button();
 				this->okButton = new System::Windows::Forms::Button();
-				this->helpButton1 = new MeGUI::core::gui::HelpButton();
+				this->helpButton1 = new MeXgui::core::gui::HelpButton();
 				this->flowLayoutPanel3 = new System::Windows::Forms::FlowLayoutPanel();
 				this->label1 = new System::Windows::Forms::Label();
 				this->subList = new System::Windows::Forms::ComboBox();

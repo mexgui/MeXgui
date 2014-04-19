@@ -1,16 +1,16 @@
 #pragma once
 
 #include "packages/audio/AudioJob.h"
-#include "core/gui/MeXgui.MainForm.h"
+#include "core/gui/MainForm.h"
 #include "core/util/JobUtil.h"
 #include "core/util/VideoUtil.h"
 #include "core/plugins/interfaces/ISettingsProvider.h"
 #include "core/util/LogItem.h"
 #include "core/details/mux/MuxProvider.h"
 #include "core/plugins/interfaces/IMuxing.h"
-#include "core/gui/MeXgui.HelpButton.h"
+#include "core/gui/HelpButton.h"
 #include "core/gui/TargetSizeSCBox.h"
-#include "core/gui/MeXgui.FileBar.h"
+#include "core/gui/FileBar.h"
 #include "core/util/FileSize.h"
 #include "core/details/CodecManager.h"
 #include "core/util/FileUtil.h"
@@ -19,7 +19,7 @@
 #include "packages/tools/calculator/CalcData.h"
 #include "packages/audio/AudioCodecSettings.h"
 #include "core/util/LanguageSelectionContainer.h"
-#include "core/gui/MeXgui.AdaptiveMuxWindow.h"
+#include "core/gui/AdaptiveMuxWindow.h"
 #include "core/plugins/interfaces/IPackage.h"
 #include "core/details/video/VideoCodecSettings.h"
 #include <QString>

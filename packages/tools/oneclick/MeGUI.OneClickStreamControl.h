@@ -4,7 +4,7 @@
 #include "core/util/EnumProxy.h"
 #include "OneClickSettings.h"
 #include "core/util/DragDropUtil.h"
-#include "core/gui/MeXgui.MainForm.h"
+#include "core/gui/MainForm.h"
 #include "packages/audio/AudioCodecSettings.h"
 #include "OneClickStream.h"
 #include "core/details/TrackInfo.h"
@@ -14,7 +14,7 @@
 #include "core/util/VideoUtil.h"
 #include "packages/reader/vobsub/idxReader.h"
 #include "core/util/PrettyFormatting.h"
-#include "core/gui/MeXgui.ConfigableProfilesControl.h"
+#include "core/gui/ConfigableProfilesControl.h"
 #include "core/gui/FileSCBox.h"
 #include "core/plugins/interfaces/ISettingsProvider.h"
 #include <QString>

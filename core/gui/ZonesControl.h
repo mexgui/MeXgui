@@ -1,7 +1,7 @@
 #pragma once
 
 #include "core/details/video/VideoCodecSettings.h"
-#include "MeGUI.MainForm.h"
+#include "MainForm.h"
 #include "VideoPlayer.h"
 #include <QString>
 #include "stringconverter.h"
@@ -41,7 +41,7 @@
 
 
 
-namespace MeGUI
+namespace MeXgui
 {
 	class ZonesControl : public UserControl
 	{
@@ -63,11 +63,11 @@ namespace MeGUI
 	public:
 		ZonesControl();
 	private:
-		MeGUI::MainForm *mainForm;
+		MeXgui::MainForm *mainForm;
 
 	public:
-		const MeGUI::MainForm &getMainForm() const;
-		void setMainForm(const MeGUI::MainForm &value);
+		const MeXgui::MainForm &getMainForm() const;
+		void setMainForm(const MeXgui::MainForm &value);
 
 	private:
 		void updateGUI();

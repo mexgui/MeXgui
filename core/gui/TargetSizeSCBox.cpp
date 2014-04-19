@@ -12,8 +12,8 @@
 //using namespace System::Text;
 
 
-using namespace MeGUI::core::util;
-namespace MeGUI
+using namespace MeXgui::core::util;
+namespace MeXgui
 {
 	namespace core
 	{
@@ -40,7 +40,7 @@ const Named<FileSize> TargetSizeSCBox::PredefinedFilesizes[5] = {new Named<FileS
 				fillStandard();
 			}
 
-			const MeGUI::core::util::FileSize &TargetSizeSCBox::getMinimumFileSize() const
+			const MeXgui::core::util::FileSize &TargetSizeSCBox::getMinimumFileSize() const
 			{
 				return minSize;
 			}
@@ -132,7 +132,7 @@ const Named<FileSize> TargetSizeSCBox::PredefinedFilesizes[5] = {new Named<FileS
 					StandardAndCustomComboBox::setSelectedObject(getNullString());
 			}
 
-			const MeGUI::core::util::FileSize &TargetSizeSCBox::getCertainValue() const
+			const MeXgui::core::util::FileSize &TargetSizeSCBox::getCertainValue() const
 			{
 				return getValue().Value;
 			}

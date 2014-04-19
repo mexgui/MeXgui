@@ -1,10 +1,10 @@
 #pragma once
 
-#include "core/details/MeGUI.JobControl.h"
-#include "MeGUI.core.gui.IndividualWorkerSummary.h"
+#include "core/details/JobControl.h"
+#include "IndividualWorkerSummary.h"
 #include "core/details/JobWorker.h"
 #include "JobWorker.h"
-#include "MeGUI.core.gui.JobWorker.h"
+#include "JobWorker.h"
 #include "core/util/Util.h"
 #include "core/util/LogItem.h"
 #include <QString>
@@ -45,10 +45,10 @@
 
 
 
-using namespace MeGUI::core::util;
-using namespace MeGUI::core::details;
+using namespace MeXgui::core::util;
+using namespace MeXgui::core::details;
 
-namespace MeGUI
+namespace MeXgui
 {
 	namespace core
 	{

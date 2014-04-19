@@ -1,4 +1,4 @@
-#include "MeXgui.packages.audio.aften.AftenConfigurationPanel.h"
+#include "packages.audio.aften.AftenConfigurationPanel.h"
 
 
 

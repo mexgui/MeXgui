@@ -1,9 +1,9 @@
 #pragma once
 
 #include "core/plugins/interfaces/IMediaFile.h"
-#include "MeGUI.MainForm.h"
+#include "MainForm.h"
 #include "ARChooser.h"
-#include "MeGUI.core.gui.VideoPlayerControl.h"
+#include "VideoPlayerControl.h"
 #include "packages/reader/avs/AvsReader.h"
 #include "packages/tools/avscreator/AvisynthWrapper.h"
 #include "core/util/LogItem.h"
@@ -11,7 +11,7 @@
 #include "core/plugins/interfaces/ISettingsProvider.h"
 #include "core/util/Util.h"
 #include "core/util/VideoUtil.h"
-#include "MeGUI.core.gui.NumberChooser.h"
+#include "NumberChooser.h"
 #include <QString>
 #include <cmath>
 #include <stdexcept>
@@ -54,10 +54,10 @@
 
 
 
-using namespace MeGUI::core::gui;
-using namespace MeGUI::core::util;
+using namespace MeXgui::core::gui;
+using namespace MeXgui::core::util;
 
-namespace MeGUI
+namespace MeXgui
 {
 	typedef void (*IntroCreditsFrameSetCallback)(int frameNumber, bool isCredits);
 	typedef void (*ZoneSetCallback)(int start, int end);

@@ -1,4 +1,4 @@
-#include "MeXgui.VobSubIndexWindow.h"
+#include "VobSubIndexWindow.h"
 
 
 

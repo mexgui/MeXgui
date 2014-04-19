@@ -19,15 +19,15 @@
 
 //using namespace System::Xml;
 using namespace ICSharpCode::SharpZipLib::Zip;
-using namespace MeGUI::core::util;
-namespace MeGUI
+using namespace MeXgui::core::util;
+namespace MeXgui
 {
 	namespace core
 	{
 		namespace gui
 		{
 
-			CancelledException::CancelledException() : MeGUIException("User cancelled")
+			CancelledException::CancelledException() : MeXguiException("User cancelled")
 			{
 			}
 		}

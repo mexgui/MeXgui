@@ -5,8 +5,8 @@
 #include "core/util/Exceptions.h"
 #include "core/plugins/interfaces/IJobProcessor.h"
 #include "core/details/TaggedJob.h"
-#include "MeGUI.ProgressWindow.h"
-#include "MeGUI.MainForm.h"
+#include "ProgressWindow.h"
+#include "MainForm.h"
 #include "core/util/LogItem.h"
 #include "core/util/Util.h"
 #include "core/plugins/interfaces/Job.h"
@@ -17,9 +17,9 @@
 #include "core/details/JobControl.h"
 #include "core/details/StatusUpdate.h"
 #include "core/util/WindowUtil.h"
-#include "MeGUI.core.gui.InputBox.h"
-#include "MeGUI.core.gui.HelpButton.h"
-#include "MeGUI.core.gui.JobQueue.h"
+#include "InputBox.h"
+#include "HelpButton.h"
+#include "JobQueue.h"
 #include <QString>
 #include <QMap>
 #include <QVector>
@@ -66,10 +66,10 @@
 
 
 
-using namespace MeGUI::core::details;
-using namespace MeGUI::core::util;
+using namespace MeXgui::core::details;
+using namespace MeXgui::core::util;
 
-namespace MeGUI
+namespace MeXgui
 {
 	namespace core
 	{
@@ -84,7 +84,7 @@ namespace MeGUI
 					Error
 				};
 			private:
-				class JobStartException : public MeGUIException
+				class JobStartException : public MeXguiException
 				{
 				public:
 					ExceptionType type;

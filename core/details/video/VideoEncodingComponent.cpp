@@ -1,4 +1,4 @@
-#include "MeXgui.VideoEncodingComponent.h"
+#include "VideoEncodingComponent.h"
 
 
 

@@ -1,4 +1,4 @@
-#include "MeGUI.core.gui.StandardAndCustomComboBox.h"
+#include "StandardAndCustomComboBox.h"
 
 
 
@@ -16,8 +16,8 @@
 //using namespace System::Text;
 
 
-using namespace MeGUI::core::util;
-namespace MeGUI
+using namespace MeXgui::core::util;
+namespace MeXgui
 {
 	namespace core
 	{
@@ -35,12 +35,12 @@ namespace MeGUI
 				return Tag->ToString();
 			}
 			
-			StandardAndCustomComboBox::StandardAndCustomComboBox() : MeGUI::core::gui::NiceComboBox()
+			StandardAndCustomComboBox::StandardAndCustomComboBox() : MeXgui::core::gui::NiceComboBox()
 			{
 				InitializeInstanceFields();
 			}
 
-			StandardAndCustomComboBox::StandardAndCustomComboBox(const QString &clearText, const QString &chooseNewText) : MeGUI::core::gui::NiceComboBox()
+			StandardAndCustomComboBox::StandardAndCustomComboBox(const QString &clearText, const QString &chooseNewText) : MeXgui::core::gui::NiceComboBox()
 			{
 				InitializeInstanceFields();
 				InitializeComponent();
@@ -67,7 +67,7 @@ namespace MeGUI
 			   ));
 			}
 
-			void StandardAndCustomComboBox::SetFileSCBoxType(const QString &chooseNewText, const QString &chooseNewFolder, MeGUI::core::gui::FileSCBox::FileSCBoxType oType)
+			void StandardAndCustomComboBox::SetFileSCBoxType(const QString &chooseNewText, const QString &chooseNewFolder, MeXgui::core::gui::FileSCBox::FileSCBoxType oType)
 			{
 				if (oType == FileSCBox::OC_FILE_AND_FOLDER || oType == FileSCBox::OC_FILE)
 				{
@@ -285,7 +285,7 @@ namespace MeGUI
 				}
 			}
 
-			const MeGUI::core::gui::SCItem &StandardAndCustomComboBox::getSelectedSCItem() const
+			const MeXgui::core::gui::SCItem &StandardAndCustomComboBox::getSelectedSCItem() const
 			{
 				if (oTemporaryItem->Tag != 0 && getSelectedItem() == 0)
 					return oTemporaryItem;
@@ -302,7 +302,7 @@ namespace MeGUI
 				{
 					delete components;
 				}
-				MeGUI::core::gui::NiceComboBox::Dispose(disposing);
+				MeXgui::core::gui::NiceComboBox::Dispose(disposing);
 			}
 
 			void StandardAndCustomComboBox::InitializeComponent()

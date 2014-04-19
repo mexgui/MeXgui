@@ -38,7 +38,7 @@
 
 
 
-namespace MeGUI
+namespace MeXgui
 {
 	namespace core
 	{

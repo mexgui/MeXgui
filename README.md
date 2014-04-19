@@ -10,4 +10,4 @@ If you like the idea of having atlast native avisynth encoder in youre system th
 
 3% of your donation goes to benefit aid to some part of world.
 
-<a href='https://pledgie.com/campaigns/22683'><img alt='Click here to lend your support to: MeXgui -Croos system Megui port and make a donation at pledgie.com !' src='https://pledgie.com/campaigns/22683.png?skin_name=chrome' border='0' ></a>
+<a href='https://pledgie.com/campaigns/22683'><img alt='Click here to lend your support to: MeXgui -Croos system MeXgui port and make a donation at pledgie.com !' src='https://pledgie.com/campaigns/22683.png?skin_name=chrome' border='0' ></a>

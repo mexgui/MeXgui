@@ -2,7 +2,7 @@
 
 #include "core/plugins/interfaces/IJobProcessor.h"
 #include "core/plugins/interfaces/Job.h"
-#include "core/gui/MeXgui.MainForm.h"
+#include "core/gui/MainForm.h"
 #include "AudioJob.h"
 #include "aften/AftenSettings.h"
 #include "ffac3/AC3Settings.h"
@@ -13,7 +13,7 @@
 #include "opus/OpusSettings.h"
 #include "qaac/QaacSettings.h"
 #include "vorbis/OggVorbisSettings.h"
-#include "MeXgui.Properties.Settings.h"
+#include "Properties.Settings.h"
 #include "core/util/LogItem.h"
 #include "core/details/MeXguiSettings.h"
 #include "core/details/StatusUpdate.h"

@@ -24,9 +24,9 @@
 //using namespace System::Xml::Serialization;
 using namespace ICSharpCode::SharpZipLib::Zip;
 using namespace SevenZip;
-using namespace MeGUI::core::util;
+using namespace MeXgui::core::util;
 
-namespace MeGUI
+namespace MeXgui
 {
 
 	const QString &UpdateOptions::getName() const
@@ -55,7 +55,7 @@ namespace MeGUI
 		return name;
 	}
 
-	FileNotRegisteredYetException::FileNotRegisteredYetException(const QString &name) : MeGUIException("AutoUpdate file '" + name + "' not registered with MeGUI.")
+	FileNotRegisteredYetException::FileNotRegisteredYetException(const QString &name) : MeXguiException("AutoUpdate file '" + name + "' not registered with ")
 	{
 		this->name = name;
 	}

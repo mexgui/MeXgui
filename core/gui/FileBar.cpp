@@ -1,4 +1,4 @@
-#include "MeGUI.FileBar.h"
+#include "FileBar.h"
 
 
 
@@ -16,9 +16,9 @@
 //using namespace System::Text;
 
 
-using namespace MeGUI::core::util;
+using namespace MeXgui::core::util;
 
-namespace MeGUI
+namespace MeXgui
 {
 
 	FileBar::FileBar()

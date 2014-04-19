@@ -1,4 +1,4 @@
-#include "MeXgui.packages.audio.qaac.qaacConfigurationPanel.h"
+#include "packages.audio.qaac.qaacConfigurationPanel.h"
 
 
 

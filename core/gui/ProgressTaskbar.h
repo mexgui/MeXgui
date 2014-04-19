@@ -27,7 +27,7 @@
 
 //using namespace System::Runtime::InteropServices;
 
-namespace MeGUI
+namespace MeXgui
 {
 	/// <summary>
 	/// ProgressTaskbar provides Windows 7 taskbar progress

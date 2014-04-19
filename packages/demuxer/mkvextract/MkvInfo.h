@@ -2,7 +2,7 @@
 
 #include "core/details/TrackInfo.h"
 #include "core/util/LogItem.h"
-#include "core/gui/MeXgui.MainForm.h"
+#include "core/gui/MainForm.h"
 #include <QString>
 #include <QVector>
 #include <stdexcept>

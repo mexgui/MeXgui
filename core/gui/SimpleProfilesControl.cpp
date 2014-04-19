@@ -1,4 +1,4 @@
-#include "MeGUI.core.gui.SimpleProfilesControl.h"
+#include "SimpleProfilesControl.h"
 
 
 
@@ -6,8 +6,8 @@
 
 
 
-using namespace MeGUI::core::util;
-namespace MeGUI
+using namespace MeXgui::core::util;
+namespace MeXgui
 {
 	namespace core
 	{
@@ -19,7 +19,7 @@ namespace MeGUI
 				return name;
 			}
 
-			ProfileCouldntBeSelectedException::ProfileCouldntBeSelectedException(const QString &name) : MeGUIException("The profile '" + name + "' couldn't be selected.")
+			ProfileCouldntBeSelectedException::ProfileCouldntBeSelectedException(const QString &name) : MeXguiException("The profile '" + name + "' couldn't be selected.")
 			{
 				this->name = name;
 			}
@@ -35,7 +35,7 @@ namespace MeGUI
 				manager->SetSettings(value);
 			}
 
-			const MeGUI::Profile &SimpleProfilesControl::getSelectedProfile() const
+			const MeXgui::Profile &SimpleProfilesControl::getSelectedProfile() const
 			{
 				return (static_cast<Named<Profile*>*>(comboBox1->SelectedItem))->Data;
 			}
@@ -77,7 +77,7 @@ namespace MeGUI
 				}
 			}
 
-			const MeGUI::ProfileManager &SimpleProfilesControl::getManager() const
+			const MeXgui::ProfileManager &SimpleProfilesControl::getManager() const
 			{
 				return manager;
 			}

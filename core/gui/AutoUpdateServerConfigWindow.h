@@ -1,10 +1,10 @@
 #pragma once
 
 #include "core/util/LogItem.h"
-#include "MeGUI.core.gui.InputBox.h"
-#include "MeGUI.MainForm.h"
-#include "MeGUI.UpdateWindow.h"
-#include "MeGUI.core.gui.HelpButton.h"
+#include "InputBox.h"
+#include "MainForm.h"
+#include "UpdateWindow.h"
+#include "HelpButton.h"
 #include <QString>
 #include <QVector>
 
@@ -35,7 +35,7 @@
 
 
 
-namespace MeGUI
+namespace MeXgui
 {
 	namespace core
 	{

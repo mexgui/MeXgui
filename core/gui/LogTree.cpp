@@ -1,4 +1,4 @@
-#include "MeGUI.core.gui.LogTree.h"
+#include "LogTree.h"
 
 
 
@@ -16,8 +16,8 @@
 //using namespace System::Text;
 
 
-using namespace MeGUI::core::util;
-namespace MeGUI
+using namespace MeXgui::core::util;
+namespace MeXgui
 {
 	namespace core
 	{
@@ -119,7 +119,7 @@ namespace MeGUI
 				show(Log, true);
 			}
 
-			const MeGUI::core::util::LogItem &LogTree::getselectedLogItem() const
+			const MeXgui::core::util::LogItem &LogTree::getselectedLogItem() const
 			{
 				if (treeView->SelectedNode == 0)
 					return 0;

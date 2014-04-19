@@ -1,4 +1,4 @@
-#include "MeXgui.packages.video.x264.x264ConfigurationPanel.h"
+#include "packages.video.x264.x264ConfigurationPanel.h"
 
 
 

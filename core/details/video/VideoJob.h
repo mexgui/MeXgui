@@ -4,7 +4,7 @@
 #include "VideoCodecSettings.h"
 #include "core/util/BitrateCalculatorPreProcessor.h"
 #include "core/util/DAR.h"
-#include "MeXgui.Properties.Settings.h"
+#include "Properties.Settings.h"
 #include <QString>
 
 // ****************************************************************************

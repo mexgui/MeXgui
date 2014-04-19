@@ -7,7 +7,7 @@
 #include "packages/reader/mediainfo/MediaInfoFile.h"
 #include "core/util/WindowUtil.h"
 #include "core/plugins/interfaces/Job.h"
-#include "core/gui/MeXgui.MainForm.h"
+#include "core/gui/MainForm.h"
 #include "core/util/Exceptions.h"
 #include "core/util/VistaStuff.h"
 #include "core/util/FileSize.h"

@@ -1,12 +1,12 @@
 #pragma once
 
-#include "core/gui/MeXgui.MainForm.h"
+#include "core/gui/MainForm.h"
 #include "core/util/LogItem.h"
 #include "packages/audio/AudioCodecSettings.h"
-#include "MeXgui.Properties.Settings.h"
+#include "Properties.Settings.h"
 #include "core/util/PrettyFormatting.h"
 #include "OneClickSettings.h"
-#include "core/gui/MeXgui.ConfigableProfilesControl.h"
+#include "core/gui/ConfigableProfilesControl.h"
 #include <QString>
 
 // ****************************************************************************

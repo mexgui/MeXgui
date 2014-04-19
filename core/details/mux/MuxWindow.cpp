@@ -1,4 +1,4 @@
-#include "MeXgui.MuxWindow.h"
+#include "MuxWindow.h"
 
 
 

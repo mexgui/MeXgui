@@ -6,7 +6,7 @@
 //using namespace System::Collections::Generic;
 
 //using namespace System::Text;
-namespace MeGUI
+namespace MeXgui
 {
 	namespace core
 	{

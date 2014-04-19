@@ -7,7 +7,7 @@
 #include "core/details/ProfileManager.h"
 #include "core/util/LogItem.h"
 #include "packages/audio/naac/NeroAACSettings.h"
-#include "MeGUI.MainForm.h"
+#include "MainForm.h"
 #include "packages/audio/qaac/QaacSettings.h"
 #include <QString>
 
@@ -38,16 +38,16 @@
 
 
 
-using namespace MeGUI::core::util;
+using namespace MeXgui::core::util;
 
-namespace MeGUI
+namespace MeXgui
 {
 	namespace core
 	{
 		namespace gui
 		{
 			
-			class ProfileCouldntBeSelectedException : public MeGUIException
+			class ProfileCouldntBeSelectedException : public MeXguiException
 			{
 			private:
 				QString name;

@@ -2,11 +2,11 @@
 
 #include "JobWorkerWindow.h"
 #include "core/util/Exceptions.h"
-#include "MeGUI.core.gui.JobWorker.h"
+#include "JobWorker.h"
 #include "core/plugins/interfaces/IJobProcessor.h"
 #include "core/plugins/interfaces/Job.h"
-#include "MeGUI.ProgressWindow.h"
-#include "MeGUI.MainForm.h"
+#include "ProgressWindow.h"
+#include "MainForm.h"
 #include "core/details/video/VideoCodecSettings.h"
 #include "core/util/GenericRegisterer.h"
 #include "core/details/JobControl.h"
@@ -24,10 +24,10 @@
 //using namespace System::Collections::Generic;
 
 //using namespace System::Text;
-using namespace MeGUI::core::gui;
+using namespace MeXgui::core::gui;
 
 //using namespace System::Diagnostics;
-using namespace MeGUI::core::util;
+using namespace MeXgui::core::util;
 
 
 
@@ -35,14 +35,14 @@ using namespace MeGUI::core::util;
 
 //using namespace System::Threading;
 
-namespace MeGUI
+namespace MeXgui
 {
 	namespace core
 	{
 		namespace details
 		{
 
-			class NameTakenException : public MeGUIException
+			class NameTakenException : public MeXguiException
 			{
 			private:
 				QString name;
@@ -52,7 +52,7 @@ namespace MeGUI
 			};
 			/// <summary>
 			/// This class represents a processing 'worker', which processes jobs
-			/// one by one. In a single instance of MeGUI, there can be multiple
+			/// one by one. In a single instance of MeXgui, there can be multiple
 			/// workers, facilitating parallel job processing.
 			/// 
 			/// JobControl keeps the job queue, and distributes jobs one by one when
@@ -104,7 +104,7 @@ namespace MeGUI
 					Error
 				};
 			private:
-				class JobStartException : public MeGUIException
+				class JobStartException : public MeXguiException
 				{
 				public:
 					ExceptionType type;

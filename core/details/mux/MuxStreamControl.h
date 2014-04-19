@@ -5,11 +5,11 @@
 #include "core/details/Streams.h"
 #include "core/util/LogItem.h"
 #include "core/gui/FileBar.h"
-#include "core/gui/MeXgui.FileBar.h"
+#include "core/gui/FileBar.h"
 #include "core/util/PrettyFormatting.h"
 #include "core/util/VideoUtil.h"
 #include "packages/reader/vobsub/idxReader.h"
-#include "core/gui/MeXgui.MainForm.h"
+#include "core/gui/MainForm.h"
 #include <QString>
 #include <QMap>
 #include <QVector>

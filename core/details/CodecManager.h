@@ -1,7 +1,7 @@
 #pragma once
-
 #include "core/util/GenericRegisterer.h"
 #include <QString>
+
 #include <stdexcept>
 
 // ****************************************************************************
@@ -42,6 +42,56 @@ namespace MeXgui
 	{
 	};
 
+    class OutputFileType : public IIDable
+    {
+    public:
+        OutputFileType(const QString &name, const QString &filterName, const QString &extension);
+
+        const QString &getID() const;
+
+    private:
+        QString name, filterName, extension;
+        /// <summary>
+        /// used to display the output type in dropdowns
+        /// </summary>
+        /// <returns></returns>
+    public:
+        virtual QString ToString();
+        const QString &getOutputFilter() const;
+        /// <summary>
+        /// gets a valid filter string for file dialogs based on the known extension
+        /// </summary>
+        /// <returns></returns>
+        const QString &getOutputFilterString() const;
+        /// <summary>
+        /// gets the extension for this file type
+        /// </summary>
+        const QString &getExtension() const;
+    };
+
+    class ContainerType : public OutputFileType
+    {
+    public:
+        ContainerType(const QString &name, const QString &filterName, const QString &extension);
+        static ContainerType *const MP4;
+        static ContainerType *const MKV;
+        static ContainerType *const AVI;
+        static ContainerType *const M2TS;
+        static const ContainerType Containers[4];
+
+        static ContainerType *ByName(const QString &id);
+    };
+    class OutputType : public OutputFileType
+    {
+    public:
+        OutputType(const QString &name, const QString &filterName, const QString &extension, MeXgui::ContainerType *containerType);
+
+    private:
+        MeXgui::ContainerType *containerType;
+    public:
+        const MeXgui::ContainerType &getContainerType() const;
+    };
+
 	class VideoCodec : public ICodec, IIDable
 	{
 	private:
@@ -77,7 +127,8 @@ namespace MeXgui
 		static AudioCodec *const FLAC;
 		static AudioCodec *const OPUS;
 	};
-	class SubtitleCodec : public ICodec, IIDable
+
+    class SubtitleCodec : public ICodec, IIDable
 	{
 	private:
 		QString id;
@@ -143,15 +194,14 @@ namespace MeXgui
 		static GenericRegisterer<VideoEncoderType*> *VideoEncoderTypes;
 		static GenericRegisterer<AudioEncoderType*> *AudioEncoderTypes;
 
-//C# TO C++ CONVERTER TODO TASK: Static constructors are not allowed in native C++:
         CodecManager();
 	};
 
-	class VideoType : public OutputType
+    class VideoType : public OutputType
 	{
 	private:
-//ORIGINAL LINE: private VideoCodec[] supportedCodecs;
-//C# TO C++ CONVERTER WARNING: Since the array size is not known in this declaration, C# to C++ Converter has converted this array to a pointer.  You will need to call 'delete[]' where appropriate:
+        //ORIGINAL LINE: private VideoCodec[] supportedCodecs;
+        //Here may need to call 'delete[]' where appropriate:
 		VideoCodec *supportedCodecs;
 
 	public:
@@ -159,9 +209,9 @@ namespace MeXgui
 
 //C# TO C++ CONVERTER TODO TASK: Calls to same-class constructors are not supported in C++ prior to C++0x:
 //ORIGINAL LINE: public VideoType(string name, string filterName, string extension, ContainerType containerType, VideoCodec supportedCodec) : this(name, filterName, extension, containerType, new VideoCodec[] { supportedCodec })
-		VideoType(const QString &name, const QString &filterName, const QString &extension, MeXgui::ContainerType *containerType, VideoCodec *supportedCodec);
+        VideoType(const QString &name, const QString &filterName, const QString &extension, ContainerType *containerType, VideoCodec *supportedCodec);
 
-		VideoType(const QString &name, const QString &filterName, const QString &extension, MeXgui::ContainerType *containerType, VideoCodec supportedCodecs[]);
+        //VideoType(const QString &name, const QString &filterName, const QString &extension, MeXgui::ContainerType *containerType, VideoCodec supportedCodecs[]);
 		static VideoType *const MP4;
 		static VideoType *const RAWASP;
 		static VideoType *const RAWAVC;
@@ -187,7 +237,7 @@ namespace MeXgui
 //ORIGINAL LINE: public AudioType(string name, string filterName, string extension, ContainerType containerType, AudioCodec supportedCodec) : this(name, filterName, extension, containerType, new AudioCodec[] { supportedCodec })
 		AudioType(const QString &name, const QString &filterName, const QString &extension, MeXgui::ContainerType *containerType, AudioCodec *supportedCodec);
 
-		AudioType(const QString &name, const QString &filterName, const QString &extension, MeXgui::ContainerType *containerType, AudioCodec supportedCodecs[]);
+        //AudioType(const QString &name, const QString &filterName, const QString &extension, MeXgui::ContainerType *containerType, AudioCodec supportedCodecs[]);
 		static AudioType *const MP4AAC;
 		static AudioType *const M4A;
 		static AudioType *const RAWAAC;
@@ -219,13 +269,15 @@ namespace MeXgui
 		static SubtitleType *const VOBSUB;
 		static SubtitleType *const TTXT;
 	};
-	class ChapterType : public OutputType
+
+    class ChapterType : public OutputType
 	{
 	public:
 		ChapterType(const QString &name, const QString &filterName, const QString &extension, MeXgui::ContainerType *containerType);
 		static ChapterType *const OGG_TXT;
 		static ChapterType *const MKV_XML;
 	};
+
 	class DeviceType : public OutputType
 	{
 	public:
@@ -240,19 +292,6 @@ namespace MeXgui
 		static DeviceType *const AVCHD;
 		static DeviceType *const PC;
 	};
-
-    class ContainerType : public OutputFileType
-	{
-	public:
-		ContainerType(const QString &name, const QString &filterName, const QString &extension);
-		static ContainerType *const MP4;
-		static ContainerType *const MKV;
-		static ContainerType *const AVI;
-		static ContainerType *const M2TS;
-		static const ContainerType Containers[4];
-
-		static ContainerType *ByName(const QString &id);
-	};
 	class ContainerManager
 	{
 	public:
@@ -264,44 +303,6 @@ namespace MeXgui
 		static GenericRegisterer<DeviceType*> *DeviceTypes;
 
 //C# TO C++ CONVERTER TODO TASK: Static constructors are not allowed in native C++:
-		static ContainerManager();
-	};
-
-	class OutputFileType : public IIDable
-	{
-	public:
-		OutputFileType(const QString &name, const QString &filterName, const QString &extension);
-
-		const QString &getID() const;
-
-	private:
-		QString name, filterName, extension;
-		/// <summary>
-		/// used to display the output type in dropdowns
-		/// </summary>
-		/// <returns></returns>
-	public:
-		virtual QString ToString();
-		const QString &getOutputFilter() const;
-		/// <summary>
-		/// gets a valid filter string for file dialogs based on the known extension
-		/// </summary>
-		/// <returns></returns>
-		const QString &getOutputFilterString() const;
-		/// <summary>
-		/// gets the extension for this file type
-		/// </summary>
-		const QString &getExtension() const;
-	};
-
-	class OutputType : public OutputFileType
-	{
-	public:
-		OutputType(const QString &name, const QString &filterName, const QString &extension, MeXgui::ContainerType *containerType);
-
-	private:
-		MeXgui::ContainerType *containerType;
-	public:
-		const MeXgui::ContainerType &getContainerType() const;
+        ContainerManager();
 	};
 }

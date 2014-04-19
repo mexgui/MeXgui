@@ -1,7 +1,7 @@
 #pragma once
 
-#include "MeGUI.core.gui.StandardAndCustomComboBox.h"
-#include "MeGUI.MainForm.h"
+#include "StandardAndCustomComboBox.h"
+#include "MainForm.h"
 #include "core/util/Util.h"
 #include <QString>
 
@@ -34,9 +34,9 @@
 
 
 
-using namespace MeGUI::core::util;
+using namespace MeXgui::core::util;
 
-namespace MeGUI
+namespace MeXgui
 {
 	namespace core
 	{

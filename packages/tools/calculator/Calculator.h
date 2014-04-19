@@ -1,7 +1,7 @@
 #pragma once
 
 #include "core/plugins/interfaces/IPackage.h"
-#include "core/gui/MeXgui.MainForm.h"
+#include "core/gui/MainForm.h"
 #include "core/util/DAR.h"
 #include "core/util/JobUtil.h"
 #include "core/details/video/VideoCodecSettings.h"

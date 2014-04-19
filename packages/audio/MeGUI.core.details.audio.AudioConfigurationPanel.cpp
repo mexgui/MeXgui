@@ -1,4 +1,4 @@
-#include "MeXgui.audio.AudioConfigurationPanel.h"
+#include "audio.AudioConfigurationPanel.h"
 
 
 

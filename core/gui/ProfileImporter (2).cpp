@@ -1,4 +1,4 @@
-#include "MeGUI.core.gui.ProfileImporter.h"
+#include "ProfileImporter.h"
 
 
 
@@ -19,8 +19,8 @@
 
 //using namespace System::Xml;
 using namespace ICSharpCode::SharpZipLib::Zip;
-using namespace MeGUI::core::util;
-namespace MeGUI
+using namespace MeXgui::core::util;
+namespace MeXgui
 {
 	namespace core
 	{
@@ -108,7 +108,7 @@ namespace MeGUI
 				Util::CatchExceptionsAndTellUser("Error importing file", delegate
 				{
 					QVector<Profile*> ps = getSelectedAndRequiredProfiles();
-					fixFileNames(ps, copyExtraFilesToFolder(getextraFilesList(), Path::Combine(mainForm->getMeGUIPath(), "extra")));
+					fixFileNames(ps, copyExtraFilesToFolder(getextraFilesList(), Path::Combine(mainForm->getMeXguiPath(), "extra")));
 					mainForm->getProfiles()->AddAll(ps.ToArray(), mainForm->getDialogManager());
 					DialogResult = DialogResult::OK;
 					mainForm->setImportProfileSuccessful(true);
@@ -180,7 +180,7 @@ namespace MeGUI
 				{
 					delete components;
 				}
-				MeGUI::core::gui::ProfilePorter::Dispose(disposing);
+				MeXgui::core::gui::ProfilePorter::Dispose(disposing);
 			}
 
 			void ProfileImporter::InitializeComponent()

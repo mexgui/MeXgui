@@ -4,7 +4,7 @@
 #include "HDStreamsExJob.h"
 #include "core/plugins/interfaces/IJobProcessor.h"
 #include "core/plugins/interfaces/Job.h"
-#include "core/gui/MeXgui.MainForm.h"
+#include "core/gui/MainForm.h"
 #include "core/util/LogItem.h"
 #include "core/util/Util.h"
 #include <QString>

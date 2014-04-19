@@ -1,16 +1,16 @@
 #pragma once
 
-#include "core/gui/MeXgui.MainForm.h"
+#include "core/gui/MainForm.h"
 #include "core/details/CodecManager.h"
 #include "core/util/VideoUtil.h"
 #include "core/util/LogItem.h"
 #include "core/util/FilmCutter.h"
 #include "AudioSplitJob.h"
 #include "AudioJoinJob.h"
-#include "core/details/MeXgui.SequentialChain.h"
+#include "core/details/SequentialChain.h"
 #include "core/gui/FileBar.h"
-#include "core/gui/MeXgui.FileBar.h"
-#include "core/gui/MeXgui.HelpButton.h"
+#include "core/gui/FileBar.h"
+#include "core/gui/HelpButton.h"
 #include <QString>
 #include <stdexcept>
 

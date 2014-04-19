@@ -10,8 +10,8 @@
 //using namespace System::Text;
 
 
-using namespace MeGUI::core::gui;
-namespace MeGUI
+using namespace MeXgui::core::gui;
+namespace MeXgui
 {
 	namespace core
 	{

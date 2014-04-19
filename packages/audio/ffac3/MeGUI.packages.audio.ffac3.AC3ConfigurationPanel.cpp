@@ -1,4 +1,4 @@
-#include "MeXgui.packages.audio.ffac3.AC3ConfigurationPanel.h"
+#include "packages.audio.ffac3.AC3ConfigurationPanel.h"
 
 
 

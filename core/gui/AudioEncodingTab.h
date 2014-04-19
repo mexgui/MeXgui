@@ -6,14 +6,14 @@
 #include "packages/audio/AudioCodecSettings.h"
 #include "core/util/PrettyFormatting.h"
 #include "core/util/Exceptions.h"
-#include "MeGUI.MainForm.h"
+#include "MainForm.h"
 #include "core/details/CodecManager.h"
 #include "FileBar.h"
-#include "MeGUI.FileBar.h"
+#include "FileBar.h"
 #include "packages/reader/mediainfo/MediaInfoFile.h"
 #include "core/util/LogItem.h"
 #include "core/util/FileUtil.h"
-#include "MeGUI.core.gui.ConfigableProfilesControl.h"
+#include "ConfigableProfilesControl.h"
 #include <QString>
 #include <stdexcept>
 
@@ -56,10 +56,10 @@
 
 
 
-using namespace MeGUI::core::details::video;
-using namespace MeGUI::core::util;
+using namespace MeXgui::core::details::video;
+using namespace MeXgui::core::util;
 
-namespace MeGUI
+namespace MeXgui
 {
 	namespace core
 	{
@@ -68,13 +68,13 @@ namespace MeGUI
 			class AudioEncodingTab : public UserControl
 			{
 			private:
-				MeGUI::AudioEncoderProvider *audioEncoderProvider;
+				MeXgui::AudioEncoderProvider *audioEncoderProvider;
 
 				/// <summary>
 				/// This delegate is called when a job has been successfully configured and the queue button is pressed
 				/// </summary>
 			public:
-				Setter<MeGUI::AudioJob*> QueueJob;
+				Setter<MeXgui::AudioJob*> QueueJob;
 
 				public:
 				~AudioEncodingTab()
@@ -95,7 +95,7 @@ namespace MeGUI
 				const QString &getAudioContainer() const;
 				void setAudioContainer(const QString &value);
 
-				const MeGUI::AudioEncoderProvider &getAudioEncoderProvider() const;
+				const MeXgui::AudioEncoderProvider &getAudioEncoderProvider() const;
 			private:
 				const QString &getAudioInput() const;
 				void setAudioInput(const QString &value);
@@ -129,8 +129,8 @@ namespace MeGUI
 			public:
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
 //[Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility::Hidden)]
-				const MeGUI::AudioJob &getAudioJob() const;
-				void setAudioJob(const MeGUI::AudioJob &value);
+				const MeXgui::AudioJob &getAudioJob() const;
+				void setAudioJob(const MeXgui::AudioJob &value);
 
 				void openAudioFile(const QString &fileName);
 

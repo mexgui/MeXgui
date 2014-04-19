@@ -19,7 +19,7 @@
 
 
 
-namespace MeGUI
+namespace MeXgui
 {
 
 	SettingsForm::SettingsForm()
@@ -98,7 +98,7 @@ namespace MeGUI
 		this->components = new System::ComponentModel::Container();
 		System::Windows::Forms::GroupBox *groupBox1;
 		System::ComponentModel::ComponentResourceManager *resources = new System::ComponentModel::ComponentResourceManager(SettingsForm::typeid);
-		this->rbCloseMeGUI = new System::Windows::Forms::RadioButton();
+		this->rbCloseMeXgui = new System::Windows::Forms::RadioButton();
 		this->command = new System::Windows::Forms::TextBox();
 		this->runCommand = new System::Windows::Forms::RadioButton();
 		this->shutdown = new System::Windows::Forms::RadioButton();
@@ -133,10 +133,10 @@ namespace MeGUI
 		this->defaultLanguage2 = new System::Windows::Forms::ComboBox();
 		this->defaultLanguage1 = new System::Windows::Forms::ComboBox();
 		this->gbDefaultOutput = new System::Windows::Forms::GroupBox();
-		this->targetSizeSCBox1 = new MeGUI::core::gui::TargetSizeSCBox();
+		this->targetSizeSCBox1 = new MeXgui::core::gui::TargetSizeSCBox();
 		this->btnClearOutputDirecoty = new System::Windows::Forms::Button();
 		this->clearDefaultOutputDir = new System::Windows::Forms::Button();
-		this->defaultOutputDir = new MeGUI::FileBar();
+		this->defaultOutputDir = new MeXgui::FileBar();
 		this->tabPage3 = new System::Windows::Forms::TabPage();
 		this->groupBox2 = new System::Windows::Forms::GroupBox();
 		this->label1 = new System::Windows::Forms::Label();
@@ -184,10 +184,10 @@ namespace MeGUI
 		this->groupBox5 = new System::Windows::Forms::GroupBox();
 		this->useNeroAacEnc = new System::Windows::Forms::CheckBox();
 		this->lblNero = new System::Windows::Forms::Label();
-		this->neroaacencLocation = new MeGUI::FileBar();
+		this->neroaacencLocation = new MeXgui::FileBar();
 		this->groupBox4 = new System::Windows::Forms::GroupBox();
 		this->btnClearMP4TempDirectory = new System::Windows::Forms::Button();
-		this->tempDirMP4 = new MeGUI::FileBar();
+		this->tempDirMP4 = new MeXgui::FileBar();
 		this->vobGroupBox = new System::Windows::Forms::GroupBox();
 		this->useDGIndexNV = new System::Windows::Forms::CheckBox();
 		this->cbAutoLoadDG = new System::Windows::Forms::CheckBox();
@@ -198,7 +198,7 @@ namespace MeGUI
 		this->videoExtLabel = new System::Windows::Forms::Label();
 		this->autoEncodeDefaultsButton = new System::Windows::Forms::Button();
 		this->toolTipHelp = new System::Windows::Forms::ToolTip(this->components);
-		this->helpButton1 = new MeGUI::core::gui::HelpButton();
+		this->helpButton1 = new MeXgui::core::gui::HelpButton();
 		groupBox1 = new System::Windows::Forms::GroupBox();
 		groupBox1->SuspendLayout();
 		this->otherGroupBox->SuspendLayout();
@@ -226,7 +226,7 @@ namespace MeGUI
 		// 
 		// groupBox1
 		// 
-		groupBox1->Controls->Add(this->rbCloseMeGUI);
+		groupBox1->Controls->Add(this->rbCloseMeXgui);
 		groupBox1->Controls->Add(this->command);
 		groupBox1->Controls->Add(this->runCommand);
 		groupBox1->Controls->Add(this->shutdown);
@@ -238,16 +238,16 @@ namespace MeGUI
 		groupBox1->TabStop = false;
 		groupBox1->Text = " After encoding ";
 		// 
-		// rbCloseMeGUI
+		// rbCloseMeXgui
 		// 
-		this->rbCloseMeGUI->AutoSize = true;
-		this->rbCloseMeGUI->Location = new System::Drawing::Point(123, 43);
-		this->rbCloseMeGUI->Name = "rbCloseMeGUI";
-		this->rbCloseMeGUI->Size = new System::Drawing::Size(84, 17);
-		this->rbCloseMeGUI->TabIndex = 4;
-		this->rbCloseMeGUI->TabStop = true;
-		this->rbCloseMeGUI->Text = "close MeGUI";
-		this->rbCloseMeGUI->UseVisualStyleBackColor = true;
+		this->rbCloseMeXgui->AutoSize = true;
+		this->rbCloseMeXgui->Location = new System::Drawing::Point(123, 43);
+		this->rbCloseMeXgui->Name = "rbCloseMeXgui";
+		this->rbCloseMeXgui->Size = new System::Drawing::Size(84, 17);
+		this->rbCloseMeXgui->TabIndex = 4;
+		this->rbCloseMeXgui->TabStop = true;
+		this->rbCloseMeXgui->Text = "close MeXgui";
+		this->rbCloseMeXgui->UseVisualStyleBackColor = true;
 		// 
 		// command
 		// 
@@ -581,7 +581,7 @@ namespace MeGUI
 		// 
 		// targetSizeSCBox1
 		// 
-		this->targetSizeSCBox1->setCustomSizes(new MeGUI::core::util::FileSize[0]);
+		this->targetSizeSCBox1->setCustomSizes(new MeXgui::core::util::FileSize[0]);
 		this->targetSizeSCBox1->Location = new System::Drawing::Point(8, 56);
 		this->targetSizeSCBox1->MaximumSize = new System::Drawing::Size(1000, 28);
 		this->targetSizeSCBox1->MinimumSize = new System::Drawing::Size(64, 28);
@@ -1183,7 +1183,7 @@ namespace MeGUI
 		this->tempDirMP4->Size = new System::Drawing::Size(418, 26);
 		this->tempDirMP4->TabIndex = 41;
 		this->tempDirMP4->setTitle("");
-		this->tempDirMP4->FileSelected += new MeGUI::FileBarEventHandler(this, &SettingsForm::tempDirMP4_FileSelected);
+		this->tempDirMP4->FileSelected += new MeXgui::FileBarEventHandler(this, &SettingsForm::tempDirMP4_FileSelected);
 		// 
 		// vobGroupBox
 		// 
@@ -1388,8 +1388,8 @@ namespace MeGUI
 	void SettingsForm::configureServersButton_Click(QObject *sender, QEvent *e)
 	{
 //C# TO C++ CONVERTER NOTE: The following 'using' block is replaced by its C++ equivalent:
-//		using (MeGUI.core.gui.AutoUpdateServerConfigWindow w = new MeGUI.core.gui.AutoUpdateServerConfigWindow())
-		MeGUI::core::gui::AutoUpdateServerConfigWindow *w = new MeGUI::core::gui::AutoUpdateServerConfigWindow();
+//		using (AutoUpdateServerConfigWindow w = new AutoUpdateServerConfigWindow())
+		MeXgui::core::gui::AutoUpdateServerConfigWindow *w = new MeXgui::core::gui::AutoUpdateServerConfigWindow();
 		try
 		{
 			w->setServerList(internalSettings->getAutoUpdateServerLists());
@@ -1420,9 +1420,9 @@ namespace MeGUI
 		defaultOutputDir->setFilename("");
 	}
 
-	const MeGUISettings &SettingsForm::getSettings() const
+	const MeXguiSettings &SettingsForm::getSettings() const
 	{
-		MeGUISettings *settings = internalSettings;
+		MeXguiSettings *settings = internalSettings;
 		settings->setAudioSamplesPerUpdate(static_cast<quint64>(audiosamplesperupdate->Value));
 		settings->setAcceptableFPSError(acceptableFPSError->Value);
 		settings->setAutoUpdate(useAutoUpdateCheckbox->Checked);
@@ -1450,8 +1450,8 @@ namespace MeGUI
 			settings->setAfterEncoding(DoNothing);
 		else if (shutdown->Checked)
 			settings->setAfterEncoding(Shutdown);
-		else if (rbCloseMeGUI->Checked)
-			settings->setAfterEncoding(CloseMeGUI);
+		else if (rbCloseMeXgui->Checked)
+			settings->setAfterEncoding(CloseMeXgui);
 		else
 		{
 			settings->setAfterEncoding(RunCommand);
@@ -1491,10 +1491,10 @@ namespace MeGUI
 		return settings;
 	}
 
-	void SettingsForm::setSettings(const MeGUISettings &value)
+	void SettingsForm::setSettings(const MeXguiSettings &value)
 	{
 		internalSettings = value;
-		MeGUISettings *settings = value;
+		MeXguiSettings *settings = value;
 		audiosamplesperupdate->Value = settings->getAudioSamplesPerUpdate();
 		acceptableFPSError->Value = settings->getAcceptableFPSError();
 		useAutoUpdateCheckbox->Checked = settings->getAutoUpdate();
@@ -1523,7 +1523,7 @@ namespace MeGUI
 		donothing->Checked = settings->getAfterEncoding() == DoNothing;
 		shutdown->Checked = settings->getAfterEncoding() == Shutdown;
 		runCommand->Checked = settings->getAfterEncoding() == RunCommand;
-		rbCloseMeGUI->Checked = settings->getAfterEncoding() == CloseMeGUI;
+		rbCloseMeXgui->Checked = settings->getAfterEncoding() == CloseMeXgui;
 		command->Text = settings->getAfterEncodingCommand();
 		deleteCompletedJobs->Checked = settings->getDeleteCompletedJobs();
 		openScript->Checked = settings->getAutoOpenScript();
@@ -1565,14 +1565,14 @@ namespace MeGUI
 	{
 		if (!backupfiles->Checked)
 		{
-			QString meguiToolsFolder = Application::ExecutablePath->substr(0, Application::ExecutablePath->rfind('\\'));
-			QString meguiAvisynthFolder = MainForm::Instance->getSettings()->getAvisynthPluginsPath() + "\\";
-			if (Directory::Exists(meguiToolsFolder))
+			QString MeXguiToolsFolder = Application::ExecutablePath->substr(0, Application::ExecutablePath->rfind('\\'));
+			QString MeXguiAvisynthFolder = MainForm::Instance->getSettings()->getAvisynthPluginsPath() + "\\";
+			if (Directory::Exists(MeXguiToolsFolder))
 			{
 				try
 				{ // remove all backup files found
 //C# TO C++ CONVERTER TODO TASK: Lambda expressions and anonymous methods are not converted to native C++ unless the option to convert to C++0x lambdas is selected:
-					Array::ForEach(Directory::GetFiles(meguiToolsFolder, "*.backup", SearchOption::AllDirectories), delegate(QString path)
+					Array::ForEach(Directory::GetFiles(MeXguiToolsFolder, "*.backup", SearchOption::AllDirectories), delegate(QString path)
 					{
 						File::Delete(path);
 					}
@@ -1583,12 +1583,12 @@ namespace MeGUI
 					MessageBox::Show(ex.what(), "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 				}
 			}
-			if (Directory::Exists(meguiAvisynthFolder))
+			if (Directory::Exists(MeXguiAvisynthFolder))
 			{
 				try
 				{ // remove all backup files found
 //C# TO C++ CONVERTER TODO TASK: Lambda expressions and anonymous methods are not converted to native C++ unless the option to convert to C++0x lambdas is selected:
-					Array::ForEach(Directory::GetFiles(meguiAvisynthFolder, "*.backup", SearchOption::AllDirectories), delegate(QString path)
+					Array::ForEach(Directory::GetFiles(MeXguiAvisynthFolder, "*.backup", SearchOption::AllDirectories), delegate(QString path)
 					{
 						File::Delete(path);
 					}
@@ -1626,7 +1626,7 @@ namespace MeGUI
 	{
 		neroaacencLocation->Enabled = lblNero->Enabled = useNeroAacEnc->Checked;
 		if (useNeroAacEnc->Checked && !internalSettings->getUseNeroAacEnc())
-			MessageBox::Show("You have to restart MeGUI in order to get access to NeroAacEnc", "Restart required", MessageBoxButtons::OK, MessageBoxIcon::Information);
+			MessageBox::Show("You have to restart MeXgui in order to get access to NeroAacEnc", "Restart required", MessageBoxButtons::OK, MessageBoxIcon::Information);
 	}
 
 	void SettingsForm::useQAAC_CheckedChanged(QObject *sender, QEvent *e)
@@ -1637,16 +1637,16 @@ namespace MeGUI
 		if (!File::Exists(getSettings()->getQaacPath()))
 		{
 			// qaac.exe is not available. Therefore an update check is necessary
-			if (MessageBox::Show("The QAAC component is not installed.\n\nDo you want to search now online for updates?", "MeGUI component missing", MessageBoxButtons::YesNo, MessageBoxIcon::Warning) == System::Windows::Forms::DialogResult::Yes)
+			if (MessageBox::Show("The QAAC component is not installed.\n\nDo you want to search now online for updates?", "MeXgui component missing", MessageBoxButtons::YesNo, MessageBoxIcon::Warning) == System::Windows::Forms::DialogResult::Yes)
 			{
-				MessageBox::Show("The updater will now be started. Please retart MeGUI after the update process has finished in order to get access to QAAC.", "Restart after update required", MessageBoxButtons::OK, MessageBoxIcon::Information);
+				MessageBox::Show("The updater will now be started. Please retart MeXgui after the update process has finished in order to get access to QAAC.", "Restart after update required", MessageBoxButtons::OK, MessageBoxIcon::Information);
 				MainForm::Instance->startUpdateCheck();
 			}
 			else
 				MessageBox::Show("You have selected to not update QAAC. Therefore QAAC will not be available. Run the updater on your own if you want to enable QAAC later.", "QAAC not enabled", MessageBoxButtons::OK, MessageBoxIcon::Warning);
 		}
 		else
-			MessageBox::Show("You have to restart MeGUI in order to get access to QAAC.", "Restart required", MessageBoxButtons::OK, MessageBoxIcon::Information);
+			MessageBox::Show("You have to restart MeXgui in order to get access to QAAC.", "Restart required", MessageBoxButtons::OK, MessageBoxIcon::Information);
 	}
 
 	void SettingsForm::chUse10BitsX264_CheckedChanged(QObject *sender, QEvent *e)
@@ -1657,7 +1657,7 @@ namespace MeGUI
 		if (!File::Exists(getSettings()->getX26410BitsPath()))
 		{
 			// x264-10b is not available. Therefore an update check is necessary
-			if (MessageBox::Show("The x264 10bit component is not installed.\n\nDo you want to search now online for updates?", "MeGUI component missing", MessageBoxButtons::YesNo, MessageBoxIcon::Warning) == System::Windows::Forms::DialogResult::Yes)
+			if (MessageBox::Show("The x264 10bit component is not installed.\n\nDo you want to search now online for updates?", "MeXgui component missing", MessageBoxButtons::YesNo, MessageBoxIcon::Warning) == System::Windows::Forms::DialogResult::Yes)
 				MainForm::Instance->startUpdateCheck();
 			else
 				MessageBox::Show("You have selected to not update x264 10bit. Therefore it will not be available. Run the updater on your own if you want to enable it later.", "x264 10bit not enabled", MessageBoxButtons::OK, MessageBoxIcon::Warning);
@@ -1666,7 +1666,7 @@ namespace MeGUI
 
 	void SettingsForm::InitializeInstanceFields()
 	{
-		internalSettings = new MeGUISettings();
+		internalSettings = new MeXguiSettings();
 		ContextHelp = new XmlDocument();
 	}
 }

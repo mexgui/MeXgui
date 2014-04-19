@@ -1,4 +1,4 @@
-#include "MeGUI.core.gui.JobQueue.h"
+#include "JobQueue.h"
 
 
 
@@ -14,15 +14,15 @@
 
 
 
-using namespace MeGUI::core::details;
-using namespace MeGUI::core::util;
-namespace MeGUI
+using namespace MeXgui::core::details;
+using namespace MeXgui::core::util;
+namespace MeXgui
 {
 	namespace core
 	{
 		namespace gui
 		{
-			const MeGUI::Job &JobQueueEvent::getModifiedJob() const
+			const MeXgui::Job &JobQueueEvent::getModifiedJob() const
 			{
 				return job;
 			}
@@ -37,19 +37,19 @@ const QString JobQueue::__Name = "";
 #endif
 
 #if ! defined(CSC)
-const QString JobQueue::__Name = "MeGUI.";
+const QString JobQueue::__Name = "";
 #endif
 
 System::Reflection::Assembly *const JobQueue::myAssembly = JobQueue::typeid::Assembly;
 BitQMap *const JobQueue::pauseImage = new BitQMap(myAssembly->GetManifestResourceStream(__Name + "pause.ico"));
 BitQMap *const JobQueue::playImage = new BitQMap(myAssembly->GetManifestResourceStream(__Name + "play.ico"));
 
-			const MeGUI::core::gui::StartStopMode &JobQueue::getStartStopMode() const
+			const MeXgui::core::gui::StartStopMode &JobQueue::getStartStopMode() const
 			{
 				return startStopMode;
 			}
 
-			void JobQueue::setStartStopMode(const MeGUI::core::gui::StartStopMode &value)
+			void JobQueue::setStartStopMode(const MeXgui::core::gui::StartStopMode &value)
 			{
 				if (InvokeRequired)
 				{
@@ -75,12 +75,12 @@ BitQMap *const JobQueue::playImage = new BitQMap(myAssembly->GetManifestResource
 				}
 			}
 
-			const MeGUI::core::gui::PauseResumeMode &JobQueue::getPauseResumeMode() const
+			const MeXgui::core::gui::PauseResumeMode &JobQueue::getPauseResumeMode() const
 			{
 				return pauseResumeMode;
 			}
 
-			void JobQueue::setPauseResumeMode(const MeGUI::core::gui::PauseResumeMode &value)
+			void JobQueue::setPauseResumeMode(const MeXgui::core::gui::PauseResumeMode &value)
 			{
 				if (InvokeRequired)
 				{
@@ -478,7 +478,7 @@ BitQMap *const JobQueue::playImage = new BitQMap(myAssembly->GetManifestResource
 				if (job->getStatus() != WAITING && job->getStatus() != POSTPONED)
 					return;
 
-				for (MeGUI::GenericRegisterer<IDable<ReconfigureJob>*>::const_iterator i = MainForm::Instance->getPackageSystem()->JobConfigurers->begin(); i != MainForm::Instance->getPackageSystem()->JobConfigurers->end(); ++i)
+				for (MeXgui::GenericRegisterer<IDable<ReconfigureJob>*>::const_iterator i = MainForm::Instance->getPackageSystem()->JobConfigurers->begin(); i != MainForm::Instance->getPackageSystem()->JobConfigurers->end(); ++i)
 				{
 					Job *j = i->second->Data(job->getJob());
 					if (j != 0)

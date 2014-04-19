@@ -1,6 +1,6 @@
 #pragma once
 
-#include "MeGUI.core.gui.NiceComboBox.h"
+#include "NiceComboBox.h"
 #include "NiceComboBox.h"
 #include "core/util/Util.h"
 #include "core/util/LogItem.h"
@@ -46,9 +46,9 @@
 
 
 
-using namespace MeGUI::core::util;
+using namespace MeXgui::core::util;
 
-namespace MeGUI
+namespace MeXgui
 {
 	namespace core
 	{
@@ -110,7 +110,7 @@ namespace MeGUI
 			};
 			
 			
-			class StandardAndCustomComboBox : public MeGUI::core::gui::NiceComboBox
+			class StandardAndCustomComboBox : public MeXgui::core::gui::NiceComboBox
 			{
 			private:
 				NiceComboBoxNormalItem *clearItem;
@@ -138,7 +138,7 @@ namespace MeGUI
 
 				StandardAndCustomComboBox(const QString &clearText, const QString &chooseNewText);
 
-				void SetFileSCBoxType(const QString &chooseNewText, const QString &chooseNewFolder, MeGUI::core::gui::FileSCBox::FileSCBoxType oType);
+				void SetFileSCBoxType(const QString &chooseNewText, const QString &chooseNewFolder, MeXgui::core::gui::FileSCBox::FileSCBoxType oType);
 
 				void SetTargetSizeSCBoxType(const QString &clearText, const QString &chooseCustomSize);
 

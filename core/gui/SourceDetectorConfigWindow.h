@@ -1,8 +1,8 @@
 #pragma once
 
 #include "SourceDetectorSettings.h"
-#include "MeGUI.Properties.Settings.h"
-#include "MeGUI.core.gui.HelpButton.h"
+#include "Properties.Settings.h"
+#include "HelpButton.h"
 
 // ****************************************************************************
 // 
@@ -41,7 +41,7 @@
 
 
 
-namespace MeGUI
+namespace MeXgui
 {
 	class SourceDetectorConfigWindow : public System::Windows::Forms::Form
 	{
@@ -105,7 +105,7 @@ namespace MeGUI
 		System::Windows::Forms::Button *cancelButton;
 		System::Windows::Forms::ComboBox *priority;
 		System::Windows::Forms::Label *priorityLabel;
-		MeGUI::core::gui::HelpButton *helpButton1;
+		MeXgui::core::gui::HelpButton *helpButton1;
 
 	private:
 		void InitializeInstanceFields();

@@ -1,8 +1,8 @@
 #pragma once
 
 #include "core/plugins/interfaces/IPackage.h"
-#include "MeGUI.MainForm.h"
-#include "MeGUI.UpdateWindow.h"
+#include "MainForm.h"
+#include "UpdateWindow.h"
 #include "core/util/Exceptions.h"
 #include <QString>
 
@@ -52,12 +52,12 @@
 using namespace ICSharpCode::SharpZipLib::Zip;
 using namespace SevenZip;
 
-using namespace MeGUI::core::util;
+using namespace MeXgui::core::util;
 
 
-namespace MeGUI
+namespace MeXgui
 {
-	class UpdateOptions : public MeGUI::core::plugins::interfaces::IOption
+	class UpdateOptions : public MeXgui::core::plugins::interfaces::IOption
 	{
 
 
@@ -74,7 +74,7 @@ namespace MeGUI
 
 	};
 
-	class FileNotRegisteredYetException : public MeGUIException
+	class FileNotRegisteredYetException : public MeXguiException
 	{
 	private:
 		QString name;

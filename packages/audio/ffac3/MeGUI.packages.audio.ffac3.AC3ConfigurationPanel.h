@@ -2,9 +2,9 @@
 
 #include "core/details/ProfileManager.h"
 #include "AC3Settings.h"
-#include "packages/audio/MeXgui.audio.AudioConfigurationPanel.h"
+#include "packages/audio/audio.AudioConfigurationPanel.h"
 #include "packages/audio/AudioCodecSettings.h"
-#include "MeXgui.Properties.Settings.h"
+#include "Properties.Settings.h"
 
 // ****************************************************************************
 // 

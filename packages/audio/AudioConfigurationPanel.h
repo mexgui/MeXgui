@@ -2,7 +2,7 @@
 
 #include "core/util/EnumProxy.h"
 #include "AudioCodecSettings.h"
-#include "MeXgui.Properties.Settings.h"
+#include "Properties.Settings.h"
 #include "core/util/LogItem.h"
 #include <cctype>
 

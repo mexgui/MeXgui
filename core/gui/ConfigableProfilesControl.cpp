@@ -1,4 +1,4 @@
-#include "MeGUI.core.gui.ConfigableProfilesControl.h"
+#include "ConfigableProfilesControl.h"
 
 
 
@@ -14,7 +14,7 @@
 //using namespace System::Text;
 
 
-namespace MeGUI
+namespace MeXgui
 {
 	namespace core
 	{
@@ -39,7 +39,7 @@ namespace MeGUI
 				{
 					delete components;
 				}
-				MeGUI::core::gui::SimpleProfilesControl::Dispose(disposing);
+				MeXgui::core::gui::SimpleProfilesControl::Dispose(disposing);
 			}
 
 			void ConfigableProfilesControl::InitializeComponent()

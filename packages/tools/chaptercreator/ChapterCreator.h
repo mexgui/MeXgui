@@ -1,9 +1,9 @@
 #pragma once
 
 #include "core/gui/VideoPlayer.h"
-#include "core/gui/MeXgui.MainForm.h"
+#include "core/gui/MainForm.h"
 #include "ChapterInfo.h"
-#include "core/gui/MeXgui.HelpButton.h"
+#include "core/gui/HelpButton.h"
 #include "core/plugins/interfaces/IMediaFile.h"
 #include "core/util/FileUtil.h"
 #include "core/util/Drives.h"

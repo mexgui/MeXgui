@@ -1,11 +1,11 @@
 ﻿#pragma once
 
-#include "MeXgui.OneClickWindow.h"
+#include "OneClickWindow.h"
 #include "core/util/LogItem.h"
 #include "OneClickSettings.h"
 #include "OneClickWindow.h"
 #include "packages/reader/mediainfo/MediaInfoFile.h"
-#include "packages/tools/fileindexer/MeXgui.FileIndexerWindow.h"
+#include "packages/tools/fileindexer/FileIndexerWindow.h"
 #include "packages/tools/chaptercreator/ChapterExtractor.h"
 #include "packages/tools/chaptercreator/DvdExtractor.h"
 #include "packages/tools/chaptercreator/ChapterInfo.h"

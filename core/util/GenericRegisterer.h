@@ -2,10 +2,11 @@
 
 #include <QString>
 #include <QMap>
-#include <iostream>
+#include <QMutex>
+
 // ****************************************************************************
 // 
-// Copyright (C) 2005-2009  Doom9 & al
+// Copyright (C) 2005-2013  Doom9 & al and Qt 2014-> Jeroi
 // 
 // This program is free software; you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -22,13 +23,6 @@
 // Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 // 
 // ****************************************************************************
-
-
-
-
-//using namespace System::Collections::Generic;
-
-//using namespace System::Text;
 
 namespace MeXgui
 {
@@ -63,11 +57,11 @@ namespace MeXgui
     //Orginal C# was this:
     //template<typename TType> where TType : IIdable
     //Removed where statement as it should not make any different for handling the IIDable code.
-    template<typename TType> class GenericRegisterer
+    template<class TType> class GenericRegisterer
     {
 	private:
 		QMap<QString, TType> registeredTypes;
-
+        QMutex mutex;
 		/// <summary>
 		/// Gets the registered type under the given name
 		/// </summary>
@@ -88,7 +82,7 @@ namespace MeXgui
 		{
 			if (registeredTypes.find(registerable->ID) != registeredTypes.end())
 			{
-				if (registerable->Equals(registeredTypes[registerable->ID]))
+                if (registerable.Equals(registeredTypes[registerable->ID]))
 				{
 					return true;
 				}
@@ -109,7 +103,7 @@ namespace MeXgui
 				registeredTypes.erase(name);
 			return true;
 		}
-        template<typename TType> const GenericRegisterer<TType>::getValues() //const ICollection<TType> getValues()
+        const QList<TType> getValues()
         {
 			return registeredTypes.Values;
         }
@@ -117,12 +111,13 @@ namespace MeXgui
         const TType *getValuesArray()
 		{
         //There is no built-in support for multithreading in native C++:
-            //lock (this)
-            //{
-				TType array_Renamed[Values->Count];
-				getValues()->CopyTo(array_Renamed, 0);
-				return array_Renamed;
-            //}
+            mutex.lock();
+
+            TType array_Renamed[registeredTypes.Values->Count];
+            getValues()->CopyTo(array_Renamed, 0);
+
+            mutex.unlock();
+            return array_Renamed;
 		}
 
 	private:

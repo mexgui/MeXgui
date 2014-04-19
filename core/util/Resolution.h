@@ -5,7 +5,7 @@
 #include "VideoUtil.h"
 #include "packages/video/x264/x264Device.h"
 #include "packages/tools/avscreator/AviSynthWindow.h"
-#include "core/gui/MeXgui.MainForm.h"
+#include "core/gui/MainForm.h"
 #include <QString>
 #include <cmath>
 #include <stdexcept>

@@ -3,7 +3,7 @@
 #include "eac3to/Feature.h"
 #include "core/util/LogItem.h"
 #include "packages/reader/mediainfo/MediaInfoFile.h"
-#include "core/gui/MeXgui.MainForm.h"
+#include "core/gui/MainForm.h"
 #include "Extensions.h"
 #include "eac3to/File.h"
 #include "eac3to/Stream.h"

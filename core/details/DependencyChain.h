@@ -1,7 +1,7 @@
 #pragma once
 
 #include "core/plugins/interfaces/Job.h"
-#include "MeXgui.JobChain.h"
+#include "JobChain.h"
 #include "TaggedJob.h"
 
 // ****************************************************************************

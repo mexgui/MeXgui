@@ -20,9 +20,9 @@
 //using namespace System::Text;
 
 
-using namespace MeGUI::core::details;
-using namespace MeGUI::core::util;
-namespace MeGUI
+using namespace MeXgui::core::details;
+using namespace MeXgui::core::util;
+namespace MeXgui
 {
 	namespace core
 	{
@@ -34,7 +34,7 @@ namespace MeGUI
 				return name;
 			}
 
-			NameTakenException::NameTakenException(const QString &name) : MeGUIException("Worker name '" + name + "' is already in use.")
+			NameTakenException::NameTakenException(const QString &name) : MeXguiException("Worker name '" + name + "' is already in use.")
 			{
 				this->name = name;
 			}

@@ -3,7 +3,7 @@
 #include "core/details/StatusUpdate.h"
 #include "Job.h"
 #include "core/util/LogItem.h"
-#include "core/gui/MeXgui.MainForm.h"
+#include "core/gui/MainForm.h"
 #include "core/util/GenericRegisterer.h"
 #include <QString>
 

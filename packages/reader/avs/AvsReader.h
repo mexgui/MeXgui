@@ -2,7 +2,7 @@
 
 #include "core/plugins/interfaces/IMediaFile.h"
 #include "packages/tools/avscreator/AvisynthWrapper.h"
-#include "core/gui/MeXgui.MainForm.h"
+#include "core/gui/MainForm.h"
 #include "packages/reader/mediainfo/MediaInfoFile.h"
 #include "packages/tools/chaptercreator/MplsExtractor.h"
 #include "core/util/DAR.h"

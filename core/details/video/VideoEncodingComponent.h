@@ -1,22 +1,22 @@
 #pragma once
 
 #include "core/gui/VideoPlayer.h"
-#include "core/gui/MeXgui.MainForm.h"
+#include "core/gui/MainForm.h"
 #include "core/plugins/interfaces/ISettingsProvider.h"
 #include "VideoCodecSettings.h"
 #include "core/details/mux/MuxProvider.h"
 #include "core/details/CodecManager.h"
 #include "core/gui/FileBar.h"
-#include "core/gui/MeXgui.FileBar.h"
-#include "core/details/MeXgui.JobChain.h"
+#include "core/gui/FileBar.h"
+#include "core/details/JobChain.h"
 #include "core/details/mux/MuxJob.h"
-#include "core/details/MeXgui.SequentialChain.h"
+#include "core/details/SequentialChain.h"
 #include "core/util/LogItem.h"
 #include "core/util/AudioUtil.h"
 #include "packages/tools/avscreator/AviSynthJob.h"
 #include "core/util/Util.h"
-#include "core/gui/MeXgui.ZonesWindow.h"
-#include "core/gui/MeXgui.ConfigableProfilesControl.h"
+#include "core/gui/ZonesWindow.h"
+#include "core/gui/ConfigableProfilesControl.h"
 #include <QString>
 
 // ****************************************************************************

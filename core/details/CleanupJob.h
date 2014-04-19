@@ -1,10 +1,10 @@
 #pragma once
 
 #include "core/plugins/interfaces/Job.h"
-#include "MeXgui.JobChain.h"
-#include "MeXgui.SequentialChain.h"
+#include "JobChain.h"
+#include "SequentialChain.h"
 #include "core/plugins/interfaces/IJobProcessor.h"
-#include "core/gui/MeXgui.MainForm.h"
+#include "core/gui/MainForm.h"
 #include "core/util/FileUtil.h"
 #include "StatusUpdate.h"
 #include "core/util/LogItem.h"

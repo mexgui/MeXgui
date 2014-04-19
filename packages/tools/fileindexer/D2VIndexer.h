@@ -4,7 +4,7 @@
 #include "D2VIndexJob.h"
 #include "core/plugins/interfaces/IJobProcessor.h"
 #include "core/plugins/interfaces/Job.h"
-#include "core/gui/MeXgui.MainForm.h"
+#include "core/gui/MainForm.h"
 #include "core/util/LogItem.h"
 #include "core/details/AudioTrackInfo.h"
 #include "core/util/FileUtil.h"

@@ -1,4 +1,4 @@
-#include "MeGUI.ZonesControl.h"
+#include "ZonesControl.h"
 
 
 
@@ -15,7 +15,7 @@
 
 
 
-namespace MeGUI
+namespace MeXgui
 {
 
 	ZonesControl::ZonesControl()
@@ -28,12 +28,12 @@ namespace MeGUI
 		InitializeComponent();
 	}
 
-	const MeGUI::MainForm &ZonesControl::getMainForm() const
+	const MeXgui::MainForm &ZonesControl::getMainForm() const
 	{
 		return mainForm;
 	}
 
-	void ZonesControl::setMainForm(const MeGUI::MainForm &value)
+	void ZonesControl::setMainForm(const MeXgui::MainForm &value)
 	{
 		mainForm = value;
 	}
@@ -114,7 +114,7 @@ namespace MeGUI
 			if (sizeof(zones) / sizeof(zones[0]) == 0) // no zones defined yet
 				newZones[0] = zone;
 			bool iterationAborted = false, zoneInserted = false;
-			for (MeGUI::Zone::const_iterator z = zones->begin(); z != zones->end(); ++z)
+			for (MeXgui::Zone::const_iterator z = zones->begin(); z != zones->end(); ++z)
 			{
 				if (zone->startFrame > (*z)->endFrame) // new zone starts after the current one
 				{
@@ -153,7 +153,7 @@ namespace MeGUI
 	void ZonesControl::showZones(Zone zones[])
 	{
 		this->zoneListView->Items->Clear();
-		for (MeGUI::Zone::const_iterator z = zones->begin(); z != zones->end(); ++z)
+		for (MeXgui::Zone::const_iterator z = zones->begin(); z != zones->end(); ++z)
 		{
 //C# TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to 'ToString':
 			ListViewItem *item = new ListViewItem(new QString[] {(*z)->startFrame->ToString(), (*z)->endFrame->ToString(), (*z)->mode->ToString(), (*z)->modifier->ToString()});

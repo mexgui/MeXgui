@@ -1,4 +1,4 @@
-#include "MeXgui.packages.tools.oneclick.OneClickConfigPanel.h"
+#include "packages.tools.oneclick.OneClickConfigPanel.h"
 
 
 

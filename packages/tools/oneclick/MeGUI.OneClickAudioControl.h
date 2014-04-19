@@ -3,10 +3,10 @@
 #include "core/util/LanguageSelectionContainer.h"
 #include "core/util/EnumProxy.h"
 #include "OneClickSettings.h"
-#include "core/gui/MeXgui.MainForm.h"
+#include "core/gui/MainForm.h"
 #include "core/plugins/interfaces/Profile.h"
 #include "core/util/LogItem.h"
-#include "core/gui/MeXgui.ConfigableProfilesControl.h"
+#include "core/gui/ConfigableProfilesControl.h"
 #include <QString>
 #include <QVector>
 

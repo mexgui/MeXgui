@@ -243,7 +243,7 @@ namespace MeXgui
 		{
 			//todo: handle closevent with qmethod
 			e->Cancel = true; // abort closing
-			MessageBox::Show("Please close running jobs before you close MeXgui.", "Job in progress", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+			MessageBox::Show("Please close running jobs before you close ", "Job in progress", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 		}
 		if (!e->Cancel)
 		{
@@ -1389,7 +1389,7 @@ Mutex *MainForm::mySingleInstanceMutex = new Mutex(true, "MeXgui_mutex");
 
 	void MainForm::mnuHome_Click(QObject *sender, QEvent *e)
 	{
-		System::Diagnostics::Process::Start("http://mexgui.wordpress.com/");
+		System::Diagnostics::Process::Start("http://wordpress.com/");
 	}
 
 	void MainForm::mnuBugTracker_Click(QObject *sender, QEvent *e)

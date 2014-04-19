@@ -3,7 +3,7 @@
 #include "IJobProcessor.h"
 #include "core/util/GenericRegisterer.h"
 #include "Job.h"
-#include "core/gui/MeXgui.MainForm.h"
+#include "core/gui/MainForm.h"
 #include <QMap>
 
 // ****************************************************************************

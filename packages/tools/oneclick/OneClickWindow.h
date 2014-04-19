@@ -1,8 +1,8 @@
 #pragma once
 
 #include "core/plugins/interfaces/IPackage.h"
-#include "core/gui/MeXgui.MainForm.h"
-#include "MeXgui.OneClickWindow.h"
+#include "core/gui/MainForm.h"
+#include "OneClickWindow.h"
 #include <QString>
 
 // ****************************************************************************

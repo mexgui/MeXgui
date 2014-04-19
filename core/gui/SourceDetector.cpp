@@ -23,7 +23,7 @@
 
 
 
-namespace MeGUI
+namespace MeXgui
 {
 
 	SourceDetector::SourceDetector(const QString &avsScript, const QString &d2vFile_Renamed, bool isAnime, SourceDetectorSettings *settings, UpdateSourceDetectionStatus updateMethod, FinishedAnalysis finishedMethod)
@@ -296,7 +296,7 @@ namespace MeGUI
 				catch (std::exception &e2)
 				{
 					error = true;
-					errorMessage = "Unexpected value in file " + filename + "\r\n" + "This error should not have occurred. Please report it on \r\n" + "post it on http://sourceforge.net/projects/megui with the file named above.";
+					errorMessage = "Unexpected value in file " + filename + "\r\n" + "This error should not have occurred. Please report it on \r\n" + "post it on http://sourceforge.net/projects/MeXgui with the file named above.";
 					errorMessage += "\r\nMore debugging info:\r\n" + "Line contents: " + line + "\r\n";
 					finishProcessing();
 					return;

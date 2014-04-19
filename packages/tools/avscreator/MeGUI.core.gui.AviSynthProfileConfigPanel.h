@@ -4,12 +4,12 @@
 #include "AviSynthSettings.h"
 #include "ScriptServer.h"
 #include "core/details/MeXguiSettings.h"
-#include "MeXgui.Properties.Settings.h"
+#include "Properties.Settings.h"
 #include "AviSynthWindow.h"
 #include "core/util/EnumProxy.h"
 #include "core/util/LogItem.h"
 #include "core/gui/FileBar.h"
-#include "core/gui/MeXgui.FileBar.h"
+#include "core/gui/FileBar.h"
 #include <QString>
 
 // ****************************************************************************

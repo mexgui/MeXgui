@@ -2,7 +2,7 @@
 
 #include "core/plugins/interfaces/Job.h"
 #include "AudioCodecSettings.h"
-#include "MeXgui.Properties.Settings.h"
+#include "Properties.Settings.h"
 #include "core/details/mux/MuxProvider.h"
 #include "core/details/Streams.h"
 #include "core/details/CodecManager.h"

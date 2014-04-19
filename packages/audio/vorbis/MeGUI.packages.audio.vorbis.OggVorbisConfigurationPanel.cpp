@@ -1,4 +1,4 @@
-#include "MeXgui.packages.audio.vorbis.OggVorbisConfigurationPanel.h"
+#include "packages.audio.vorbis.OggVorbisConfigurationPanel.h"
 
 
 

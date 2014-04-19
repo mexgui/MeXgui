@@ -4,7 +4,7 @@
 #include "core/details/StatusUpdate.h"
 #include "core/util/Util.h"
 #include "core/plugins/interfaces/Job.h"
-#include "MeGUI.core.gui.HelpButton.h"
+#include "HelpButton.h"
 #include <QString>
 #include <stdexcept>
 
@@ -40,9 +40,9 @@
 
 
 
-using namespace MeGUI::core::util;
+using namespace MeXgui::core::util;
 
-namespace MeGUI
+namespace MeXgui
 {
 	typedef void (*WindowClosedCallback)(bool hideOnly); // delegate for WindowClosed event
 	typedef void (*AbortCallback)(); // delegate for Abort event
@@ -174,7 +174,7 @@ namespace MeGUI
 		System::Windows::Forms::Label *currentPositionLabel;
 		System::Windows::Forms::StatusStrip *statusStrip1;
 		System::Windows::Forms::ToolStripStatusLabel *statusLabel;
-		MeGUI::core::gui::HelpButton *helpButton1;
+		MeXgui::core::gui::HelpButton *helpButton1;
 		ITaskbarList3 *taskbarProgress;
 		System::Windows::Forms::ToolStripStatusLabel *jobNameLabel;
 

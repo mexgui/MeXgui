@@ -1,8 +1,8 @@
 #pragma once
 
-#include "core/gui/MeXgui.HelpButton.h"
+#include "core/gui/HelpButton.h"
 #include "core/util/LogItem.h"
-#include "core/gui/MeXgui.MainForm.h"
+#include "core/gui/MainForm.h"
 #include "core/plugins/interfaces/IPackage.h"
 #include <QString>
 #include <stdexcept>

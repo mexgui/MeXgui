@@ -3,8 +3,8 @@
 #include "core/gui/Profiles.h"
 #include "OneClickAudioControl.h"
 #include "core/util/FileSize.h"
-#include "core/gui/MeXgui.MainForm.h"
-#include "packages/tools/fileindexer/MeXgui.FileIndexerWindow.h"
+#include "core/gui/MainForm.h"
+#include "packages/tools/fileindexer/FileIndexerWindow.h"
 #include "core/plugins/interfaces/Profile.h"
 #include <QString>
 #include <QMap>

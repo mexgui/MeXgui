@@ -1,14 +1,14 @@
 #include "dialogexample.h"
 #include "ui_dialogexample.h"
 
-Dialogexample::Dialogexample(QWidget *parent) :
+DialogExample::DialogExample(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::Dialogexample)
+    ui(new Ui::DialogExample)
 {
     ui->setupUi(this);
 }
 
-Dialogexample::~Dialogexample()
+DialogExample::~DialogExample()
 {
     delete ui;
 }

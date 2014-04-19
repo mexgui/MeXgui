@@ -1,4 +1,4 @@
-﻿#include "MeGUI.core.gui.ZonesWindow.h"
+﻿#include "ZonesWindow.h"
 
 
 
@@ -14,7 +14,7 @@
 //using namespace System::Text;
 
 
-namespace MeGUI
+namespace MeXgui
 {
 	namespace core
 	{
@@ -51,7 +51,7 @@ namespace MeGUI
 			void ZonesWindow::InitializeComponent()
 			{
 				System::ComponentModel::ComponentResourceManager *resources = new System::ComponentModel::ComponentResourceManager(ZonesWindow::typeid);
-				this->zonesControl1 = new MeGUI::ZonesControl();
+				this->zonesControl1 = new MeXgui::ZonesControl();
 				this->flowLayoutPanel1 = new System::Windows::Forms::FlowLayoutPanel();
 				this->button2 = new System::Windows::Forms::Button();
 				this->button1 = new System::Windows::Forms::Button();
@@ -70,7 +70,7 @@ namespace MeGUI
 				this->zonesControl1->Name = "zonesControl1";
 				this->zonesControl1->Size = new System::Drawing::Size(321, 417);
 				this->zonesControl1->TabIndex = 0;
-				this->zonesControl1->setZones(new MeGUI::Zone[0]);
+				this->zonesControl1->setZones(new MeXgui::Zone[0]);
 				// 
 				// flowLayoutPanel1
 				// 

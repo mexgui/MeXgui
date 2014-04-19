@@ -2,7 +2,7 @@
 
 #include "core/util/LogItem.h"
 #include "VideoPlayer.h"
-#include "MeGUI.MainForm.h"
+#include "MainForm.h"
 #include "core/plugins/interfaces/IMediaFile.h"
 #include "packages/reader/video/VideoReader.h"
 #include <stdexcept>
@@ -38,7 +38,7 @@
 
 //using System::Threading::Timer;
 
-namespace MeGUI
+namespace MeXgui
 {
 	namespace core
 	{

@@ -2,15 +2,15 @@
 
 #include "core/details/ProfileManager.h"
 #include "OneClickSettings.h"
-#include "core/gui/MeXgui.MainForm.h"
-#include "MeXgui.OneClickAudioControl.h"
+#include "core/gui/MainForm.h"
+#include "OneClickAudioControl.h"
 #include "core/details/CodecManager.h"
 #include "core/util/LanguageSelectionContainer.h"
-#include "MeXgui.Properties.Settings.h"
+#include "Properties.Settings.h"
 #include "OneClickAudioControl.h"
-#include "core/gui/MeXgui.ConfigableProfilesControl.h"
+#include "core/gui/ConfigableProfilesControl.h"
 #include "core/gui/TargetSizeSCBox.h"
-#include "core/gui/MeXgui.FileBar.h"
+#include "core/gui/FileBar.h"
 #include "core/util/FileSize.h"
 #include <QString>
 #include <QVector>

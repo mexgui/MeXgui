@@ -1,4 +1,4 @@
-#include "MeGUI.core.gui.JobWorker.h"
+#include "JobWorker.h"
 
 
 
@@ -20,16 +20,16 @@
 //using namespace System::Text;
 
 
-using namespace MeGUI::core::details;
-using namespace MeGUI::core::util;
-namespace MeGUI
+using namespace MeXgui::core::details;
+using namespace MeXgui::core::util;
+namespace MeXgui
 {
 	namespace core
 	{
 		namespace gui
 		{
 
-			JobWorker::JobStartException::JobStartException(const QString &reason, ExceptionType type) : MeGUIException(reason)
+			JobWorker::JobStartException::JobStartException(const QString &reason, ExceptionType type) : MeXguiException(reason)
 			{
 				this->type = type;
 			}
@@ -78,7 +78,7 @@ namespace MeGUI
 				return progress;
 			}
 
-			const MeGUI::core::details::PauseState &JobWorker::getPauseStatus() const
+			const MeXgui::core::details::PauseState &JobWorker::getPauseStatus() const
 			{
 				return pauseStatus;
 			}
@@ -103,7 +103,7 @@ namespace MeGUI
 				return _status;
 			}
 
-			const MeGUI::core::details::JobWorkerMode &JobWorker::getMode() const
+			const MeXgui::core::details::JobWorkerMode &JobWorker::getMode() const
 			{
 				return mode;
 			}
@@ -113,7 +113,7 @@ namespace MeGUI
 				mode = value;
 			}
 
-			const MeGUI::core::details::JobWorkerStatus &JobWorker::getStatus() const
+			const MeXgui::core::details::JobWorkerStatus &JobWorker::getStatus() const
 			{
 				return status;
 			}
@@ -192,7 +192,7 @@ namespace MeGUI
 			void JobWorker::postprocessJob(Job *job)
 			{
 				LogItem *i = log->LogEvent("Postprocessing");
-				for (MeGUI::GenericRegisterer<JobPostProcessor*>::const_iterator pp = mainForm->getPackageSystem()->getJobPostProcessors()->begin(); pp != mainForm->getPackageSystem()->getJobPostProcessors()->end(); ++pp)
+				for (MeXgui::GenericRegisterer<JobPostProcessor*>::const_iterator pp = mainForm->getPackageSystem()->getJobPostProcessors()->begin(); pp != mainForm->getPackageSystem()->getJobPostProcessors()->end(); ++pp)
 				{
 					LogItem *plog = pp->second->PostProcessor(mainForm, job);
 					if (plog != 0)
@@ -205,7 +205,7 @@ namespace MeGUI
 			void JobWorker::preprocessJob(Job *job)
 			{
 				LogItem *i = log->LogEvent("Preprocessing");
-				for (MeGUI::GenericRegisterer<JobPreProcessor*>::const_iterator pp = mainForm->getPackageSystem()->getJobPreProcessors()->begin(); pp != mainForm->getPackageSystem()->getJobPreProcessors()->end(); ++pp)
+				for (MeXgui::GenericRegisterer<JobPreProcessor*>::const_iterator pp = mainForm->getPackageSystem()->getJobPreProcessors()->begin(); pp != mainForm->getPackageSystem()->getJobPreProcessors()->end(); ++pp)
 				{
 					LogItem *plog = pp->second->PreProcessor(mainForm, job);
 					if (plog != 0)
@@ -215,9 +215,9 @@ namespace MeGUI
 				}
 			}
 
-			MeGUI::IJobProcessor *JobWorker::getProcessor(Job *job)
+			MeXgui::IJobProcessor *JobWorker::getProcessor(Job *job)
 			{
-				for (MeGUI::GenericRegisterer<JobProcessorFactory*>::const_iterator f = mainForm->getPackageSystem()->getJobProcessors()->begin(); f != mainForm->getPackageSystem()->getJobProcessors()->end(); ++f)
+				for (MeXgui::GenericRegisterer<JobProcessorFactory*>::const_iterator f = mainForm->getPackageSystem()->getJobProcessors()->begin(); f != mainForm->getPackageSystem()->getJobProcessors()->end(); ++f)
 				{
 					IJobProcessor *p = f->second->Factory(mainForm, job);
 					if (p != 0)
@@ -355,7 +355,7 @@ namespace MeGUI
 			{
 				if (su->getIsComplete())
 				{
-					MeGUI::core::util::WindowUtil::AllowSystemPowerdown();
+					MeXgui::core::util::WindowUtil::AllowSystemPowerdown();
 					// so we don't lock up the GUI, we start a new thread
 //C# TO C++ CONVERTER TODO TASK: Lambda expressions and anonymous methods are not converted to native C++ unless the option to convert to C++0x lambdas is selected:
 					Thread *t = new Thread(new ThreadStart(delegate
@@ -382,22 +382,22 @@ namespace MeGUI
 						if (!jobFailed && mainForm->getSettings()->getDeleteCompletedJobs())
 							mainForm->getJobs()->RemoveCompletedJob(job);
 							else
-								mainForm->getJobs()->saveJob(job, mainForm->getMeGUIPath());
+								mainForm->getJobs()->saveJob(job, mainForm->getMeXguiPath());
 								if (mode == CloseOnLocalListCompleted && shutdownWorkerIfJobsCompleted())
 								{
-									MeGUI::core::util::WindowUtil::AllowSystemPowerdown();
+									MeXgui::core::util::WindowUtil::AllowSystemPowerdown();
 									JobInfo = COULDNT_START;
 								}
 								else if (job->getStatus() == ABORTED)
 								{
-									MeGUI::core::util::WindowUtil::AllowSystemPowerdown();
+									MeXgui::core::util::WindowUtil::AllowSystemPowerdown();
 									log->LogEvent("Current job was aborted");
 									status = Stopped;
 									JobInfo = COULDNT_START;
 								}
 								else if (status == Stopping)
 								{
-									MeGUI::core::util::WindowUtil::AllowSystemPowerdown();
+									MeXgui::core::util::WindowUtil::AllowSystemPowerdown();
 									log->LogEvent("Queue mode stopped");
 									status = Stopped;
 									JobInfo = COULDNT_START;
@@ -408,15 +408,15 @@ namespace MeGUI
 									switch (JobInfo)
 									{
 										case JOB_STARTED:
-											MeGUI::core::util::WindowUtil::PreventSystemPowerdown();
+											MeXgui::core::util::WindowUtil::PreventSystemPowerdown();
 											break;
 											case COULDNT_START:
-												MeGUI::core::util::WindowUtil::AllowSystemPowerdown();
+												MeXgui::core::util::WindowUtil::AllowSystemPowerdown();
 												if (status != Postponed)
 													status = Idle;
 													break;
 													case NO_JOBS_WAITING:
-														MeGUI::core::util::WindowUtil::AllowSystemPowerdown();
+														MeXgui::core::util::WindowUtil::AllowSystemPowerdown();
 														if (status != Postponed)
 															status = Idle;
 //C# TO C++ CONVERTER TODO TASK: Lambda expressions and anonymous methods are not converted to native C++ unless the option to convert to C++0x lambdas is selected:
@@ -485,7 +485,7 @@ namespace MeGUI
 					log->Expand();
 
 					status = Running;
-					MeGUI::core::util::WindowUtil::PreventSystemPowerdown();
+					MeXgui::core::util::WindowUtil::PreventSystemPowerdown();
 
 					//Check to see if output file already exists before encoding.
 					if (File::Exists(job->getJob()->Output) && !mainForm->getDialogManager()->overwriteJobOutput(job->getJob()->Output))
@@ -562,7 +562,7 @@ namespace MeGUI
 
 			}
 
-			MeGUI::core::details::TaggedJob *JobWorker::getNextJob()
+			MeXgui::core::details::TaggedJob *JobWorker::getNextJob()
 			{
 				for (IEnumerable<TaggedJob*>::const_iterator j = jobQueue1->getJobList()->begin(); j != jobQueue1->getJobList()->end(); ++j)
 					if ((*j)->getStatus() == WAITING && mainForm->getJobs()->areDependenciesMet(*j))
@@ -573,7 +573,7 @@ namespace MeGUI
 					return 0;
 			}
 
-			MeGUI::core::details::JobStartInfo JobWorker::startNextJobInQueue()
+			MeXgui::core::details::JobStartInfo JobWorker::startNextJobInQueue()
 			{
 				mainForm->getJobs()->getResourceLock()->WaitOne(10000, false);
 
@@ -843,9 +843,9 @@ namespace MeGUI
 			void JobWorker::InitializeComponent()
 			{
 				System::Windows::Forms::GroupBox *groupBox1;
-				MeGUI::core::gui::HelpButton *helpButton1;
+				MeXgui::core::gui::HelpButton *helpButton1;
 				System::ComponentModel::ComponentResourceManager *resources = new System::ComponentModel::ComponentResourceManager(JobWorker::typeid);
-				this->jobQueue1 = new MeGUI::core::gui::JobQueue();
+				this->jobQueue1 = new MeXgui::core::gui::JobQueue();
 				this->panel1 = new System::Windows::Forms::Panel();
 				this->progressLabel = new System::Windows::Forms::Label();
 				this->jobProgress = new System::Windows::Forms::ProgressBar();
@@ -859,7 +859,7 @@ namespace MeGUI
 				this->progressWindowToolStripMenuItem = new System::Windows::Forms::ToolStripMenuItem();
 				this->showProgressWindowToolStripMenuItem = new System::Windows::Forms::ToolStripMenuItem();
 				groupBox1 = new System::Windows::Forms::GroupBox();
-				helpButton1 = new MeGUI::core::gui::HelpButton();
+				helpButton1 = new MeXgui::core::gui::HelpButton();
 				groupBox1->SuspendLayout();
 				this->panel1->SuspendLayout();
 				this->flowLayoutPanel2->SuspendLayout();
@@ -884,9 +884,9 @@ namespace MeGUI
 				this->jobQueue1->Location = new System::Drawing::Point(3, 17);
 				this->jobQueue1->Name = "jobQueue1";
 				this->jobQueue1->Padding = new System::Windows::Forms::Padding(2);
-				this->jobQueue1->setPauseResumeMode(MeGUI::core::gui::Disabled);
+				this->jobQueue1->setPauseResumeMode(MeXgui::core::gui::Disabled);
 				this->jobQueue1->Size = new System::Drawing::Size(629, 155);
-				this->jobQueue1->setStartStopMode(MeGUI::core::gui::Start);
+				this->jobQueue1->setStartStopMode(MeXgui::core::gui::Start);
 				this->jobQueue1->TabIndex = 0;
 				this->jobQueue1->AbortClicked += new System::EventHandler(this, &JobWorker::jobQueue1_AbortClicked);
 				this->jobQueue1->StartClicked += new System::EventHandler(this, &JobWorker::jobQueue1_StartClicked);

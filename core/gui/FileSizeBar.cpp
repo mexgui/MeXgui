@@ -1,4 +1,4 @@
-#include "MeGUI.core.gui.FileSizeBar.h"
+#include "FileSizeBar.h"
 
 
 
@@ -14,8 +14,8 @@
 //using namespace System::Text;
 
 
-using namespace MeGUI::core::util;
-namespace MeGUI
+using namespace MeXgui::core::util;
+namespace MeXgui
 {
 	namespace core
 	{
@@ -26,7 +26,7 @@ namespace MeGUI
 			{
 			}
 			
-			const MeGUI::core::util::FileSize &FileSizeBar::getMaximum() const
+			const MeXgui::core::util::FileSize &FileSizeBar::getMaximum() const
 			{
 				return maxVal;
 			}
@@ -36,7 +36,7 @@ namespace MeGUI
 				maxVal = value;
 			}
 
-			const MeGUI::core::util::FileSize &FileSizeBar::getMinimum() const
+			const MeXgui::core::util::FileSize &FileSizeBar::getMinimum() const
 			{
 				return minVal;
 			}
@@ -55,7 +55,7 @@ namespace MeGUI
 				adjustDP();
 			}
 
-			const MeGUI::core::util::FileSize &FileSizeBar::getValue() const
+			const MeXgui::core::util::FileSize &FileSizeBar::getValue() const
 			{
 				return readValue(getCurrentUnit());
 			}
@@ -80,12 +80,12 @@ namespace MeGUI
 				}
 			}
 
-			MeGUI::core::util::FileSize FileSizeBar::readValue(Unit u)
+			MeXgui::core::util::FileSize FileSizeBar::readValue(Unit u)
 			{
 				return FileSize(u, number->Value);
 			}
 
-			const MeGUI::core::util::Unit &FileSizeBar::getCurrentUnit() const
+			const MeXgui::core::util::Unit &FileSizeBar::getCurrentUnit() const
 			{
 				if (units->SelectedIndex < 0)
 					return B;

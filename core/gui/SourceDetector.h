@@ -52,7 +52,7 @@
 
 
 
-namespace MeGUI
+namespace MeXgui
 {
 	/// <summary>
 	/// Summary description for Form1.

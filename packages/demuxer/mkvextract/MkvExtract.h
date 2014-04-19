@@ -4,7 +4,7 @@
 #include "MkvExtractJob.h"
 #include "core/plugins/interfaces/IJobProcessor.h"
 #include "core/plugins/interfaces/Job.h"
-#include "core/gui/MeXgui.MainForm.h"
+#include "core/gui/MainForm.h"
 #include "core/util/LogItem.h"
 #include "packages/reader/mediainfo/MediaInfoFile.h"
 #include "core/details/TrackInfo.h"

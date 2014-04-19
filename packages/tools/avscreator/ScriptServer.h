@@ -1,6 +1,6 @@
 #pragma once
 
-#include "core/gui/MeXgui.MainForm.h"
+#include "core/gui/MainForm.h"
 #include "AviSynthWindow.h"
 #include "packages/reader/dgi/dgiReader.h"
 #include "core/util/VideoUtil.h"

@@ -2,9 +2,9 @@
 
 #include "core/util/LogItem.h"
 #include "core/util/Util.h"
-#include "MeGUI.core.gui.TextViewer.h"
+#include "TextViewer.h"
 #include "core/util/VistaStuff.h"
-#include "MeGUI.MainForm.h"
+#include "MainForm.h"
 #include <QVector>
 
 // ****************************************************************************
@@ -44,9 +44,9 @@
 
 
 
-using namespace MeGUI::core::util;
+using namespace MeXgui::core::util;
 
-namespace MeGUI
+namespace MeXgui
 {
 	namespace core
 	{

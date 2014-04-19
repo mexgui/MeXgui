@@ -3,10 +3,10 @@
 //using namespace System::Threading;
 
 
-using namespace MeGUI::core::gui;
-using namespace MeGUI::core::util;
+using namespace MeXgui::core::gui;
+using namespace MeXgui::core::util;
 
-namespace MeGUI
+namespace MeXgui
 {
 
 	VideoPlayer::VideoPlayer()
@@ -482,7 +482,7 @@ namespace MeGUI
 		this->btnReloadVideo = new System::Windows::Forms::Button();
 		this->zoomOutButton = new System::Windows::Forms::Button();
 		this->zoomInButton = new System::Windows::Forms::Button();
-		this->arChooser = new MeGUI::core::gui::ARChooser();
+		this->arChooser = new MeXgui::core::gui::ARChooser();
 		this->showPAR = new System::Windows::Forms::CheckBox();
 		this->originalSizeButton = new System::Windows::Forms::Button();
 		this->introEndButton = new System::Windows::Forms::Button();
@@ -492,7 +492,7 @@ namespace MeGUI
 		this->chapterButton = new System::Windows::Forms::Button();
 		this->defaultToolTip = new System::Windows::Forms::ToolTip(this->components);
 		this->videoPanel = new System::Windows::Forms::Panel();
-		this->videoPreview = new MeGUI::core::gui::VideoPlayerControl();
+		this->videoPreview = new MeXgui::core::gui::VideoPlayerControl();
 		goToFrameButton = new System::Windows::Forms::Button();
 		this->buttonPanel->SuspendLayout();
 		(static_cast<System::ComponentModel::ISupportInitialize*>(this->positionSlider))->BeginInit();
@@ -696,7 +696,7 @@ namespace MeGUI
 		// 
 		// arChooser
 		// 
-		this->arChooser->setCustomDARs(new MeGUI::core::util::Dar[0]);
+		this->arChooser->setCustomDARs(new MeXgui::core::util::Dar[0]);
 		this->arChooser->setHasLater(false);
 		this->arChooser->Location = new System::Drawing::Point(241, 45);
 		this->arChooser->MaximumSize = new System::Drawing::Size(1000, 29);
@@ -705,7 +705,7 @@ namespace MeGUI
 		this->arChooser->setSelectedIndex(0);
 		this->arChooser->Size = new System::Drawing::Size(170, 29);
 		this->arChooser->TabIndex = 11;
-		this->arChooser->SelectionChanged += new MeGUI::StringChanged(this, &VideoPlayer::arChooser_SelectionChanged);
+		this->arChooser->SelectionChanged += new MeXgui::StringChanged(this, &VideoPlayer::arChooser_SelectionChanged);
 		// 
 		// showPAR
 		// 

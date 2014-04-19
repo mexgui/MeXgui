@@ -5,7 +5,7 @@
 #include "core/util/Util.h"
 #include "core/util/FileUtil.h"
 #include "core/util/LogItem.h"
-#include "MeGUI.MainForm.h"
+#include "MainForm.h"
 #include <QString>
 #include <QMap>
 #include <QVector>
@@ -49,9 +49,9 @@
 
 
 
-using namespace MeGUI::core::util;
+using namespace MeXgui::core::util;
 
-namespace MeGUI
+namespace MeXgui
 {
 	namespace core
 	{

@@ -4,7 +4,7 @@
 #include "core/plugins/interfaces/Job.h"
 #include "core/util/GenericRegisterer.h"
 #include "packages/audio/AudioJob.h"
-#include "MeGUI.core.gui.AudioEncodingTab.h"
+#include "AudioEncodingTab.h"
 
 // ****************************************************************************
 // 
@@ -41,9 +41,9 @@
 
 
 
-using namespace MeGUI::core::details;
+using namespace MeXgui::core::details;
 
-namespace MeGUI
+namespace MeXgui
 {
 	namespace core
 	{
@@ -106,7 +106,7 @@ namespace MeGUI
 				{
 					System::ComponentModel::ComponentResourceManager *resources = new System::ComponentModel::ComponentResourceManager(AudioEncodingWindow::typeid);
 					this->button1 = new System::Windows::Forms::Button();
-					this->audioEncodingTab1 = new MeGUI::core::gui::AudioEncodingTab();
+					this->audioEncodingTab1 = new MeXgui::core::gui::AudioEncodingTab();
 					this->SuspendLayout();
 					// 
 					// button1

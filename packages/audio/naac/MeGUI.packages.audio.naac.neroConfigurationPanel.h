@@ -2,11 +2,11 @@
 
 #include "core/details/ProfileManager.h"
 #include "NeroAACSettings.h"
-#include "packages/audio/MeXgui.audio.AudioConfigurationPanel.h"
+#include "packages/audio/audio.AudioConfigurationPanel.h"
 #include "core/util/EnumProxy.h"
 #include "packages/audio/AudioCodecSettings.h"
 #include "core/util/LogItem.h"
-#include "MeXgui.Properties.Settings.h"
+#include "Properties.Settings.h"
 #include <QString>
 #include <cmath>
 

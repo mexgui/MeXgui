@@ -1,7 +1,7 @@
 #pragma once
 
 #include "core/util/LogItem.h"
-#include "MeGUI.UpdateWindow.h"
+#include "UpdateWindow.h"
 #include <QString>
 #include "stringconverter.h"
 
@@ -40,35 +40,32 @@
 
 
 
-namespace MeGUI
+namespace MeXgui
 {
 	namespace core
 	{
 		namespace gui
 		{
-			class CountdownWindow : public System::Windows::Forms::Form
+            class CountdownWindow : public QDialog
 			{
+                Q_OBJECT
 			private:
 				int countdown;
 				int remain;
 
 				public:
-				~CountdownWindow()
-				{
-					this->Dispose(true);
-				}
+                ~CountdownWindow();
+
 
 //C# TO C++ CONVERTER WARNING: Unlike C#, there is no automatic call to this finalizer method in native C++:
 				private:
-				void Finalize()
-				{
-					this->Dispose(false);
-				}
+
 
 			public:
-				CountdownWindow();
+
 
 				CountdownWindow(int countdown);
+                ~CountdownWindow();
 
 			private:
 				void CountdownWindow_Load(QObject *sender, QEvent *e);
@@ -84,30 +81,8 @@ namespace MeGUI
 				/// </summary>
 				void TimerTick(QObject *sender, System::QEvent *e);
 
-
-				/// <summary>
-				/// Required designer variable.
-				/// </summary>
-				System::ComponentModel::IContainer *components;
-
-				/// <summary>
-				/// Clean up any resources being used.
-				/// </summary>
-				/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-				void Dispose(bool disposing);
-
-
-				/// <summary>
-				/// Required method for Designer support - do not modify
-				/// the contents of this method with the code editor.
-				/// </summary>
-				void InitializeComponent();
-
-
-				System::Windows::Forms::Label *label1;
-				System::Windows::Forms::Button *cancelButton;
-				System::Windows::Forms::ProgressBar *progressBar;
-				System::Windows::Forms::Timer *timer;
+                QTimer *timer;
+                MeXgui::core::gui::CountdownWindow *ui;
 
 			private:
 				void InitializeInstanceFields();

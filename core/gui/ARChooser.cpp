@@ -10,8 +10,8 @@
 //using namespace System::Text;
 
 
-using namespace MeGUI::core::util;
-namespace MeGUI
+using namespace MeXgui::core::util;
+namespace MeXgui
 {
 	namespace core
 	{
@@ -86,7 +86,7 @@ const Named<Dar> ARChooser::ARs[7] = {new Named<Dar>("ITU 16:9 PAL (1.823361)", 
 					setSelectedObject(value);
 			}
 
-			const MeGUI::core::util::Dar &ARChooser::getRealValue() const
+			const MeXgui::core::util::Dar &ARChooser::getRealValue() const
 			{
 				if (getHasLater())
 					throw std::exception("For OneClicker, use Value");

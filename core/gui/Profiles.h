@@ -1,5 +1,5 @@
 #pragma once
-
+#include <QObject>
 // ****************************************************************************
 // 
 // Copyright (C) 2005-20012 Doom9 & al
@@ -31,9 +31,9 @@
 
 
 
-using namespace MeGUI::core::gui;
+using namespace MeXgui::core::gui;
 
-namespace MeGUI
+namespace MeXgui
 {
 	namespace core
 	{
@@ -103,7 +103,7 @@ namespace MeGUI
 					/// <param name="b"></param>
 					/// <returns></returns>
 				public:
-					static bool AreEqual(object *a, object *b);
+                    static bool AreEqual(QObject *a, QObject *b);
 
 					/// <summary>
 					/// Returns whether these two objects are equal. Returns object.Equals except for arrays,
@@ -113,7 +113,7 @@ namespace MeGUI
 					/// <param name="b"></param>
 					/// <returns></returns>
 				private:
-					static bool ArrayEqual(object *a, object *b);
+                    static bool ArrayEqual(QObject *a, QObject *b);
 				};
 			}
 		}

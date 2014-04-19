@@ -1,8 +1,8 @@
 ﻿#pragma once
 
 #include "core/plugins/interfaces/IPackage.h"
-#include "core/gui/MeXgui.MainForm.h"
-#include "MeXgui.FileIndexerWindow.h"
+#include "core/gui/MainForm.h"
+#include "FileIndexerWindow.h"
 #include "core/plugins/interfaces/IJobProcessor.h"
 #include "core/plugins/interfaces/Job.h"
 #include "core/util/LogItem.h"
@@ -10,7 +10,7 @@
 #include "core/util/VideoUtil.h"
 #include "core/details/AudioTrackInfo.h"
 #include "core/util/Util.h"
-#include "packages/tools/avscreator/MeXgui.AviSynthWindow.h"
+#include "packages/tools/avscreator/AviSynthWindow.h"
 #include "packages/tools/avscreator/AviSynthWindow.h"
 #include "DGIIndexJob.h"
 #include "DGAIndexJob.h"

@@ -1,11 +1,9 @@
-#pragma once
+#ifndef ASPECTRATIOCHOSER_H
+#define ASPECTRATIOCHOSER_H
 
-#include "core/util/DAR.h"
-#include "core/util/LogItem.h"
-#include <QDialog>
 // ****************************************************************************
 // 
-// Copyright (C) 2005-2013 Doom9 & al
+// Copyright (C) 2005-2013 Doom9 , al & Qt part 2014-> Jeroi
 // 
 // This program is free software; you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -23,42 +21,45 @@
 // 
 // ****************************************************************************
 
+#include "core/util/DAR.h"
+#include "core/util/LogItem.h"
+#include <QDialog>
 
 
+using namespace MeXgui::core::util;
 
 
-using namespace MeGUI::core::util;
-
-
-namespace MeGUI
+namespace MeXgui
 {
 	namespace core
 	{
 		namespace gui
 		{
-			class AspectRatioChooser : public QDialog
-			{
-                Q_OBJECT
+        class AspectRatioChooser: public QDialog
+        {
+            Q_OBJECT
 
-            private:
-                bool bDisableEvents;
+        public:
+            explicit AspectRatioChooser(QWidget *parent = 0);
 
+            static DialogResult *show(Dar defaultDar, Dar &newDar);
 
-				AspectRatioChooser();
+            void SetValues(Dar ar);
+            ~AspectRatioChooser();
 
-			public:
-				static DialogResult *show(Dar defaultDar, Dar &newDar);
+        private:
+            MeXgui::core::gui::AspectRatioChooser *ui;
+            bool bDisableEvents;
 
-				void SetValues(Dar ar);
-                ~AspectRatioChooser();
-			private:
-				void radioButton_CheckedChanged(QObject *sender, QEvent *e);
+            void radioButton_CheckedChanged(QObject *sender, QEvent *e);
+            void numericUpDown2_ValueChanged(QObject *sender, QEvent *e);
+            void numericUpDown1_ValueChanged(QObject *sender, QEvent *e);
 
-				void numericUpDown2_ValueChanged(QObject *sender, QEvent *e);
-
-				void numericUpDown1_ValueChanged(QObject *sender, QEvent *e);
-
-			};
+        };
 		}
 	}
 }
+
+
+
+#endif // ASPECTRATIOCHOSER_H

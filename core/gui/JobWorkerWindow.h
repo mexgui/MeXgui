@@ -46,10 +46,10 @@
 
 
 
-using namespace MeGUI::core::details;
-using namespace MeGUI::core::util;
+using namespace MeXgui::core::details;
+using namespace MeXgui::core::util;
 
-namespace MeGUI
+namespace MeXgui
 {
 	namespace core
 	{
@@ -57,7 +57,7 @@ namespace MeGUI
 		{
 			/// <summary>
 			/// This class represents a processing 'worker', which processes jobs
-			/// one by one. In a single instance of MeGUI, there can be multiple
+			/// one by one. In a single instance of MeXgui, there can be multiple
 			/// workers, facilitating parallel job processing.
 			/// 
 			/// JobControl keeps the job queue, and distributes jobs one by one when
@@ -101,7 +101,7 @@ namespace MeGUI
 			/// ProcessingThreads can run in several modes, enumerated 
 			/// </summary>
 
-			class NameTakenException : public MeGUIException
+			class NameTakenException : public MeXguiException
 			{
 			private:
 				QString name;

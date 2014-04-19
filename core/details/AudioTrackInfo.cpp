@@ -18,10 +18,10 @@ namespace MeXgui
 
 	AudioTrackInfo::AudioTrackInfo(const QString &language, const QString &codec, int trackID)
 	{
-		TrackInfo::setTrackType(Audio);
-		TrackInfo::setLanguage(language);
-		TrackInfo::setCodec(codec);
-		TrackInfo::setTrackID(trackID);
+        AudioTrackInfo::setTrackType(Audio);
+        AudioTrackInfo::setLanguage(language);
+        AudioTrackInfo::setCodec(codec);
+        AudioTrackInfo::setTrackID(trackID);
 		this->aacFlag = -1;
 		this->nbChannels = "unknown";
 		this->samplingRate = "unknown";
@@ -30,13 +30,18 @@ namespace MeXgui
 
 	const QString &AudioTrackInfo::getTrackIDx() const
 	{
-//C# TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to 'ToString':
-		return getContainerType() == "MPEG-TS" ? getTrackID().ToString("x3") : getTrackID().ToString("x");
+        QString returnInt;
+        if (getContainerType() == "MPEG-TS") {
+            returnInt = QString::number(getTrackID(), 3);
+        }
+        else returnInt = QString::number(getTrackID());
+
+        return returnInt; //orginal was x3 : x in C# int.toString formatting
 	}
 
-	void AudioTrackInfo::setTrackIDx(const QString &value)
+    void AudioTrackInfo::setTrackIDx(const QString &value)
 	{
-		setTrackID(int::Parse(value, System::Globalization::NumberStyles::HexNumber));
+        setTrackID(value.toLongLong()); //we convert hex string to int32
 	}
 
 	const QString &AudioTrackInfo::getDgIndexID() const
@@ -87,13 +92,13 @@ namespace MeXgui
 	QString AudioTrackInfo::ToString()
 	{
 		QString fullString = "[" + getTrackIDx() + "] - " + this->getCodec();
-		if (!nbChannels.empty())
+        if (!nbChannels.isEmpty())
 			fullString += " - " + this->nbChannels;
-		if (!samplingRate.empty())
+        if (!samplingRate.isEmpty())
 			fullString += " / " + samplingRate;
-		if (!getLanguage().empty())
+        if (!getLanguage().isEmpty())
 			fullString += " / " + getLanguage();
 //C# TO C++ CONVERTER TODO TASK: There is no direct native C++ equivalent to the .NET String 'Trim' method:
-		return fullString.Trim();
+        return fullString.trimmed();
 	}
 }

@@ -1,4 +1,4 @@
-#include "MeGUI.core.gui.AudioEncodingTab.h"
+#include "AudioEncodingTab.h"
 
 
 
@@ -18,9 +18,9 @@
 //using namespace System::Text::RegularExpressions;
 
 
-using namespace MeGUI::core::details::video;
-using namespace MeGUI::core::util;
-namespace MeGUI
+using namespace MeXgui::core::details::video;
+using namespace MeXgui::core::util;
+namespace MeXgui
 {
 	namespace core
 	{
@@ -47,7 +47,7 @@ namespace MeGUI
 				audioContainer->Text = value;
 			}
 
-			const MeGUI::AudioEncoderProvider &AudioEncodingTab::getAudioEncoderProvider() const
+			const MeXgui::AudioEncoderProvider &AudioEncodingTab::getAudioEncoderProvider() const
 			{
 				return audioEncoderProvider;
 			}
@@ -72,7 +72,7 @@ namespace MeGUI
 				audioOutput->setFilename(value);
 			}
 
-			const MeGUI::AudioCodecSettings &AudioEncodingTab::getAudCodecSettings() const
+			const MeXgui::AudioCodecSettings &AudioEncodingTab::getAudCodecSettings() const
 			{
 				return static_cast<AudioCodecSettings*>(audioProfile->getSelectedProfile()->BaseSettings);
 			}
@@ -89,17 +89,17 @@ namespace MeGUI
 				Nullable<int> delay = PrettyFormatting::getDelay(getAudioOutput());
 				if (delay.HasValue && delay.Value != (inputDelay - static_cast<int>(this->delay->Value)))
 				{
-					if (MessageBox::Show(QString::Format("The output filename suggests the audio delay is {0}ms. " + "However, the input delay is {1}ms and the delay correction is {2}ms, " + "so a delay of {3}ms is more appropriate. Do you want MeGUI to correct " + "the output filename before adding the job?", delay.Value, inputDelay, this->delay->Value, (inputDelay - static_cast<int>(this->delay->Value))), "Output filename suggests wrong delay", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == DialogResult::Yes)
+					if (MessageBox::Show(QString::Format("The output filename suggests the audio delay is {0}ms. " + "However, the input delay is {1}ms and the delay correction is {2}ms, " + "so a delay of {3}ms is more appropriate. Do you want MeXgui to correct " + "the output filename before adding the job?", delay.Value, inputDelay, this->delay->Value, (inputDelay - static_cast<int>(this->delay->Value))), "Output filename suggests wrong delay", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == DialogResult::Yes)
 						setAudioOutput(PrettyFormatting::ReplaceDelay(getAudioOutput(), (inputDelay - static_cast<int>(this->delay->Value))));
 				}
 
-				MeGUI::AudioJob *stream;
+				MeXgui::AudioJob *stream;
 
 				try
 				{
 					stream = getAudioJob();
 				}
-				catch (MeGUIException *m)
+				catch (MeXguiException *m)
 				{
 					return m->what();
 				}
@@ -176,7 +176,7 @@ namespace MeGUI
 				QueueJob(getAudioJob());
 			}
 
-			const MeGUI::AudioJob &AudioEncodingTab::getAudioJob() const
+			const MeXgui::AudioJob &AudioEncodingTab::getAudioJob() const
 			{
 				if (getAudioInput().empty() || getAudioOutput().empty() || getAudCodecSettings() == 0)
 					return 0;
@@ -184,7 +184,7 @@ namespace MeGUI
 				return new AudioJob(this->getAudioInput(), this->getAudioOutput(), this->cuts->getFilename(), this->getAudCodecSettings(), static_cast<int>(delay->Value), 0, 0);
 			}
 
-			void AudioEncodingTab::setAudioJob(const MeGUI::AudioJob &value)
+			void AudioEncodingTab::setAudioJob(const MeXgui::AudioJob &value)
 			{
 				setAudioInput(value->Input);
 				setAudioOutput(value->Output);
@@ -205,7 +205,7 @@ namespace MeGUI
 				}
 				catch (std::exception &e)
 				{
-				   throw new ApplicationException("The value detected as delay in your filename seems to be too high/low for MeGUI." + "Try to recreate it with the appropriate tools." + e.what(), e);
+				   throw new ApplicationException("The value detected as delay in your filename seems to be too high/low for " + "Try to recreate it with the appropriate tools." + e.what(), e);
 				}
 
 				QString projectPath;
@@ -265,10 +265,10 @@ namespace MeGUI
 				this->label3 = new System::Windows::Forms::Label();
 				this->label4 = new System::Windows::Forms::Label();
 				this->tableLayoutPanel1 = new System::Windows::Forms::TableLayoutPanel();
-				this->audioProfile = new MeGUI::core::gui::ConfigableProfilesControl();
-				this->audioOutput = new MeGUI::FileBar();
-				this->cuts = new MeGUI::FileBar();
-				this->audioInput = new MeGUI::FileBar();
+				this->audioProfile = new MeXgui::core::gui::ConfigableProfilesControl();
+				this->audioOutput = new MeXgui::FileBar();
+				this->cuts = new MeXgui::FileBar();
+				this->audioInput = new MeXgui::FileBar();
 				this->flowLayoutPanel1 = new System::Windows::Forms::FlowLayoutPanel();
 				(static_cast<System::ComponentModel::ISupportInitialize*>(this->delay))->BeginInit();
 				this->tableLayoutPanel1->SuspendLayout();
@@ -454,7 +454,7 @@ namespace MeGUI
 				this->tableLayoutPanel1->SetColumnSpan(this->cuts, 4);
 				this->cuts->Dock = System::Windows::Forms::DockStyle::Fill;
 				this->cuts->setFilename("");
-				this->cuts->setFilter("MeGUI cutlist files (*.clt)|*.clt");
+				this->cuts->setFilter("MeXgui cutlist files (*.clt)|*.clt");
 				this->cuts->setFilterIndex(0);
 				this->cuts->setFolderMode(false);
 				this->cuts->Location = new System::Drawing::Point(95, 31);
@@ -481,7 +481,7 @@ namespace MeGUI
 				this->audioInput->Size = new System::Drawing::Size(358, 22);
 				this->audioInput->TabIndex = 16;
 				this->audioInput->setTitle("Select your audio input");
-				this->audioInput->FileSelected += new MeGUI::FileBarEventHandler(this, &AudioEncodingTab::audioInput_FileSelected);
+				this->audioInput->FileSelected += new MeXgui::FileBarEventHandler(this, &AudioEncodingTab::audioInput_FileSelected);
 				// 
 				// flowLayoutPanel1
 				// 

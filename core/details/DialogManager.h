@@ -1,8 +1,8 @@
 #pragma once
 
-#include "core/gui/MeXgui.MainForm.h"
+#include "core/gui/MainForm.h"
 #include "packages/reader/mediainfo/MediaInfoFile.h"
-#include "packages/tools/fileindexer/MeXgui.FileIndexerWindow.h"
+#include "packages/tools/fileindexer/FileIndexerWindow.h"
 #include <QString>
 #include <QVector>
 

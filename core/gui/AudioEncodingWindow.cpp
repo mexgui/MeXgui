@@ -1,4 +1,4 @@
-#include "MeGUI.core.gui.AudioEncodingWindow.h"
+#include "AudioEncodingWindow.h"
 
 
 
@@ -14,8 +14,8 @@
 //using namespace System::Text;
 
 
-using namespace MeGUI::core::details;
-namespace MeGUI
+using namespace MeXgui::core::details;
+namespace MeXgui
 {
 	namespace core
 	{

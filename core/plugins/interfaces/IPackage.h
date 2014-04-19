@@ -1,7 +1,7 @@
 #pragma once
 
 #include "core/util/GenericRegisterer.h"
-#include "core/gui/MeXgui.MainForm.h"
+#include "core/gui/MainForm.h"
 
 // ****************************************************************************
 // 

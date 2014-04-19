@@ -1,8 +1,8 @@
 ﻿#pragma once
 
-#include "MeGUI.MainForm.h"
+#include "MainForm.h"
 #include "core/details/video/VideoCodecSettings.h"
-#include "MeGUI.ZonesControl.h"
+#include "ZonesControl.h"
 #include <QString>
 
 // ****************************************************************************
@@ -40,7 +40,7 @@
 
 
 
-namespace MeGUI
+namespace MeXgui
 {
 	namespace core
 	{

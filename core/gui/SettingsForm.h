@@ -1,19 +1,19 @@
 #pragma once
 
-#include "core/details/MeGUISettings.h"
+#include "core/details/MeXguiSettings.h"
 #include "SourceDetectorSettings.h"
 #include "packages/tools/autoencode/AutoEncodeDefaultsSettings.h"
-#include "MeGUI.core.gui.HelpButton.h"
-#include "MeGUI.FileBar.h"
+#include "HelpButton.h"
+#include "FileBar.h"
 #include "TargetSizeSCBox.h"
 #include "core/util/LanguageSelectionContainer.h"
 #include "core/util/OSInfo.h"
 #include "core/util/FileSize.h"
 #include "FileBar.h"
-#include "MeGUI.SourceDetectorConfigWindow.h"
-#include "MeGUI.Properties.Settings.h"
+#include "SourceDetectorConfigWindow.h"
+#include "Properties.Settings.h"
 #include "core/plugins/interfaces/Job.h"
-#include "MeGUI.MainForm.h"
+#include "MainForm.h"
 #include <QString>
 #include <QVector>
 #include <stdexcept>
@@ -57,7 +57,7 @@
 
 
 
-namespace MeGUI
+namespace MeXgui
 {
 	/// <summary>
 	/// Summary description for SettingsForm.
@@ -67,7 +67,7 @@ namespace MeGUI
 	private:
 		System::Windows::Forms::Button *saveButton;
 		System::Windows::Forms::Button *cancelButton;
-		MeGUISettings *internalSettings;
+		MeXguiSettings *internalSettings;
 		Button *resetDialogs;
 		TabControl *tabControl1;
 		TabPage *tabPage1;
@@ -109,7 +109,7 @@ namespace MeGUI
 		Label *label15;
 		NumericUpDown *audiosamplesperupdate;
 		Label *label6;
-		MeGUI::core::gui::HelpButton *helpButton1;
+		MeXgui::core::gui::HelpButton *helpButton1;
 		CheckBox *keep2ndPassOutput;
 		CheckBox *keep2ndPassLogFile;
 		Button *configAutoEncodeDefaults;
@@ -141,7 +141,7 @@ namespace MeGUI
 		GroupBox *groupBox5;
 		GroupBox *groupBox6;
 		CheckBox *cbAutoLoadDG;
-		RadioButton *rbCloseMeGUI;
+		RadioButton *rbCloseMeXgui;
 		CheckBox *cbAutoStartQueueStartup;
 		ComboBox *cbAutoUpdateServerSubList;
 		CheckBox *chkAlwaysMuxMKV;
@@ -231,8 +231,8 @@ namespace MeGUI
 		void clearDefaultOutputDir_Click(QObject *sender, QEvent *e);
 
 	public:
-		const MeGUISettings &getSettings() const;
-		void setSettings(const MeGUISettings &value);
+		const MeXguiSettings &getSettings() const;
+		void setSettings(const MeXguiSettings &value);
 
 	private:
 		void backupfiles_CheckedChanged(QObject *sender, QEvent *e);

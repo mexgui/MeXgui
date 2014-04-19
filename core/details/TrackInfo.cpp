@@ -200,99 +200,78 @@ namespace MeXgui
 		if (strCodec.ToUpper(System::Globalization::CultureInfo::InvariantCulture)->Contains("TRUEHD"))
 			strCodec = "TRUEHD";
 
-//C# TO C++ CONVERTER NOTE: The following 'switch' operated on a string variable and was converted to C++ 'if-else' logic:
-//		switch (strCodec)
-//ORIGINAL LINE: case "AC-3":
 		if (strCodec == "AC-3")
 		{
 				strExtension = "ac3";
 		}
-//ORIGINAL LINE: case "TRUEHD":
 		else if (strCodec == "TRUEHD")
 		{
 				strExtension = "thd";
 		}
-//ORIGINAL LINE: case "DTS":
 		else if (strCodec == "DTS")
 		{
 				strExtension = "dts";
-		}
-//ORIGINAL LINE: case "MP3":
+        }
 		else if (strCodec == "MP3")
 		{
 				strExtension = "mp3";
 		}
-//ORIGINAL LINE: case "MP2":
 		else if (strCodec == "MP2")
 		{
 				strExtension = "mp2";
 		}
-//ORIGINAL LINE: case "PCM":
 		else if (strCodec == "PCM")
 		{
 				strExtension = "w64";
 		}
-//ORIGINAL LINE: case "MS/ACM":
 		else if (strCodec == "MS/ACM")
 		{
 				strExtension = "w64";
 		}
-//ORIGINAL LINE: case "VORBIS":
 		else if (strCodec == "VORBIS")
 		{
 				strExtension = "ogg";
 		}
-//ORIGINAL LINE: case "FLAC":
 		else if (strCodec == "FLAC")
 		{
 				strExtension = "flac";
 		}
-//ORIGINAL LINE: case "REAL":
 		else if (strCodec == "REAL")
 		{
 				strExtension = "ra";
 		}
-//ORIGINAL LINE: case "AAC":
 		else if (strCodec == "AAC")
 		{
 				strExtension = "aac";
 		}
-//ORIGINAL LINE: case "VOBSUB":
 		else if (strCodec == "VOBSUB")
 		{
 				strExtension = "idx";
 		}
-//ORIGINAL LINE: case "ASS":
 		else if (strCodec == "ASS")
 		{
 				strExtension = "ass";
 		}
-//ORIGINAL LINE: case "UTF-8":
 		else if (strCodec == "UTF-8")
 		{
 				strExtension = "srt";
 		}
-//ORIGINAL LINE: case "SSA":
 		else if (strCodec == "SSA")
 		{
 				strExtension = "ssa";
 		}
-//ORIGINAL LINE: case "USF":
 		else if (strCodec == "USF")
 		{
 				strExtension = "usf";
 		}
-//ORIGINAL LINE: case "HDMV":
 		else if (strCodec == "HDMV")
 		{
 				strExtension = "sup";
 		}
-//ORIGINAL LINE: case "PGS":
 		else if (strCodec == "PGS")
 		{
 				strExtension = "sup";
 		}
-//ORIGINAL LINE: case "AVS":
 		else if (strCodec == "AVS")
 		{
 				strExtension = "avs";

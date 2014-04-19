@@ -10,17 +10,15 @@ namespace MeXgui
 		namespace gui
 		{
 
-			AspectRatioChooser::AspectRatioChooser()
-			{
+            AspectRatioChooser::AspectRatioChooser(QWidget *parent):
                 QDialog(parent),
-                ui(new Ui::Dialogexample)
-                {
+                ui(new Ui::AspectRatioChooser)
+            {
                 ui->setupUi(this);
-                }
-                connect(ui . ,SIGNAL(clicked()), this, SLOT(accept()));
-                connect(this->rejectButton, SIGNAL(clicked()), this, SLOT(reject()));
-                connect(this, SIGNAL(finished (int)), this, SLOT(dialogIsFinished(int)));
-			}
+                connect(ui->buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
+                connect(ui->buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+            }
+
 
 			DialogResult *AspectRatioChooser::show(Dar defaultDar, Dar &newDar)
 			{
@@ -85,6 +83,6 @@ namespace MeXgui
             {
                 delete ui;
             }
-		}
+/*		}
 	}
-}
+}*/

@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#include "core/gui/MeXgui.MainForm.h"
+#include "core/gui/MainForm.h"
 #include "core/details/MeXguiSettings.h"
 #include "HDStreamsExJob.h"
 #include "Eac3ToInfo.h"

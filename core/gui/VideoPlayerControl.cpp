@@ -1,4 +1,4 @@
-#include "MeGUI.core.gui.VideoPlayerControl.h"
+#include "VideoPlayerControl.h"
 
 
 
@@ -10,7 +10,7 @@
 
 
 //using System::Threading::Timer;
-namespace MeGUI
+namespace MeXgui
 {
 	namespace core
 	{
@@ -150,8 +150,8 @@ namespace MeGUI
 				}
 				catch (std::exception &e)
 				{
-					MeGUI::core::util::LogItem *_oLog = MainForm::Instance->getLog()->Info("Error");
-					_oLog->LogValue("playNextFrame", e, MeGUI::core::util::Error);
+					MeXgui::core::util::LogItem *_oLog = MainForm::Instance->getLog()->Info("Error");
+					_oLog->LogValue("playNextFrame", e, MeXgui::core::util::Error);
 				}
 			}
 
@@ -358,7 +358,7 @@ namespace MeGUI
 				}
 			}
 
-			const MeGUI::IVideoReader &VideoPlayerControl::getVideoReader() const
+			const MeXgui::IVideoReader &VideoPlayerControl::getVideoReader() const
 			{
 				return videoReader;
 			}

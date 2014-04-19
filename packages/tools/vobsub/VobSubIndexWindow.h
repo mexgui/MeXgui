@@ -1,8 +1,8 @@
 #pragma once
 
 #include "core/plugins/interfaces/IPackage.h"
-#include "core/gui/MeXgui.MainForm.h"
-#include "MeXgui.VobSubIndexWindow.h"
+#include "core/gui/MainForm.h"
+#include "VobSubIndexWindow.h"
 #include <QString>
 
 // ****************************************************************************

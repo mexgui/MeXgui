@@ -1,4 +1,4 @@
-#include "MeGUI.core.gui.ProfileExporter.h"
+#include "ProfileExporter.h"
 
 
 
@@ -18,8 +18,8 @@
 
 
 //using namespace System::Xml;
-using namespace MeGUI::core::util;
-namespace MeGUI
+using namespace MeXgui::core::util;
+namespace MeXgui
 {
 	namespace core
 	{
@@ -154,7 +154,7 @@ namespace MeGUI
 				{
 					delete components;
 				}
-				MeGUI::core::gui::ProfilePorter::Dispose(disposing);
+				MeXgui::core::gui::ProfilePorter::Dispose(disposing);
 			}
 
 			void ProfileExporter::InitializeComponent()

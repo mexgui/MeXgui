@@ -7,7 +7,7 @@
 #include "core/plugins/interfaces/Job.h"
 #include "core/details/PackageSystem.h"
 #include "core/util/GenericRegisterer.h"
-#include "MeGUI.MainForm.h"
+#include "MainForm.h"
 #include "core/util/FileUtil.h"
 #include "core/util/VistaStuff.h"
 #include <QString>
@@ -51,10 +51,10 @@
 
 
 
-using namespace MeGUI::core::details;
-using namespace MeGUI::core::util;
+using namespace MeXgui::core::details;
+using namespace MeXgui::core::util;
 
-namespace MeGUI
+namespace MeXgui
 {
 	namespace core
 	{
@@ -115,8 +115,8 @@ namespace MeGUI
 				QVector<ToolStripItem*> singleJobHandlers;
 				QVector<ToolStripItem*> multiJobHandlers;
 				QVector<Pair<ToolStripMenuItem*, MultiJobMenuGenerator>*> menuGenerators;
-				MeGUI::core::gui::StartStopMode startStopMode;
-				MeGUI::core::gui::PauseResumeMode pauseResumeMode;
+				MeXgui::core::gui::StartStopMode startStopMode;
+				MeXgui::core::gui::PauseResumeMode pauseResumeMode;
 
 				public:
 				~JobQueue()
@@ -134,13 +134,13 @@ namespace MeGUI
 			public:
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
 //[Browsable(false)]
-				const MeGUI::core::gui::StartStopMode &getStartStopMode() const;
-				void setStartStopMode(const MeGUI::core::gui::StartStopMode &value);
+				const MeXgui::core::gui::StartStopMode &getStartStopMode() const;
+				void setStartStopMode(const MeXgui::core::gui::StartStopMode &value);
 
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
 //[Browsable(false)]
-				const MeGUI::core::gui::PauseResumeMode &getPauseResumeMode() const;
-				void setPauseResumeMode(const MeGUI::core::gui::PauseResumeMode &value);
+				const MeXgui::core::gui::PauseResumeMode &getPauseResumeMode() const;
+				void setPauseResumeMode(const MeXgui::core::gui::PauseResumeMode &value);
 
 //C# TO C++ CONVERTER NOTE: The following .NET attribute has no direct equivalent in native C++:
 //[Browsable(false)]

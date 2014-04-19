@@ -3,7 +3,7 @@
 #include "core/plugins/implemented/CommandlineMuxer.h"
 #include "core/plugins/interfaces/IJobProcessor.h"
 #include "core/plugins/interfaces/Job.h"
-#include "core/gui/MeXgui.MainForm.h"
+#include "core/gui/MainForm.h"
 #include "core/details/mux/MuxJob.h"
 #include "core/details/mux/MuxProvider.h"
 #include "core/util/LogItem.h"

@@ -3,7 +3,7 @@
 #include "core/details/StatusUpdate.h"
 #include "core/plugins/interfaces/IJobProcessor.h"
 #include "core/plugins/interfaces/Job.h"
-#include "core/gui/MeXgui.MainForm.h"
+#include "core/gui/MainForm.h"
 #include "AviSynthJob.h"
 #include "packages/reader/avs/AvsReader.h"
 #include "core/plugins/interfaces/IMediaFile.h"

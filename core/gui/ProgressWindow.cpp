@@ -1,9 +1,9 @@
 #include "ProgressWindow.h"
 
 
-using namespace MeGUI::core::util;
+using namespace MeXgui::core::util;
 
-namespace MeGUI
+namespace MeXgui
 {
 
 	ProgressWindow::ProgressWindow()
@@ -146,7 +146,7 @@ namespace MeGUI
 		if (priority == HIGH)
 		{
 			// when user selected 'HIGH' priority
-			DialogResult *res = MessageBox::Show("On Windows System, running processes at high priority causes them to compete against the window manager and compositor processes. Are you sure you want to proceed?", "MeGUI", MessageBoxButtons::YesNo, MessageBoxIcon::Warning);
+			DialogResult *res = MessageBox::Show("On Windows System, running processes at high priority causes them to compete against the window manager and compositor processes. Are you sure you want to proceed?", "MeXgui", MessageBoxButtons::YesNo, MessageBoxIcon::Warning);
 			return res == System::Windows::Forms::DialogResult::Yes;
 		}
 		else
@@ -196,7 +196,7 @@ namespace MeGUI
 		this->statusStrip1 = new System::Windows::Forms::StatusStrip();
 		this->jobNameLabel = new System::Windows::Forms::ToolStripStatusLabel();
 		this->statusLabel = new System::Windows::Forms::ToolStripStatusLabel();
-		this->helpButton1 = new MeGUI::core::gui::HelpButton();
+		this->helpButton1 = new MeXgui::core::gui::HelpButton();
 		this->groupBox1->SuspendLayout();
 		this->statusStrip1->SuspendLayout();
 		this->SuspendLayout();

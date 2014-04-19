@@ -1,6 +1,6 @@
 #pragma once
 
-#include "core/gui/MeXgui.MainForm.h"
+#include "core/gui/MainForm.h"
 #include "core/details/video/VideoCodecSettings.h"
 #include "core/details/video/VideoJob.h"
 #include "DAR.h"
@@ -9,11 +9,11 @@
 #include "core/details/mux/MuxProvider.h"
 #include "core/plugins/interfaces/IMuxing.h"
 #include "FileSize.h"
-#include "core/details/MeXgui.JobChain.h"
+#include "core/details/JobChain.h"
 #include "core/details/mux/MuxPath.h"
 #include "core/details/mux/MuxJob.h"
 #include "VideoUtil.h"
-#include "core/details/MeXgui.SequentialChain.h"
+#include "core/details/SequentialChain.h"
 #include "packages/tools/fileindexer/FFMSIndexJob.h"
 #include "packages/video/huffyuv/hfyuSettings.h"
 #include "core/plugins/interfaces/Job.h"

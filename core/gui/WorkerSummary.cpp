@@ -1,4 +1,4 @@
-#include "MeGUI.core.gui.WorkerSummary.h"
+#include "WorkerSummary.h"
 
 
 
@@ -14,9 +14,9 @@
 //using namespace System::Text;
 
 
-using namespace MeGUI::core::util;
-using namespace MeGUI::core::details;
-namespace MeGUI
+using namespace MeXgui::core::util;
+using namespace MeXgui::core::details;
+namespace MeXgui
 {
 	namespace core
 	{
@@ -127,9 +127,9 @@ namespace MeGUI
 				this->components = new System::ComponentModel::Container();
 				System::ComponentModel::ComponentResourceManager *resources = new System::ComponentModel::ComponentResourceManager(WorkerSummary::typeid);
 				this->panel1 = new System::Windows::Forms::Panel();
-				this->individualWorkerSummary3 = new MeGUI::core::gui::IndividualWorkerSummary();
-				this->individualWorkerSummary2 = new MeGUI::core::gui::IndividualWorkerSummary();
-				this->individualWorkerSummary1 = new MeGUI::core::gui::IndividualWorkerSummary();
+				this->individualWorkerSummary3 = new MeXgui::core::gui::IndividualWorkerSummary();
+				this->individualWorkerSummary2 = new MeXgui::core::gui::IndividualWorkerSummary();
+				this->individualWorkerSummary1 = new MeXgui::core::gui::IndividualWorkerSummary();
 				this->contextMenuStrip1 = new System::Windows::Forms::ContextMenuStrip(this->components);
 				this->newWorkerToolStripMenuItem = new System::Windows::Forms::ToolStripMenuItem();
 				this->panel1->SuspendLayout();

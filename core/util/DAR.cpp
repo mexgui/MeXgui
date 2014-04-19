@@ -17,13 +17,13 @@ namespace MeXgui
 		namespace util
 		{
 
-const Dar Dar::ITU16x9PAL = Dar(640, 351);
-const Dar Dar::ITU4x3PAL = Dar(160, 117);
-const Dar Dar::ITU16x9NTSC = Dar(8640, 4739);
-const Dar Dar::ITU4x3NTSC = Dar(6480, 4739);
-const Dar Dar::STATIC4x3 = Dar(4, 3);
-const Dar Dar::STATIC16x9 = Dar(16, 9);
-const Dar Dar::A1x1 = Dar(1, 1);
+            const Dar Dar::ITU16x9PAL = Dar(640, 351);
+            const Dar Dar::ITU4x3PAL = Dar(160, 117);
+            const Dar Dar::ITU16x9NTSC = Dar(8640, 4739);
+            const Dar Dar::ITU4x3NTSC = Dar(6480, 4739);
+            const Dar Dar::STATIC4x3 = Dar(4, 3);
+            const Dar Dar::STATIC16x9 = Dar(16, 9);
+            const Dar Dar::A1x1 = Dar(1, 1);
 
 			Dar::Dar(quint64 x, quint64 y)
 			{

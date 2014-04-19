@@ -8,8 +8,8 @@
 //using namespace System::Text;
 
 
-using namespace MeGUI::core::util;
-namespace MeGUI
+using namespace MeXgui::core::util;
+namespace MeXgui
 {
 	namespace core
 	{
@@ -50,7 +50,7 @@ namespace MeGUI
 				ofd->Filter = value;
 			}
 
-			const MeGUI::core::gui::FileSCBox::FileSCBoxType &FileSCBox::getType() const
+			const MeXgui::core::gui::FileSCBox::FileSCBoxType &FileSCBox::getType() const
 			{
 				return oType;
 			}

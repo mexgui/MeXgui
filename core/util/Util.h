@@ -2,7 +2,7 @@
 
 #include "FileUtil.h"
 #include "LogItem.h"
-#include "core/gui/MeXgui.MainForm.h"
+#include "core/gui/MainForm.h"
 #include "Exceptions.h"
 #include <QString>
 #include <QVector>
