@@ -5,7 +5,7 @@ MeXgui is a project that heads to create Megui-like port to run in several Platf
 
 Project will use SQlite, QScintilla, FFmpeg and encode with various encoders like Megui does.
 
-Project shall use FFMPEg that currently supports avisynth, avxsynth reading + various other formats unlike MeGUi which uses only AVSscript support. Unlike MeGui the MeXgui shall incorporate avisynth editor with avisynth syntax highlighting and real time preview for the video. Naturally it will edit open video with avisynth scripting if video is something else than avisynth script. Then Project replaces the open file with avisynth script that shall be encoded instead.
+Project shall use FFmpeg that currently supports avisynth, avxsynth reading + various other formats unlike MeGUi which uses only AVSscript support. Unlike MeGui the MeXgui shall incorporate avisynth editor with avisynth syntax highlighting and real time preview for the video. Naturally it will edit open video with avisynth scripting if video is something else than avisynth script. Then Project replaces the open file with avisynth script that shall be encoded instead.
 
 DONATE
 ======
