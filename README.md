@@ -1,7 +1,7 @@
 MeXgui development branch
 ======
 
-This branch is currently under development files, to this branch shall be other branches merged.
+This branch is currently under development files. To be commit use Fork and make your own fork then fork the code and then make pull request. All pull request shall be merged to this branch.
 
 DONATE
 ======
