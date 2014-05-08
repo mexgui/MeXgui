@@ -2,40 +2,47 @@
 #define PREVIEWEDITOR_H
 
 #include <QWidget>
-#include <Phonon>
 #include <QString>
+#include "VideoPlayer.h"
+#include "Editor.h"
+#include <QThread>
+#include <QMutex>
 
-namespace MeXgui {
-    namespace core {
-        namespace gui {
+//using namespace MeXgui::core::details;
+//using namespace MeXgui::core::gui;
+//using namespace MeXgui::core::plugins::interfaces;
+//using namespace MeXgui::core::util;
 
-            class PreviewEditor : public QWidget
-            {
-                Q_OBJECT
-
-                public:
-                    explicit PreviewEditor(QWidget *parent = 0);
-                    ~PreviewEditor();
-                    void videoFile(QString filepath);
-
-                private slots:
-                    void on_Play_clicked();
-                    void on_Wind_pressed();
-                    void on_Wind_clicked();
-                    void on_ReWind_pressed();
-                    void on_ReWind_clicked();
-
-                private:
-                    MeXgui::core::gui::PreviewEditor *ui;
-                    QString MediaPath;
-                    Phonon::MediaObject *media;
-                    Phonon::AudioOutput *audio;
-                    qint16 FPS;
-
-
-                    void tick(qint64 time);
-            };
-        }
-    }
+namespace Ui {
+       class PreviewEditor;
 }
+
+class PreviewEditor : public QWidget
+{
+    Q_OBJECT
+
+public:
+    explicit PreviewEditor(QWidget *parent = 0);
+    ~PreviewEditor();
+    void videoFile(QString filepath);
+
+private:
+    QString MediaPath;
+    VideoPlayer * videoWidget;
+    Editor * textEditor;
+    Ui::PreviewEditor *ui;
+    QMutex *mutex;
+
+protected:
+    void changeEvent(QEvent *e);
+
+public slots:
+
+private slots:
+    void on_tabWidget_tabBarDoubleClicked(int index);
+    void PreviewDialogClosed();
+
+};
+
+
 #endif // PREVIEWEDITOR_H

@@ -1,80 +1,80 @@
 #include "PreviewEditor.h"
 #include "ui_PreviewEditor.h"
-#define Vplayer ui->videoPlayer
+#include <QThread>
+#include "VideoPlayer.h"
+#include "Dialog.h"
 
-namespace MeXgui {
-    namespace core {
-        namespace gui {
+PreviewEditor::PreviewEditor(QWidget *parent) :
+    QWidget(parent),
+    ui(new Ui::PreviewEditor)
+{
+    ui->setupUi(this);
 
-        PreviewEditor::PreviewEditor(QWidget *parent) :
-            QWidget(parent),
-            ui(new Ui::PreviewEditor)
-        {
-            ui->setupUi(this);
+    //QThread videoThread;
+    //Setup Videoplayer to separate thread for HD movies and detaching to another window
+    //videoThread.setObjectName("MeXgui VideoPlayer");
+    videoWidget = new VideoPlayer(this);
 
-        }
-        PreviewEditor::~PreviewEditor()
-        {
-            delete ui;
-        }
-        void PreviewEditor::videoFile(QString filepath) {
-            MediaPath = filepath;
-            Vplayer->load(MediaPath);
-            media = Vplayer->mediaObject();
-            audio = Vplayer->audioOutput();
-            Phonon::createPath(media, audio);
-            media->setTickInterval(1);
-            connect(media, SIGNAL(tick(qint64)), this, SLOT(tick(qint64)));
-            ui->Seek->setMediaObject(media);
-            ui->Volume->setAudioOutput(audio);
-            //connect(Vplayer, currentTime (), ui->Time, currentTime ());
+    //videoWidget->doSetup(videoThread);
+    //videoThread.start();
+    ui->PreviewLayout->addWidget(videoWidget);
+    videoWidget->show();
 
+    textEditor = new Editor(this);
+    ui->textEditorLayout->addWidget(textEditor);
+    textEditor->show();
+}
+ PreviewEditor::~PreviewEditor()
+{
+    delete ui;
+}
+void PreviewEditor::changeEvent(QEvent *e)
+{
+     QWidget::changeEvent(e);
+     switch (e->type()) {
+     case QEvent::LanguageChange:
+         ui->retranslateUi(this);
+         break;
+     default:
+         break;
+     }
+}
 
+void PreviewEditor::on_tabWidget_tabBarDoubleClicked(int index)
+{
+    //Fetch tabindex and tab name
+    QString tabName = ui->tabWidget->tabText(index);
 
-        }
+    if (tabName == "Preview") {
 
-        void PreviewEditor::tick(qint64 time)
-        {
-            QTime displayTime((time / 360000), (time / 60000) % 60, (time / 1000) % 60, (time / 100) % 60);
-            ui->Time->setTime(displayTime); //toString("hh:mm:ss.zz")
-            //setWindowTitle(QString("%1[%2]").arg(fname).arg(displayTime.toString("mm:ss")));
-        }
+        //Remove Preview and close the tab
+        ui->PreviewLayout->removeWidget(videoWidget);
+        ui->tabWidget->removeTab(index);
 
-        void PreviewEditor::on_Play_clicked()
-        {
-            if (Vplayer->isPlaying()) {
-                Vplayer->pause();
-                ui->Play->setText("Play");
-            }
-            else {
+        //Using custom Dialog class that emits close() signal when QDialog is closed
+        Dialog * mediaPlayer = new Dialog(this);
+        mediaPlayer->setWindowTitle("MeXgui previewplayer");
 
-                Vplayer->play();
-                ui->Play->setText("Pause");
-            }
+        //Setup layout for detached window
+        QHBoxLayout * mediaLayout = new QHBoxLayout;
+        mediaLayout->setMargin(0);
+        mediaLayout->setSizeConstraint(QLayout::SetNoConstraint);
+        mediaLayout->addWidget(videoWidget);
 
-        }
+        //Finally setup dialog and display it
+        mediaPlayer->setLayout(mediaLayout);
+        mediaPlayer->show();
 
-        void PreviewEditor::on_Wind_pressed()
-        {
-            Vplayer->seek(1);
-        }
+        //Connect Mediaplayer closeEvent to PreviewEditor function to rebuild tabs
+        connect(mediaPlayer,SIGNAL(closed()),this,SLOT(PreviewDialogClosed()));
 
-        void PreviewEditor::on_Wind_clicked()
-        {
-            Vplayer->seek(10);
-        }
-        void PreviewEditor::on_ReWind_pressed()
-        {
-            //seek bac
-            Vplayer->seek(-1);
-        }
-
-        void PreviewEditor::on_ReWind_clicked()
-        {
-            //one frame back
-            Vplayer->seek(-10);
-        }
-        }
     }
 }
 
+void PreviewEditor::PreviewDialogClosed()
+{
+    //We construct the tabWidget back to normal
+    ui->tabWidget->insertTab(0,ui->Preview,tr("Preview"));
+    ui->PreviewLayout->addWidget(videoWidget);
+    videoWidget->show();
+}
