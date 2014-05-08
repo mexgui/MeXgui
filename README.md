@@ -1,7 +1,7 @@
 MeXgui development branch
 ======
 
-This branch is currently under development files. To be commit use Fork and make your own fork then fork the code and then make pull request. All pull request shall be merged to this branch.
+This branch is currently under development files. To make commit ether make new branch in commandline or use Fork and make your own fork at github then make some code and then make pull request. All pull requests shall be merged to this branch.
 
 Developer enviroment
 ======
