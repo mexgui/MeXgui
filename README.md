@@ -3,7 +3,7 @@ MeXgui development branch
 
 This branch is currently under development files. To make commit ether make new branch in commandline or use Fork and make your own fork at github then make some code and then make pull request. All pull requests shall be merged to this branch.
 
-Developer enviroment
+Developer environment
 ======
 
 Under windows suggested is to download QT5 sdk then QtCreator source and compile the the Creator with Qt5 sdk command line. Browse to QtCreator source folder and type: 
