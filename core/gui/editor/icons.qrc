@@ -1,0 +1,36 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/closeAll.bmp</file>
+        <file>icons/closeFile.bmp</file>
+        <file>icons/closeTabButton.bmp</file>
+        <file>icons/closeTabButton_hover.bmp</file>
+        <file>icons/closeTabButton_inact.bmp</file>
+        <file>icons/closeTabButton_push.bmp</file>
+        <file>icons/copy.bmp</file>
+        <file>icons/cut.bmp</file>
+        <file>icons/find.bmp</file>
+        <file>icons/findReplace.bmp</file>
+        <file>icons/indentGuide.bmp</file>
+        <file>icons/invisibleChar.bmp</file>
+        <file>icons/newFile.bmp</file>
+        <file>icons/openFile.bmp</file>
+        <file>icons/paste.bmp</file>
+        <file>icons/playRecord.bmp</file>
+        <file>icons/playRecord_m.bmp</file>
+        <file>icons/print.bmp</file>
+        <file>icons/redo.bmp</file>
+        <file>icons/saveAll.bmp</file>
+        <file>icons/saveFile.bmp</file>
+        <file>icons/saveRecord.bmp</file>
+        <file>icons/showPannel.bmp</file>
+        <file>icons/startRecord.bmp</file>
+        <file>icons/stopRecord.bmp</file>
+        <file>icons/syncH.bmp</file>
+        <file>icons/syncV.bmp</file>
+        <file>icons/undo.bmp</file>
+        <file>icons/unsaved.bmp</file>
+        <file>icons/wrap.bmp</file>
+        <file>icons/zoomIn.bmp</file>
+        <file>icons/zoomOut.bmp</file>
+    </qresource>
+</RCC>
