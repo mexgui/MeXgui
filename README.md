@@ -6,7 +6,7 @@ This branch is currently under development files. To be commit use Fork and make
 Developer enviroment
 ======
 
-Under windows suggested is to download QT5 sdk then QtCreator source and combile the the Creator with Qt5 sdk mingw32-make command line. You need to make same steps with with FFMPEG libs and QScintilla. Please use the default mingw32-make install and it shall install the libs to QT5 sdk include and lib folders. For FFMPEG there is available all ready buils libs availbale. The must is have avisynth support enabled. 
+Under windows suggested is to download QT5 sdk then QtCreator source and compile the the Creator with Qt5 sdk command line. You need to make same steps with with FFMPEG libs and QScintilla. Please use the default mingw32-make -j4 && mingw32-make install and it shall install the libs to QT5 sdk include and lib folders. For FFMPEG there is available all ready buils libs availbale. The must is have avisynth support enabled. 
 
 Under linux please install Qt5-sdk and ffmpeg that has avisynth included and compile QScintilla source. 
 
