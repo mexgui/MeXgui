@@ -1,146 +1,154 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>DockWidget</class>
- <widget class="QDockWidget" name="DockWidget">
+ <class>VideoPlayer</class>
+ <widget class="QWidget" name="VideoPlayer">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>443</width>
-    <height>435</height>
+    <width>433</width>
+    <height>422</height>
    </rect>
   </property>
-  <property name="windowTitle">
-   <string>DockWidget</string>
+  <property name="minimumSize">
+   <size>
+    <width>433</width>
+    <height>0</height>
+   </size>
   </property>
-  <widget class="QWidget" name="dockWidgetContents">
-   <layout class="QGridLayout" name="gridLayout">
-    <property name="margin">
-     <number>0</number>
-    </property>
-    <item row="0" column="0">
-     <layout class="QGridLayout" name="gridLayout_5">
-      <item row="1" column="0" rowspan="2" colspan="6">
-       <widget class="Phonon::SeekSlider" name="seekSlider">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="1">
-       <widget class="QPushButton" name="pushButton_14">
-        <property name="maximumSize">
-         <size>
-          <width>25</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>&lt;&lt;</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="2">
-       <widget class="QPushButton" name="pushButton_15">
-        <property name="maximumSize">
-         <size>
-          <width>25</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>&gt;&gt;</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="0">
-       <widget class="QPushButton" name="pushButton_13">
-        <property name="maximumSize">
-         <size>
-          <width>40</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>Play</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="4">
-       <widget class="QTimeEdit" name="timeEdit">
-        <property name="currentSection">
-         <enum>QDateTimeEdit::HourSection</enum>
-        </property>
-        <property name="displayFormat">
-         <string>H:mm:ss.</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="5">
-       <widget class="Phonon::VolumeSlider" name="volumeSlider">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="3">
-       <widget class="QLineEdit" name="lineEdit">
-        <property name="text">
-         <string>1</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="0" colspan="6">
-       <widget class="Phonon::VideoPlayer" name="videoPlayer">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item row="1" column="0">
-     <widget class="QLabel" name="label_16">
-      <property name="text">
-       <string>Note: 
-When input is not AVS script the Editor is empty. If you want edit video with editor,
-then open Editor tab and add the current input filename with avs scripting and the main
- input file will automatically change into AVS script and avs file is created for encoding.</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <layout class="QGridLayout" name="VideoPlayerLayout">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item row="0" column="0">
+    <layout class="QGridLayout" name="PlayerLayout">
+     <item row="2" column="5">
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>0</width>
+         <height>18</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="2" column="0">
+      <widget class="QPushButton" name="Play">
+       <property name="maximumSize">
+        <size>
+         <width>40</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Play</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QPushButton" name="ReWind">
+       <property name="maximumSize">
+        <size>
+         <width>25</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>&lt;</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="2">
+      <widget class="QPushButton" name="Wind">
+       <property name="maximumSize">
+        <size>
+         <width>25</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="4">
+      <widget class="QTimeEdit" name="Time">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="currentSection">
+        <enum>QDateTimeEdit::HourSection</enum>
+       </property>
+       <property name="displayFormat">
+        <string>H:mm:ss.</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="3">
+      <widget class="QLineEdit" name="Frame">
+       <property name="maximumSize">
+        <size>
+         <width>75</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>1</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0" colspan="7">
+      <widget class="QSlider" name="horizontalSlider">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="6">
+      <widget class="QSlider" name="horizontalSlider_2">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0" colspan="7">
+      <widget class="QGraphicsView" name="videoRect">
+       <property name="resizeAnchor">
+        <enum>QGraphicsView::NoAnchor</enum>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>Phonon::VideoPlayer</class>
-   <extends>QWidget</extends>
-   <header location="global">phonon/videoplayer.h</header>
-  </customwidget>
-  <customwidget>
-   <class>Phonon::SeekSlider</class>
-   <extends>QWidget</extends>
-   <header location="global">phonon/seekslider.h</header>
-  </customwidget>
-  <customwidget>
-   <class>Phonon::VolumeSlider</class>
-   <extends>QWidget</extends>
-   <header location="global">phonon/volumeslider.h</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

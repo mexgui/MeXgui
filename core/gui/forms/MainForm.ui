@@ -39,11 +39,23 @@
     </size>
    </property>
    <layout class="QGridLayout" name="gridLayout_4">
-    <property name="margin">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <property name="spacing">
      <number>0</number>
     </property>
     <item row="0" column="0">
-     <widget class="QTabWidget" name="tabControl1">
+     <widget class="QTabWidget" name="tabWidget">
       <property name="enabled">
        <bool>true</bool>
       </property>
@@ -55,8 +67,8 @@
       </property>
       <property name="minimumSize">
        <size>
-        <width>509</width>
-        <height>520</height>
+        <width>1</width>
+        <height>1</height>
        </size>
       </property>
       <property name="focusPolicy">
@@ -69,38 +81,65 @@
        <bool>false</bool>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
+      </property>
+      <property name="elideMode">
+       <enum>Qt::ElideNone</enum>
       </property>
       <property name="usesScrollButtons">
        <bool>true</bool>
       </property>
-      <widget class="QWidget" name="inputTab">
+      <property name="documentMode">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="InputLayout">
        <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>503</width>
+         <height>0</height>
+        </size>
        </property>
        <attribute name="title">
         <string>Input</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_5">
-        <item row="0" column="0">
-         <layout class="QGridLayout" name="gridLayout_main">
-          <item row="2" column="2">
-           <widget class="QLabel" name="label_15">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <property name="spacing">
+         <number>2</number>
+        </property>
+        <item row="3" column="0">
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <widget class="QPushButton" name="Clear">
+            <property name="maximumSize">
+             <size>
+              <width>60</width>
+              <height>16777215</height>
+             </size>
             </property>
             <property name="text">
-             <string/>
+             <string>Clear</string>
             </property>
            </widget>
           </item>
-          <item row="2" column="1">
+          <item>
            <widget class="QPushButton" name="Help">
             <property name="minimumSize">
              <size>
@@ -119,1121 +158,953 @@
             </property>
            </widget>
           </item>
-          <item row="2" column="0">
-           <widget class="QPushButton" name="Clear">
-            <property name="maximumSize">
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
              <size>
-              <width>60</width>
-              <height>16777215</height>
+              <width>40</width>
+              <height>20</height>
              </size>
             </property>
-            <property name="text">
-             <string>Clear</string>
-            </property>
-           </widget>
+           </spacer>
           </item>
-          <item row="2" column="3">
+          <item>
            <widget class="QPushButton" name="OneClick">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="maximumSize">
              <size>
-              <width>60</width>
+              <width>100</width>
               <height>16777215</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;You can Queve current settings as program Default settings. This way if you produce many files with same settings so you can add directly default settings to encode. Use tools-&amp;gt;Default encoding settings to define the Defaults.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
             <property name="text">
-             <string>1-click</string>
+             <string>Queve Default Job</string>
             </property>
            </widget>
           </item>
-          <item row="2" column="4">
-           <widget class="QPushButton" name="AutoEncode">
+          <item>
+           <widget class="QPushButton" name="AutoEncode_2">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="minimumSize">
              <size>
-              <width>80</width>
+              <width>0</width>
               <height>0</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>60</width>
+              <width>100</width>
               <height>16777215</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Open folder containing video files and use current encoder settings to batch prosess folder and add them to Encoder Jobs.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
             <property name="text">
-             <string>Autoencode</string>
+             <string>Queve Batch Job</string>
             </property>
            </widget>
           </item>
-          <item row="1" column="0" colspan="5">
-           <widget class="QGroupBox" name="groupBox">
+          <item>
+           <widget class="QPushButton" name="AutoEncode">
             <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="title">
-             <string>Audio</string>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_9">
-             <item row="1" column="0">
-              <layout class="QHBoxLayout" name="horizontalLayout_2">
-               <property name="leftMargin">
-                <number>0</number>
-               </property>
-               <item>
-                <widget class="QLabel" name="label_14">
-                 <property name="text">
-                  <string/>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="Aclear">
-                 <property name="maximumSize">
-                  <size>
-                   <width>60</width>
-                   <height>25</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>Remove</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="Aqueve">
-                 <property name="maximumSize">
-                  <size>
-                   <width>60</width>
-                   <height>25</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>Queve</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item row="0" column="0">
-              <widget class="QTabWidget" name="tabWidget_2">
-               <property name="enabled">
-                <bool>true</bool>
-               </property>
-               <property name="minimumSize">
-                <size>
-                 <width>461</width>
-                 <height>196</height>
-                </size>
-               </property>
-               <property name="tabPosition">
-                <enum>QTabWidget::North</enum>
-               </property>
-               <property name="currentIndex">
-                <number>0</number>
-               </property>
-               <property name="elideMode">
-                <enum>Qt::ElideNone</enum>
-               </property>
-               <property name="usesScrollButtons">
-                <bool>true</bool>
-               </property>
-               <property name="documentMode">
-                <bool>false</bool>
-               </property>
-               <property name="tabsClosable">
-                <bool>false</bool>
-               </property>
-               <property name="movable">
-                <bool>true</bool>
-               </property>
-               <widget class="QWidget" name="tab">
-                <attribute name="title">
-                 <string>Track 1</string>
-                </attribute>
-                <layout class="QGridLayout" name="gridLayout_8">
-                 <item row="0" column="0">
-                  <layout class="QGridLayout" name="gridLayout">
-                   <property name="sizeConstraint">
-                    <enum>QLayout::SetMaximumSize</enum>
-                   </property>
-                   <property name="spacing">
-                    <number>6</number>
-                   </property>
-                   <item row="0" column="0">
-                    <widget class="QLabel" name="label_6">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>60</width>
-                       <height>16777215</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>Input</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="1" colspan="3">
-                    <widget class="QPlainTextEdit" name="plainTextEdit">
-                     <property name="enabled">
-                      <bool>false</bool>
-                     </property>
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>16777215</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                     <property name="verticalScrollBarPolicy">
-                      <enum>Qt::ScrollBarAlwaysOff</enum>
-                     </property>
-                     <property name="horizontalScrollBarPolicy">
-                      <enum>Qt::ScrollBarAlwaysOff</enum>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="4">
-                    <widget class="QPushButton" name="Aopen">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>30</width>
-                       <height>16777215</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>...</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="0">
-                    <widget class="QLabel" name="label_5">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>200</width>
-                       <height>16777215</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>Cuts</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="1" colspan="3">
-                    <widget class="QPlainTextEdit" name="plainTextEdit_2">
-                     <property name="enabled">
-                      <bool>false</bool>
-                     </property>
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>16777215</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                     <property name="verticalScrollBarPolicy">
-                      <enum>Qt::ScrollBarAlwaysOff</enum>
-                     </property>
-                     <property name="horizontalScrollBarPolicy">
-                      <enum>Qt::ScrollBarAlwaysOff</enum>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="4">
-                    <widget class="QPushButton" name="Acuts">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>30</width>
-                       <height>16777215</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>...</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="2" column="0">
-                    <widget class="QLabel" name="label_7">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>200</width>
-                       <height>16777215</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>Output</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="2" column="1" colspan="3">
-                    <widget class="QPlainTextEdit" name="plainTextEdit_3">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>16777215</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                     <property name="verticalScrollBarPolicy">
-                      <enum>Qt::ScrollBarAlwaysOff</enum>
-                     </property>
-                     <property name="horizontalScrollBarPolicy">
-                      <enum>Qt::ScrollBarAlwaysOff</enum>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="2" column="4">
-                    <widget class="QPushButton" name="Aoutput">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>30</width>
-                       <height>16777215</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>...</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="3" column="0">
-                    <widget class="QLabel" name="label_8">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>200</width>
-                       <height>16777215</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>Codec</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="3" column="4">
-                    <widget class="QPushButton" name="Aconfig">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="text">
-                      <string>Config</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="4" column="0">
-                    <widget class="QLabel" name="label_9">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>100</width>
-                       <height>16777215</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>Container</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="4" column="1">
-                    <widget class="QComboBox" name="Acontainer">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>16777215</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="4" column="2">
-                    <widget class="QLabel" name="label_10">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>40</width>
-                       <height>16777215</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>Delay</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="4" column="3">
-                    <widget class="QSpinBox" name="Adelay">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>16777215</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="4" column="4">
-                    <widget class="QLabel" name="label_11">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>30</width>
-                       <height>16777215</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>ms</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="3" column="1" colspan="3">
-                    <widget class="QComboBox" name="Aencoder">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>16777215</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </item>
-                </layout>
-               </widget>
-               <widget class="QWidget" name="AddTrack">
-                <attribute name="title">
-                 <string>Add</string>
-                </attribute>
-               </widget>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-          </item>
-          <item row="0" column="0" colspan="5">
-           <widget class="QGroupBox" name="groupBox1">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
             <property name="minimumSize">
              <size>
-              <width>481</width>
-              <height>180</height>
+              <width>0</width>
+              <height>0</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>16777215</width>
+              <width>100</width>
               <height>16777215</height>
              </size>
             </property>
-            <property name="title">
-             <string>Video</string>
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Queve with Video and Audio muxing. Makes Mutlimedia job including audio muxing to the video file.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
-            <layout class="QGridLayout" name="gridLayout_7">
-             <item row="0" column="0">
-              <layout class="QGridLayout" name="gridLayout_2">
-               <item row="1" column="4">
-                <widget class="QPushButton" name="Vpath">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>30</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>...</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="0">
-                <widget class="QLabel" name="labelVcodec">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>Codec</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="4">
-                <widget class="QPushButton" name="Vconfig">
-                 <property name="maximumSize">
-                  <size>
-                   <width>100</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>Config</string>
-                 </property>
-                 <property name="iconSize">
-                  <size>
-                   <width>16</width>
-                   <height>16</height>
-                  </size>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="0">
-                <widget class="QLabel" name="labelVContainer">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>Container</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="1">
-                <widget class="QComboBox" name="Vcontainer">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>25</height>
-                  </size>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="2">
-                <widget class="QPushButton" name="VeditZones">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>100</width>
-                   <height>25</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>Zones</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="1" colspan="3">
-                <widget class="QTextEdit" name="VoutputText">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>25</height>
-                  </size>
-                 </property>
-                 <property name="verticalScrollBarPolicy">
-                  <enum>Qt::ScrollBarAlwaysOff</enum>
-                 </property>
-                 <property name="horizontalScrollBarPolicy">
-                  <enum>Qt::ScrollBarAlwaysOff</enum>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="1" colspan="3">
-                <widget class="QComboBox" name="Vencoder">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>25</height>
-                  </size>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="3" colspan="2">
-                <widget class="QPushButton" name="PreviewEditorButton">
-                 <property name="enabled">
-                  <bool>false</bool>
-                 </property>
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="text">
-                  <string>Open Preview/Editor</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="0">
-                <widget class="QLabel" name="labelVoutput">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>Output</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="4">
-                <widget class="QPushButton" name="Vopenavs">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>30</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>...</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="0">
-                <widget class="QLabel" name="lapelVinput">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>60</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>Input</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="1" colspan="3">
-                <widget class="QLineEdit" name="VinputText">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="readOnly">
-                  <bool>true</bool>
-                 </property>
-                 <property name="placeholderText">
-                  <string notr="true"/>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item row="1" column="0">
-              <layout class="QHBoxLayout" name="horizontalLayout">
-               <item>
-                <widget class="QLabel" name="label_13">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QCheckBox" name="checkBoxPreRendering">
-                 <property name="text">
-                  <string>Add pre-rerendering Job</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="VanaQueve">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="text">
-                  <string>Queve analysis pass</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="Vqueve">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>100</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>Queve</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-            </layout>
+            <property name="text">
+             <string>Queve Job</string>
+            </property>
            </widget>
           </item>
          </layout>
         </item>
+        <item row="0" column="0">
+         <widget class="QGroupBox" name="groupBox1">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>505</width>
+            <height>180</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="title">
+           <string>Video</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_7">
+           <item row="0" column="0">
+            <layout class="QGridLayout" name="gridLayout_2">
+             <item row="1" column="4">
+              <widget class="QPushButton" name="Vpath">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>30</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>...</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="labelVcodec">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>Codec</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="4">
+              <widget class="QPushButton" name="Vconfig">
+               <property name="maximumSize">
+                <size>
+                 <width>100</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>Config</string>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>16</width>
+                 <height>16</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="0">
+              <widget class="QLabel" name="labelVContainer">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>Container</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="1">
+              <widget class="QComboBox" name="Vcontainer">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>25</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="2">
+              <widget class="QPushButton" name="VeditZones">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>100</width>
+                 <height>25</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>Zones</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1" colspan="3">
+              <widget class="QTextEdit" name="VoutputText">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>25</height>
+                </size>
+               </property>
+               <property name="verticalScrollBarPolicy">
+                <enum>Qt::ScrollBarAlwaysOff</enum>
+               </property>
+               <property name="horizontalScrollBarPolicy">
+                <enum>Qt::ScrollBarAlwaysOff</enum>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1" colspan="3">
+              <widget class="QComboBox" name="Vencoder">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>25</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="3" colspan="2">
+              <widget class="QPushButton" name="PreviewEditorButton">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>Open Preview/Editor</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="labelVoutput">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>Output</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="4">
+              <widget class="QPushButton" name="Vopenavs">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>30</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>...</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0">
+              <widget class="QLabel" name="lapelVinput">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>60</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>Input</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1" colspan="3">
+              <widget class="QLineEdit" name="VinputText">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="readOnly">
+                <bool>true</bool>
+               </property>
+               <property name="placeholderText">
+                <string notr="true"/>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="1" column="0">
+            <layout class="QHBoxLayout" name="horizontalLayout">
+             <item>
+              <spacer name="horizontalSpacer_3">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="checkBoxPreRendering">
+               <property name="text">
+                <string>Add pre-rerendering Job</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="checkBox">
+               <property name="text">
+                <string>Add analysis pass</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="Vqueve">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>100</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Add's video encoding job. Does not mux audio.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+               <property name="text">
+                <string>Queve Video Job</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QGroupBox" name="groupBox">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>505</width>
+            <height>260</height>
+           </size>
+          </property>
+          <property name="title">
+           <string>Audio</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_9">
+           <item row="1" column="0">
+            <layout class="QHBoxLayout" name="horizontalLayout_2">
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <spacer name="horizontalSpacer_2">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QPushButton" name="Aclear">
+               <property name="maximumSize">
+                <size>
+                 <width>60</width>
+                 <height>25</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>Remove</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="Aqueve">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>100</width>
+                 <height>25</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Adds Audio encoding Job, does not mux with video. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+               <property name="text">
+                <string>Queve Audio Job</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="0" column="0">
+            <widget class="QTabWidget" name="audioTab">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>461</width>
+               <height>196</height>
+              </size>
+             </property>
+             <property name="tabPosition">
+              <enum>QTabWidget::North</enum>
+             </property>
+             <property name="currentIndex">
+              <number>0</number>
+             </property>
+             <property name="elideMode">
+              <enum>Qt::ElideNone</enum>
+             </property>
+             <property name="usesScrollButtons">
+              <bool>true</bool>
+             </property>
+             <property name="documentMode">
+              <bool>true</bool>
+             </property>
+             <property name="tabsClosable">
+              <bool>false</bool>
+             </property>
+             <property name="movable">
+              <bool>true</bool>
+             </property>
+             <widget class="QWidget" name="tab">
+              <attribute name="title">
+               <string>Default</string>
+              </attribute>
+              <layout class="QGridLayout" name="gridLayout_8">
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <property name="spacing">
+                <number>6</number>
+               </property>
+               <item row="0" column="0">
+                <layout class="QGridLayout" name="Track1Layout">
+                 <property name="sizeConstraint">
+                  <enum>QLayout::SetMaximumSize</enum>
+                 </property>
+                 <property name="horizontalSpacing">
+                  <number>6</number>
+                 </property>
+                 <property name="verticalSpacing">
+                  <number>0</number>
+                 </property>
+                 <item row="0" column="0">
+                  <widget class="QLabel" name="label_6">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>60</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>Input</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="1" colspan="3">
+                  <widget class="QPlainTextEdit" name="plainTextEdit">
+                   <property name="enabled">
+                    <bool>false</bool>
+                   </property>
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>25</height>
+                    </size>
+                   </property>
+                   <property name="verticalScrollBarPolicy">
+                    <enum>Qt::ScrollBarAlwaysOff</enum>
+                   </property>
+                   <property name="horizontalScrollBarPolicy">
+                    <enum>Qt::ScrollBarAlwaysOff</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="4">
+                  <widget class="QPushButton" name="Aopen">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>30</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>...</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="0">
+                  <widget class="QLabel" name="label_5">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>200</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>Cuts</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="1" colspan="3">
+                  <widget class="QPlainTextEdit" name="plainTextEdit_2">
+                   <property name="enabled">
+                    <bool>false</bool>
+                   </property>
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>25</height>
+                    </size>
+                   </property>
+                   <property name="verticalScrollBarPolicy">
+                    <enum>Qt::ScrollBarAlwaysOff</enum>
+                   </property>
+                   <property name="horizontalScrollBarPolicy">
+                    <enum>Qt::ScrollBarAlwaysOff</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="4">
+                  <widget class="QPushButton" name="Acuts">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>30</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>...</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="0">
+                  <widget class="QLabel" name="label_7">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>200</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>Output</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="1" colspan="3">
+                  <widget class="QPlainTextEdit" name="plainTextEdit_3">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>25</height>
+                    </size>
+                   </property>
+                   <property name="verticalScrollBarPolicy">
+                    <enum>Qt::ScrollBarAlwaysOff</enum>
+                   </property>
+                   <property name="horizontalScrollBarPolicy">
+                    <enum>Qt::ScrollBarAlwaysOff</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="4">
+                  <widget class="QPushButton" name="Aoutput">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>30</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>...</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="3" column="0">
+                  <widget class="QLabel" name="label_8">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>200</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>Codec</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="3" column="4">
+                  <widget class="QPushButton" name="Aconfig">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="text">
+                    <string>Config</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="4" column="0">
+                  <widget class="QLabel" name="label_9">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>100</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>Container</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="4" column="1">
+                  <widget class="QComboBox" name="Acontainer">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>25</height>
+                    </size>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="4" column="2">
+                  <widget class="QLabel" name="label_10">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>40</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>Delay</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="4" column="3">
+                  <widget class="QSpinBox" name="Adelay">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>25</height>
+                    </size>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="4" column="4">
+                  <widget class="QLabel" name="label_11">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>30</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>ms</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="3" column="1" colspan="3">
+                  <widget class="QComboBox" name="Aencoder">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>25</height>
+                    </size>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="AddTrack">
+              <attribute name="title">
+               <string>Add</string>
+              </attribute>
+             </widget>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="tapPage2">
+      <widget class="QWidget" name="Encoder">
        <attribute name="title">
-        <string>Queve</string>
+        <string>Encoder</string>
        </attribute>
-       <widget class="QTableWidget" name="tableWidget">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>10</y>
-          <width>721</width>
-          <height>581</height>
-         </rect>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>721</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="lineWidth">
+       <layout class="QGridLayout" name="gridLayout_6">
+        <property name="leftMargin">
          <number>0</number>
         </property>
-        <property name="midLineWidth">
-         <number>1</number>
+        <property name="topMargin">
+         <number>0</number>
         </property>
-        <property name="horizontalScrollBarPolicy">
-         <enum>Qt::ScrollBarAsNeeded</enum>
+        <property name="rightMargin">
+         <number>0</number>
         </property>
-        <property name="autoScroll">
-         <bool>false</bool>
+        <property name="bottomMargin">
+         <number>0</number>
         </property>
-        <property name="tabKeyNavigation">
-         <bool>true</bool>
+        <property name="spacing">
+         <number>0</number>
         </property>
-        <property name="horizontalScrollMode">
-         <enum>QAbstractItemView::ScrollPerItem</enum>
-        </property>
-        <property name="cornerButtonEnabled">
-         <bool>false</bool>
-        </property>
-        <property name="columnCount">
-         <number>10</number>
-        </property>
-        <attribute name="horizontalHeaderVisible">
-         <bool>false</bool>
-        </attribute>
-        <attribute name="horizontalHeaderDefaultSectionSize">
-         <number>70</number>
-        </attribute>
-        <attribute name="horizontalHeaderHighlightSections">
-         <bool>true</bool>
-        </attribute>
-        <attribute name="horizontalHeaderMinimumSectionSize">
-         <number>40</number>
-        </attribute>
-        <column>
-         <property name="text">
-          <string>Name</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Input</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Output</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Codec</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Mode</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Owner</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Status</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Start</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>End</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>FPS</string>
-         </property>
-        </column>
-       </widget>
-       <widget class="QPushButton" name="pushButton">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>600</y>
-          <width>51</width>
-          <height>27</height>
-         </rect>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>98</width>
-          <height>27</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>Start</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="pushButton_2">
-        <property name="geometry">
-         <rect>
-          <x>70</x>
-          <y>600</y>
-          <width>51</width>
-          <height>27</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Stop</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="pushButton_3">
-        <property name="geometry">
-         <rect>
-          <x>130</x>
-          <y>600</y>
-          <width>31</width>
-          <height>27</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>||</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="pushButton_4">
-        <property name="geometry">
-         <rect>
-          <x>170</x>
-          <y>600</y>
-          <width>51</width>
-          <height>27</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Abort</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="pushButton_5">
-        <property name="geometry">
-         <rect>
-          <x>250</x>
-          <y>600</y>
-          <width>51</width>
-          <height>27</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Edit</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="pushButton_6">
-        <property name="geometry">
-         <rect>
-          <x>320</x>
-          <y>600</y>
-          <width>51</width>
-          <height>27</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Up</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="pushButton_7">
-        <property name="geometry">
-         <rect>
-          <x>380</x>
-          <y>600</y>
-          <width>51</width>
-          <height>27</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Down</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="pushButton_8">
-        <property name="geometry">
-         <rect>
-          <x>440</x>
-          <y>600</y>
-          <width>98</width>
-          <height>27</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Delete</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="pushButton_9">
-        <property name="geometry">
-         <rect>
-          <x>550</x>
-          <y>600</y>
-          <width>98</width>
-          <height>27</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Clear</string>
-        </property>
-       </widget>
-       <widget class="QWidget" name="layoutWidget_3">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>640</y>
-          <width>721</width>
-          <height>29</height>
-         </rect>
-        </property>
-        <layout class="QGridLayout" name="gridLayout_3">
-         <item row="0" column="0">
-          <widget class="QLabel" name="label_12">
-           <property name="maximumSize">
-            <size>
-             <width>120</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>After Encoding:</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="1">
-          <widget class="QSpinBox" name="spinBox">
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>0</height>
-            </size>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="2">
-          <widget class="QPushButton" name="pushButton_10">
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>100</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>New worker</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="3">
-          <widget class="QPushButton" name="pushButton_11">
-           <property name="maximumSize">
-            <size>
-             <width>60</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>Help</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
+        <item row="0" column="0" colspan="2">
+         <layout class="QGridLayout" name="gridLayout_3"/>
+        </item>
+       </layout>
       </widget>
-      <widget class="QWidget" name="logTab">
+      <widget class="QWidget" name="Log">
        <attribute name="title">
         <string>Log</string>
        </attribute>
@@ -1274,14 +1145,21 @@
      <height>21</height>
     </rect>
    </property>
-   <widget class="QMenu" name="mainMenu1">
+   <widget class="QMenu" name="menuFile">
     <property name="title">
      <string>File</string>
     </property>
-    <addaction name="mnuFile_2"/>
-    <addaction name="actionImport_Presests"/>
+    <widget class="QMenu" name="menuImport_Presets">
+     <property name="title">
+      <string>Import Presets</string>
+     </property>
+     <addaction name="actionAudio"/>
+     <addaction name="actionVideo"/>
+    </widget>
+    <addaction name="actionOpen"/>
+    <addaction name="menuImport_Presets"/>
     <addaction name="actionExport_Presets"/>
-    <addaction name="mnuFile"/>
+    <addaction name="actionExit"/>
    </widget>
    <widget class="QMenu" name="menuView">
     <property name="title">
@@ -1319,6 +1197,7 @@
     <addaction name="actionChangeLog"/>
     <addaction name="actionWiki_user_quide"/>
     <addaction name="menuWebsite"/>
+    <addaction name="actionAbout"/>
    </widget>
    <widget class="QMenu" name="menuOptions">
     <property name="title">
@@ -1327,39 +1206,15 @@
     <addaction name="actionSettings"/>
     <addaction name="actionUpdate"/>
    </widget>
-   <widget class="QMenu" name="menuWorkers">
-    <property name="title">
-     <string>Workers</string>
-    </property>
-    <widget class="QMenu" name="menuWorkers_2">
-     <property name="title">
-      <string>Workers</string>
-     </property>
-     <addaction name="actionShow_all_2"/>
-     <addaction name="actionHide_all_2"/>
-     <addaction name="separator"/>
-     <addaction name="actionWorker_1"/>
-    </widget>
-    <addaction name="actionCreate_new_Worker"/>
-    <addaction name="separator"/>
-    <addaction name="menuWorkers_2"/>
-    <addaction name="actionWorker_summary"/>
-   </widget>
-   <addaction name="mainMenu1"/>
+   <addaction name="menuFile"/>
    <addaction name="menuView"/>
-   <addaction name="menuWorkers"/>
    <addaction name="menuTools"/>
    <addaction name="menuOptions"/>
    <addaction name="menuHelp"/>
   </widget>
-  <action name="mnuFile_2">
+  <action name="actionOpen">
    <property name="text">
     <string>Open</string>
-   </property>
-  </action>
-  <action name="actionImport_Presests">
-   <property name="text">
-    <string>Import Presets</string>
    </property>
   </action>
   <action name="actionExport_Presets">
@@ -1367,7 +1222,7 @@
     <string>Export Presets</string>
    </property>
   </action>
-  <action name="mnuFile">
+  <action name="actionExit">
    <property name="text">
     <string>Exit</string>
    </property>
@@ -1450,6 +1305,21 @@
   <action name="actionFeature_requests">
    <property name="text">
     <string>Feature requests</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="actionAudio">
+   <property name="text">
+    <string>Audio</string>
+   </property>
+  </action>
+  <action name="actionVideo">
+   <property name="text">
+    <string>Video</string>
    </property>
   </action>
  </widget>

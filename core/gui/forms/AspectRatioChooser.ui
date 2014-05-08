@@ -46,9 +46,6 @@
    </property>
   </widget>
   <widget class="QSpinBox" name="numericUpDown2">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -65,9 +62,6 @@
    </property>
   </widget>
   <widget class="QSpinBox" name="numericUpDown3">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
    <property name="geometry">
     <rect>
      <x>150</x>
@@ -113,9 +107,6 @@
    </property>
    <property name="text">
     <string/>
-   </property>
-   <property name="checked">
-    <bool>true</bool>
    </property>
   </widget>
   <widget class="QRadioButton" name="radioButton2">

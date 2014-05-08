@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Editor</class>
+ <widget class="QWidget" name="Editor">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item row="1" column="0">
+    <widget class="QToolBar" name="mainToolBar">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>26</height>
+      </size>
+     </property>
+     <property name="windowTitle">
+      <string>ToolBar</string>
+     </property>
+     <property name="toolButtonStyle">
+      <enum>Qt::ToolButtonIconOnly</enum>
+     </property>
+     <addaction name="actionUpdate"/>
+     <addaction name="separator"/>
+     <addaction name="actionNew"/>
+     <addaction name="actionSave"/>
+     <addaction name="actionSave_As"/>
+     <addaction name="separator"/>
+     <addaction name="actionUndo"/>
+     <addaction name="actionRedo"/>
+     <addaction name="separator"/>
+     <addaction name="actionSearch"/>
+     <addaction name="actionReplace"/>
+     <addaction name="separator"/>
+     <addaction name="actionCopy"/>
+     <addaction name="actionCut"/>
+     <addaction name="actionPaste"/>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QsciScintilla" name="textEdit" native="true">
+     <property name="toolTip">
+      <string/>
+     </property>
+     <property name="whatsThis">
+      <string/>
+     </property>
+    </widget>
+   </item>
+  </layout>
+  <action name="actionUpdate">
+   <property name="icon">
+    <iconset resource="../editor/icons.qrc">
+     <normaloff>:/icons/showPannel.bmp</normaloff>:/icons/showPannel.bmp</iconset>
+   </property>
+   <property name="text">
+    <string>Update</string>
+   </property>
+   <property name="toolTip">
+    <string>Updates current video</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="icon">
+    <iconset resource="../editor/icons.qrc">
+     <normaloff>:/icons/saveFile.bmp</normaloff>:/icons/saveFile.bmp</iconset>
+   </property>
+   <property name="text">
+    <string>Save</string>
+   </property>
+  </action>
+  <action name="actionSave_As">
+   <property name="icon">
+    <iconset resource="../editor/icons.qrc">
+     <normaloff>:/icons/saveRecord.bmp</normaloff>:/icons/saveRecord.bmp</iconset>
+   </property>
+   <property name="text">
+    <string>Save As</string>
+   </property>
+  </action>
+  <action name="actionSearch">
+   <property name="icon">
+    <iconset resource="../editor/icons.qrc">
+     <normaloff>:/icons/find.bmp</normaloff>:/icons/find.bmp</iconset>
+   </property>
+   <property name="text">
+    <string>Search</string>
+   </property>
+  </action>
+  <action name="actionReplace">
+   <property name="icon">
+    <iconset resource="../editor/icons.qrc">
+     <normaloff>:/icons/findReplace.bmp</normaloff>:/icons/findReplace.bmp</iconset>
+   </property>
+   <property name="text">
+    <string>Replace</string>
+   </property>
+  </action>
+  <action name="actionUndo">
+   <property name="icon">
+    <iconset resource="../editor/icons.qrc">
+     <normaloff>:/icons/undo.bmp</normaloff>:/icons/undo.bmp</iconset>
+   </property>
+   <property name="text">
+    <string>Undo</string>
+   </property>
+  </action>
+  <action name="actionRedo">
+   <property name="icon">
+    <iconset resource="../editor/icons.qrc">
+     <normaloff>:/icons/redo.bmp</normaloff>:/icons/redo.bmp</iconset>
+   </property>
+   <property name="text">
+    <string>Redo</string>
+   </property>
+  </action>
+  <action name="actionCopy">
+   <property name="icon">
+    <iconset resource="../editor/icons.qrc">
+     <normaloff>:/icons/copy.bmp</normaloff>:/icons/copy.bmp</iconset>
+   </property>
+   <property name="text">
+    <string>Copy</string>
+   </property>
+  </action>
+  <action name="actionCut">
+   <property name="icon">
+    <iconset resource="../editor/icons.qrc">
+     <normaloff>:/icons/cut.bmp</normaloff>:/icons/cut.bmp</iconset>
+   </property>
+   <property name="text">
+    <string>Cut</string>
+   </property>
+  </action>
+  <action name="actionPaste">
+   <property name="icon">
+    <iconset resource="../editor/icons.qrc">
+     <normaloff>:/icons/paste.bmp</normaloff>:/icons/paste.bmp</iconset>
+   </property>
+   <property name="text">
+    <string>Paste</string>
+   </property>
+  </action>
+  <action name="actionNew">
+   <property name="icon">
+    <iconset resource="../editor/icons.qrc">
+     <normaloff>:/icons/newFile.bmp</normaloff>:/icons/newFile.bmp</iconset>
+   </property>
+   <property name="text">
+    <string>New</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QsciScintilla</class>
+   <extends>QWidget</extends>
+   <header>qsciscintilla.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="../editor/icons.qrc"/>
+ </resources>
+ <connections/>
+</ui>
