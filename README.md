@@ -10,7 +10,7 @@ Under windows suggested is to download QT5 sdk then QtCreator source and combile
 
 Under linux please install Qt5-sdk and ffmpeg that has avisynth included and compile QScintilla source. 
 
-QScintilla compile in both platforms use qmake -r && make -j4 && make install. The -j4 means 4 threads to make combile time faster. In windows you will need MINGW package installed with devel packages. This will also install qt creator qscintilla plugin. In windows you may want to use "make install prefix=c:\Qt\*\tools\QtCreator-mingw" because then it is installed to the right Qt Creator folder. The Plugin is needed to build with same compiler than Creator is build with.
+QScintilla compile in both platforms: browse source folder and qsciscintilla folder and type "qmake && make -j4 && make install". The -j4 means 4 threads to make combile time faster. In windows you will need MINGW package installed with devel packages. Then browse to designer plugin folder and make same command. In windows you may want to use "make install prefix=c:\Qt\*\tools\QtCreator-mingw" because then the plugin is installed to the right Qt Creator folder. The Plugin is needed to build with same compiler than Creator is build with in able to make it work. You need the Qscintilla2.dll in Creator bin directory so that the plugin can work with the qt creator.
 
 DONATE
 ======
