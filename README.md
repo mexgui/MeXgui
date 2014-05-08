@@ -25,9 +25,11 @@ Then browse to designer qt4/5 plugin folder and do command:
 ```
 qmake && mingw32-make -j4 && mingw32-make install prefix="C:\Qt\5.2.1\tools\QtCreator-mingw"
 ```
-The Plugin is needed to build with same compiler than Creator is build with in able to make it work. You need the Qscintilla2.dll in Creator bin directory so that the plugin can work with the qt creator.
+In linux you do not need to spesify the prefix folder. Qt Creator is build with gnu in linux and comes with the sdk in right path already. 
 
-Under linux please install Qt5-sdk and ffmpeg that has avisynth included and compile QScintilla source with same steps. 
+The Plugin is needed to build with same compiler than Creator is build with in able to make it work. In Windows you need the Qscintilla2.dll in Creator bin directory or system32 so that the plugin can work with the qt creator.
+
+Under linux please install Qt5-sdk and ffmpeg that has avisynth. 
 
 DONATE
 ======
