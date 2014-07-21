@@ -6,7 +6,7 @@
 //#include <Phonon>
 #include <QString>
 #include <QMimeData>
-#include "previeweditor.h"
+#include "PreviewEditor.h"
 #include "globals.h"
 
 namespace Ui {
